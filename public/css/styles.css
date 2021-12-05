@@ -16,9 +16,7 @@ a {
     color: #333;
 }
 
-body{
-    background: #f2f2f2;
-}
+
 
 .navbar-dashboard {
     width: 100%;
@@ -28,6 +26,7 @@ body{
     align-items: center;
     background: var(--primary);
     color: white;
+    z-index: 10;
 }
 
 .navbar-dashboard .title, .navbar-dashboard .dropdown {
@@ -47,6 +46,7 @@ body{
     padding: 0 1em;
     transition: .2s ease-in-out;
     color: white;
+    z-index: inherit;
 }
 
 .navbar-dashboard .dropdown i{
@@ -98,6 +98,8 @@ body{
 }
 
 .row aside {
-    width: 30%;
+    width: 20%;
     height: 100%;
+    background: #f1f1f1;
 }
+
