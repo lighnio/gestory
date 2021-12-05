@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+body{
+    background: #f4f4f4;
+}
+
+.navbar-dashboard {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 3em;
+    align-items: center;
+}
+
+.navbar-dashboard .title, .navbar-dashboard .dropdown {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-dashboard .title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-dashboard .dropdown{
+    position: relative;
+}
+
+.navbar-dashboard .dropdown:hover{
+    cursor: pointer;
+}
+
+.navbar-dashboard .dropdown .dropdown-content{
+    display: none;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+
+}
+
+.navbar-dashboard .dropdown:hover .dropdown-content{
+    display: block;
+}
+

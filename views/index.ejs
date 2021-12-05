@@ -5,12 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="resources/css/styles.css">
 </head>
 <body>
-    <h1 class="container">Inicio</h1>
+
+    <nav class="navbar-dashboard">
+        <a href="/" class="title">Dashboard</a>
+        <div class="dropdown">
+            <span>Options</span>
+            <div class="dropdown-content">
+                <a href="/account">account</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+    </nav>
      <% if(login) {%>
-        <h1>Usuario conectado es: <strong><%= name %></strong></h1>
+        <h1>Usuario conectado es: <strong><%= rol %></strong></h1>
         <a href="/logout">Logout</a>
         <a href="/login">asdfa</a>
     <%} else {%>
