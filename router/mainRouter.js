@@ -37,6 +37,13 @@ router
     .get('/logout', (req, res) => {
         req.session.destroy(() => res.redirect('/'))
     })
+    .get('/account', (req, res) => {
+        if(req.session.loggedIn){
+            res.render('account');
+        }else{
+            res.redirect('/');
+        }
+    })
     .get('*', (req, res) => {
         res.redirect('/')
     })
