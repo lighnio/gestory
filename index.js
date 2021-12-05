@@ -9,6 +9,7 @@ app.set('port', 3000 || process.env.PORT);
 dotenv.config({
     path: './env/.env'
 })
+
 // Middlewares
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: false}));
