@@ -38,16 +38,19 @@ body{
 
 .navbar-dashboard .dropdown{
     position: relative;
+    padding: 0 1em;
+    transition: .2s ease-in-out;
 }
 
 .navbar-dashboard .dropdown:hover{
     cursor: pointer;
+    background: rgba(0,0,0,.1);
 }
 
 .navbar-dashboard .dropdown .dropdown-content{
     display: none;
     position: absolute;
-    bottom: -100%;
+    top: 100%;
     left: 0;
 
 }
@@ -56,3 +59,4 @@ body{
     display: block;
 }
 
+.
