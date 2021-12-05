@@ -1,5 +1,4 @@
-const bcryptjs = require('bcryptjs');
-const connection = require('./../database/db');
+
 const dashboardController = {}
 
 dashboardController.indexView = (req, res) => {
