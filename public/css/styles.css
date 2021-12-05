@@ -7,14 +7,17 @@
     font-family: 'Roboto';
     color: #333;
 }
-
+:root{
+    --primary: #6f42c1;
+    --lPrimary: #EEE9F7;
+}
 a {
     text-decoration: none;
     color: #333;
 }
 
 body{
-    background: #f4f4f4;
+    background: #f2f2f2;
 }
 
 .navbar-dashboard {
@@ -23,6 +26,8 @@ body{
     justify-content: space-around;
     height: 3em;
     align-items: center;
+    background: var(--primary);
+    color: white;
 }
 
 .navbar-dashboard .title, .navbar-dashboard .dropdown {
@@ -34,17 +39,23 @@ body{
 .navbar-dashboard .title {
     font-size: 20px;
     font-weight: bold;
+    color: white;
 }
 
 .navbar-dashboard .dropdown{
     position: relative;
     padding: 0 1em;
     transition: .2s ease-in-out;
+    color: white;
+}
+
+.navbar-dashboard .dropdown i{
+    color: white;
 }
 
 .navbar-dashboard .dropdown:hover{
     cursor: pointer;
-    background: rgba(0,0,0,.1);
+    background: rgba(0,0,0,.2);
 }
 
 .navbar-dashboard .dropdown .dropdown-content{
@@ -52,6 +63,7 @@ body{
     position: absolute;
     top: 100%;
     right: 0;
+    background: var(--lPrimary);
 
 }
 
@@ -64,6 +76,7 @@ body{
     display: flex;
     justify-content: space-around;
     transition: .1s ease-in-out;
+    text-transform: capitalize;
 }
 
 .navbar-dashboard .dropdown .dropdown-content a:hover{
@@ -75,4 +88,5 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: black;
 }
