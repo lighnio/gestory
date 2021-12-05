@@ -103,3 +103,6 @@ a {
     background: #f1f1f1;
 }
 
+.row .dashboard{
+    width: calc(100% - 20%);
+}
