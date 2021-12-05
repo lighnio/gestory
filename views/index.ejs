@@ -21,7 +21,16 @@
     </nav>
 
     <div class="row">
-        <aside>Este es el aside</aside>
+        <aside>
+            <a href="/purchases">Purchases</a>
+            <a href="/sales">Sales</a>
+            <a href="/products">Products</a>
+
+            <%if(rol = 'admin'){%>
+                admin
+            <% }%>
+
+        </aside>
         <div class="dashboard">
             Acá va el dashboard
         </div>
