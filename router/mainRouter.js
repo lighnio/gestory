@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bcryptjs = require('bcryptjs');
 const connection = require('./../database/db');
+const {loginView, registerView, logOut} = require('./../controllers/accountController');
 
 // Routing
 router
@@ -19,25 +20,9 @@ router
         }
     })
     // Login
-    .get('/login', (req, res) => {
-        if(req.session.loggedIn){
-            res.redirect('/')
-        }else{
-            res.render('login', {alert: false});
-        }
-       
-    })
-    .get('/register', (req, res) => {
-        if(req.session.loggedIn){
-            res.redirect('/')
-        }else{
-            res.render('register', {alert : false});
-        }
-        
-    })
-    .get('/logout', (req, res) => {
-        req.session.destroy(() => res.redirect('/'))
-    })
+    .get('/login', loginView)
+    .get('/register', registerView)
+    .get('/logout', logOut)
     .get('/account', (req, res) => {
         if(req.session.loggedIn){
             res.render('account');
