@@ -90,3 +90,14 @@ body{
     align-items: center;
     color: black;
 }
+
+.row {
+    display: flex;
+    position: relative;
+    height: calc(100vh - 3em);
+}
+
+.row aside {
+    width: 30%;
+    height: 100%;
+}
