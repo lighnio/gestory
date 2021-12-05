@@ -1,0 +1,1 @@
+const bcryptjs = require('bcryptjs');
