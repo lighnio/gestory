@@ -51,7 +51,7 @@ body{
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
 
 }
 
@@ -59,4 +59,20 @@ body{
     display: block;
 }
 
-.
+.navbar-dashboard .dropdown .dropdown-content a{
+    padding: 1em;
+    display: flex;
+    justify-content: space-around;
+    transition: .1s ease-in-out;
+}
+
+.navbar-dashboard .dropdown .dropdown-content a:hover{
+    background: rgba(0,0,0,.1);
+}
+
+.navbar-dashboard .dropdown .dropdown-content a i {
+    margin-left: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
