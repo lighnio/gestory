@@ -1,38 +1,17 @@
 const router = require('express').Router();
-const bcryptjs = require('bcryptjs');
-const connection = require('./../database/db');
-const {loginView, registerView, logOut} = require('./../controllers/accountController');
+
+const {loginView, registerView, logOut, accountView} = require('./../controllers/accountController');
+const { indexView } = require('../controllers/dashboardController');
 
 // Routing
 router
     // Main page
-    .get('/', (req, res) => {
-
-        if(req.session.loggedIn){
-            res.render('index', {
-                login: true,
-                name: req.session.data.name,
-                rol: req.session.data.rol,
-                user: req.session.data.user
-            })
-        }else{
-            res.redirect('/login')
-        }
-    })
+    .get('/', indexView)
     // Login
     .get('/login', loginView)
     .get('/register', registerView)
     .get('/logout', logOut)
-    .get('/account', (req, res) => {
-        if(req.session.loggedIn){
-            res.render('account');
-        }else{
-            res.redirect('/');
-        }
-    })
-    .get('*', (req, res) => {
-        res.redirect('/')
-    })
+    .get('/account', accountView)
     .post('/register', async (req, res) => {
         const {user, name, rol, pass} = req.body;
         let passHash = await bcryptjs.hash(pass, 8);
@@ -64,7 +43,7 @@ router
                 })
             }
         });
-
+        
     })
     .post('/auth', async (req, res) => {
         const {user, pass} = req.body;
@@ -108,8 +87,11 @@ router
                 ruta: '/login'
             })
         }
-
+        
     })
     
-
-module.exports = router;
+    .get('*', (req, res) => {
+        res.redirect('/')
+    })
+    
+    module.exports = router;

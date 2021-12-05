@@ -19,4 +19,13 @@ accountController.registerView = (req, res) => {
 accountController.logOut =  (req, res) => {
     req.session.destroy(() => res.redirect('/'))
 };
+
+accountController.accountView = (req, res) => {
+    if(req.session.loggedIn){
+        res.render('account');
+    }else{
+        res.redirect('/');
+    }
+}
+
 module.exports = accountController;
