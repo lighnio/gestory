@@ -6,6 +6,7 @@ const connection = require('./../database/db');
 router
     // Main page
     .get('/', (req, res) => {
+
         if(req.session.loggedIn){
             res.render('index', {
                 login: true,
