@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {loginView, registerView, logOut, accountView, registerPost, auth} = require('./../controllers/accountController');
 const { indexView } = require('../controllers/dashboardController');
+const { notFound } = require('../controllers/mainController');
 
 // Routing
 router
@@ -13,9 +14,6 @@ router
     .get('/account', accountView)
     .post('/register', registerPost)
     .post('/auth', auth)
-    
-    .get('*', (req, res) => {
-        res.redirect('/')
-    })
+    .get('*', notFound);
     
     module.exports = router;
