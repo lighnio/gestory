@@ -7,7 +7,9 @@ accountController.loginView = (req, res) => {
     if(req.session.loggedIn){
         res.redirect('/')
     }else{
-        res.render('login', {alert: false}, {user: req.session.user});
+        res.render('login', {alert: false,
+            user: req.session.user
+        });
     }
 }
 
