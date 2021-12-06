@@ -28,7 +28,7 @@ accountController.logOut =  (req, res) => {
 accountController.accountView = (req, res) => {
     if(req.session.loggedIn){
         res.render('account', {
-            user: req.session.user
+            user: req.session.data.name.split(" ")[0]
         });
     }else{
         res.redirect('/');
