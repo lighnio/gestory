@@ -7,7 +7,7 @@ accountController.loginView = (req, res) => {
     if(req.session.loggedIn){
         res.redirect('/')
     }else{
-        res.render('login', {alert: false});
+        res.render('login', {alert: false}, {user: req.session.user});
     }
 }
 
@@ -100,7 +100,7 @@ accountController.auth = async (req, res) => {
         res.render('login', {
             alert: true,
             alertTitle: 'Error',
-            alertMessage: 'Plese type your username or pasword',
+            alertMessage: 'Please type your username or password',
             alertIcon: 'warning',
             showConfirmButton: false,
             time: 1500,
