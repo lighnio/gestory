@@ -4,11 +4,14 @@ const dashboardController = {}
 dashboardController.indexView = (req, res) => {
 
     if(req.session.loggedIn){
+
+        const { name, rol, user } = req.session.data;
+
         res.render('index', {
             login: true,
-            name: req.session.data.name,
-            rol: req.session.data.rol,
-            user: req.session.data.user
+            name: name,
+            rol: rol,
+            user: user
         })
     }else{
         res.redirect('/login')
