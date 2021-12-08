@@ -18,4 +18,15 @@ dashboardController.indexView = (req, res) => {
     }
 };
 
+dashboardController.sales = (req, res) => {
+    res.redirect('/')
+}
+
+dashboardController.products = (req, res) => {
+    res.redirect('/')
+}
+
+dashboardController.manageUsers = (req, res) => {
+    res.redirect('/')
+}
 module.exports = dashboardController;
