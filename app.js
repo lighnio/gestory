@@ -22,8 +22,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-app.use(morgan('dev'))
-
+                                                                                                            
 // routes
 app.use('/', require('./router/mainRouter'))
 
