@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="resources/css/styles.css">
+</head>
+<body>
+
+    <nav class="navbar-dashboard">
+        <a href="/" class="title">Dashboard</a>
+        <div class="dropdown">
+            <i class="fas fa-bars"></i>
+            <div class="dropdown-content">
+                <a href="/account">account <i class="fas fa-user-circle"></i></a>
+                <a href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+        <aside>
+            <a href="/purchases">Purchases</a>
+            <a href="/sales">Sales</a>
+            <a href="/products">Products</a>
+
+            <%if(rol == 'admin'){%>
+                <a href="/users">Manage users</a>
+            <% }%>
+
+        </aside>            
