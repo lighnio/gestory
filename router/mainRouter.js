@@ -9,7 +9,7 @@ router
     .get('/', indexView)
     .get('/sales', sales)
     .get('/products', products)
-    .get('/manageUsers', manageUsers)
+    .get('/users', manageUsers)
     // Login and authentication
     .get('/login', loginView)
     .get('/register', registerView)
