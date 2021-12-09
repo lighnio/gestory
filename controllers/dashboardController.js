@@ -27,13 +27,15 @@ dashboardController.products = (req, res) => {
 }
 
 dashboardController.manageUsers = (req, res) => {
-    const { rol } = req.session.data;
-    if(rol != 'admin' && req.session.loggedIn){
-        res.redirect('/', {
-            rol: rol
-        })
+    if(req.session.loggedIn){
+
+        const { name, rol, user } = req.session.data;
+
+        res.render('manageUsers', {
+            rol: rol,
+        });
     }else{
-        res.render('manageUsers');
+        res.redirect('/')
     }
 }
 module.exports = dashboardController;
