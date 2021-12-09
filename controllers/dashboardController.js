@@ -29,7 +29,7 @@ dashboardController.products = (req, res) => {
 dashboardController.manageUsers = (req, res) => {
     if(req.session.loggedIn){
 
-        const { name, rol, user } = req.session.data;
+        const { rol } = req.session.data;
 
         res.render('manageUsers', {
             rol: rol,
