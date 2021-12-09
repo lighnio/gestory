@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require('dotenv');
 const path = require('path');
 const session = require('express-session');
+const morgan = require('morgan');
 
 // Settings
 app.set('port', 3000 || process.env.PORT);
@@ -21,7 +22,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-
+app.use(morgan('dev'))
 
 // routes
 app.use('/', require('./router/mainRouter'))
