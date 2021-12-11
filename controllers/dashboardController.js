@@ -1,3 +1,5 @@
+const connection = require("../database/db");
+
 
 const dashboardController = {}
 
@@ -19,10 +21,20 @@ dashboardController.indexView = (req, res) => {
 };
 
 dashboardController.sales = (req, res) => {
+
     res.redirect('/')
 }
 
 dashboardController.products = (req, res) => {
+
+    connection.query('SELECT COUNT(*) FROM products;', async (err, results) => {
+        if(err){
+            console.log(err)
+        }else{
+            console.log(results)
+        }
+    });
+
     res.redirect('/')
 }
 
