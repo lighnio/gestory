@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    color: #333;
+}
+:root{
+    --primary: #6f42c1;
+    --lPrimary: #EEE9F7;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+
+.navbar-dashboard {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 3em;
+    align-items: center;
+    background: var(--primary);
+    color: white;
+    z-index: 10;
+}
+
+.navbar-dashboard .title, .navbar-dashboard .dropdown {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-dashboard .title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-dashboard .dropdown{
+    position: relative;
+    padding: 0 1em;
+    transition: .2s ease-in-out;
+    color: white;
+    z-index: inherit;
+}
+
+.navbar-dashboard .dropdown i{
+    color: white;
+}
+
+.navbar-dashboard .dropdown:hover{
+    cursor: pointer;
+    background: rgba(0,0,0,.2);
+}
+
+.navbar-dashboard .dropdown .dropdown-content{
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--lPrimary);
+
+}
+
+.navbar-dashboard .dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.navbar-dashboard .dropdown .dropdown-content a{
+    padding: 1em;
+    display: flex;
+    justify-content: space-around;
+    transition: .1s ease-in-out;
+    text-transform: capitalize;
+}
+
+.navbar-dashboard .dropdown .dropdown-content a:hover{
+    background: rgba(0,0,0,.1);
+}
+
+.navbar-dashboard .dropdown .dropdown-content a i {
+    margin-left: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.row {
+    display: flex;
+    position: relative;
+    height: calc(100vh - 3em);
+}
+
+.row aside {
+    width: 20%;
+    height: 100%;
+    background: #f1f1f1;
+    display: flex;
+    justify-content: top;
+    align-items: left;
+    flex-direction: column;
+}
+
+.row aside a {
+    width: 100%;
+    padding: 1em 2em;
+    z-index: top;
+    position: relative;
+    transition: .3s ease-in-out;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.row aside a:hover {
+    cursor: pointer;
+    color: white;
+}
+.row aside a::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 70%;
+    background: var(--primary);
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    z-index: 1;
+
+
+}
+
+.row aside a:hover:before{
+    width: 100%;
+    animation: onHoverOptionAnimation .5s ease-in-out;
+    height: 100%;
+}
+
+
+@keyframes onHoverOptionAnimation {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+
+}
+.row .dashboard{
+    width: calc(100% - 20%);
+}
+
+a.disabled{
+    cursor: none;
+    pointer-events: none;
+}
