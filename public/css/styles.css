@@ -29,3 +29,22 @@ a {
 .navbar-dashboard a {
     color: white;
 }
+
+.row {
+    display: flex;
+    position: relative;
+    height: calc(100vh - 3em);
+}
+
+.row aside {
+    width: 10%;
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+}
+
+.row aside a {
+    padding: .5em 1em;
+    text-align: left;
+    color: var(--fontDarkBg);
+}
