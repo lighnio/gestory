@@ -8,8 +8,9 @@
     color: #333;
 }
 :root{
-    --primary: #6f42c1;
+    --primary: #3498db;
     --lPrimary: #EEE9F7;
+    --danger: #e74c3c;
 }
 a {
     text-decoration: none;
@@ -110,10 +111,11 @@ a {
 .row aside a {
     width: 100%;
     padding: 1em 2em;
-    z-index: top;
+    z-index: 1;
     position: relative;
     transition: .3s ease-in-out;
     border-bottom: 1px solid rgba(0,0,0,.1);
+
 }
 
 .row aside a:hover {
@@ -129,7 +131,7 @@ a {
     top: 50%;
     transform: translateY(-50%);
     left: 0;
-    z-index: 1;
+    z-index: -1;
 
 
 }
