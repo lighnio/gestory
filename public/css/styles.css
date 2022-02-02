@@ -147,3 +147,13 @@ a {
 .dashboard .metrics .danger {
     background: var(--danger);
 }
+
+
+/* Graphics file */
+
+.dashboard .graphics {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% auto;
+    column-gap: .5em;
+}
