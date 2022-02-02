@@ -152,6 +152,7 @@ a {
 /* Graphics file */
 
 .dashboard .graphics {
+    margin-top: 1em;
     width: 100%;
     display: grid;
     grid-template-columns: 30% auto;
