@@ -50,4 +50,5 @@ dashboardController.manageUsers = (req, res) => {
         res.redirect('/')
     }
 }
+
 module.exports = dashboardController;
