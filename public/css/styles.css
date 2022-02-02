@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+@import url('./variables.css');
 * {
     margin: 0;
     padding: 0;
@@ -7,10 +7,7 @@
     font-family: 'Roboto';
     color: #333;
 }
-:root{
-    --primary: #6f42c1;
-    --lPrimary: #EEE9F7;
-}
+
 a {
     text-decoration: none;
     color: #333;
