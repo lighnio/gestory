@@ -60,16 +60,30 @@ a {
 /* Aside styles */
 
 .row aside {
-    width: 10%;
+    width: 13%;
     background: var(--dark);
     display: flex;
     flex-direction: column;
 }
 
 .row aside a {
-    padding: .5em 1em;
+    padding: .8em 1em;
     text-align: left;
     color: var(--fontDarkBg);
 }
 
+.row aside a i{
+    color: var(--fontDarkBg);
+    font-size: 14px;
+    margin-right: .5em;
+}
+
+.row aside .active {
+    background: var(--primary);
+    color: white;
+}
+
+.row aside .active i {
+    color: white;
+}
 
