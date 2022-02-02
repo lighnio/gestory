@@ -87,3 +87,38 @@ a {
     color: white;
 }
 
+/* Dashboard styles */
+
+.dashboard {
+    width: calc(100% - 13%);
+    padding: 1em;
+}
+
+.dashboard .metrics {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dashboard .metrics .metric{
+
+    height: 5em;
+    width: calc(24% - 1em);
+}
+
+.dashboard .metrics .primary {
+    background: var(--primary);
+}
+
+.dashboard .metrics .success {
+    background: var(--success);
+}
+
+.dashboard .metrics .warning {
+    background: var(--warning);
+}
+
+.dashboard .metrics .danger {
+    background: var(--danger);
+}
