@@ -94,6 +94,8 @@ a {
     padding: 1em;
 }
 
+/* Metrics */
+
 .dashboard .metrics {
     width: 100%;
     display: flex;
@@ -102,9 +104,32 @@ a {
 }
 
 .dashboard .metrics .metric{
-
     height: 5em;
     width: calc(24% - 1em);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+
+}
+
+.dashboard .metrics .metric .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.dashboard .metrics .metric .text .number{
+    font-size: 25px;
+}
+
+.dashboard .metrics .metric .text span{
+    font-size: 13px;
+}
+
+.dashboard .metrics .metric i {
+    font-size: 30px;
+    text-align: center;
 }
 
 .dashboard .metrics .primary {
