@@ -9,11 +9,27 @@ dashboardController.indexView = (req, res) => {
 
         const { name, rol, user } = req.session.data;
 
+        var salesInformation = {
+            totalSales: 0
+        };
+        connection.query('SELECT count(*) FROM sales;', async (err, results) => {
+            if(err){
+                data.totalSales = 'Error'
+            }else{
+                let result = JSON.stringify(results[0]["count(*)"]);
+               salesInformation = {...salesInformation, totalSales : result}
+               console.log(salesInformation);
+            }
+        });
+
+        const {totalSales} = salesInformation;
+
         res.render('index', {
             login: true,
             name: name,
             rol: rol,
-            user: user
+            user: user,
+            totalSales
         })
     }else{
         res.redirect('/login')
