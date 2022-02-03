@@ -3,34 +3,36 @@ const connection = require("../database/db");
 
 const dashboardController = {}
 
-dashboardController.indexView = (req, res) => {
+dashboardController.indexView = async (req, res) => {
 
     if(req.session.loggedIn){
 
         const { name, rol, user } = req.session.data;
 
-        var salesInformation = {
-            totalSales: 0
-        };
-        connection.query('SELECT count(*) FROM sales;', async (err, results) => {
-            if(err){
-                data.totalSales = 'Error'
-            }else{
-                let result = JSON.stringify(results[0]["count(*)"]);
-               salesInformation = {...salesInformation, totalSales : result}
-               console.log(salesInformation);
+
+        connection.query('select * from sales;', async (err, results) => {
+            
+            if(err) throw err;
+            
+            let sales = {
+                totalSales: results.length,
+                allSales: results
             }
+            
+            const {totalSales, allSales} = sales;
+
+
+            res.render('index', {
+                login: true,
+                name: name,
+                rol: rol,
+                user: user,
+                totalSales,
+                allSales
+             })
         });
 
-        const {totalSales} = salesInformation;
-
-        res.render('index', {
-            login: true,
-            name: name,
-            rol: rol,
-            user: user,
-            totalSales
-        })
+        
     }else{
         res.redirect('/login')
     }
