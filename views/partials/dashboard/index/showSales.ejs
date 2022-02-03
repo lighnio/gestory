@@ -4,21 +4,44 @@
 
 <div class="list">
     <table>
-        <tr>
-            <th>id</th>
-            <th>Costumer Id</th>
-            <th>Sale</th>
-            <th>ticket</th>
-            <th>date</th>
-        </tr>
-        
-        <% allSales.forEach(sale => {  %>
+        <thead>
             <tr>
-                <td><%= sale.idSale %></td>
-                <td><%= sale.costumer %></td>
-
+                <th>id</th>
+                <th>Costumer Id</th>
+                <th>Sale</th>
+                <th>ticket</th>
+                <th>date</th>
             </tr>
-        <%})%>
+        </thead>
+        <tbody>
+            <% allSales.forEach(sale => {  %>
+                <tr>
+                    <td>
+                        <a href="/sale">
+                            <%= sale.idSale %>
+                        </a>
+                    </td>
+                    <td><%= sale.costumer %></td>
+                    <td><%= sale.costumer %></td>
+                    <td><%= sale.costumer %></td>
+                    <td><%= sale.costumer %></td>    
+                </tr>
+            <%})%>
+            <tr>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>  
+            </tr>
+            <tr>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>  
+            </tr>
+        </tbody>
 
     </table>
 </div>

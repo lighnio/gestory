@@ -15,6 +15,8 @@ a {
 }
 
 
+
+
 /* Navbar styles */
 
 .navbar-dashboard {
@@ -201,6 +203,8 @@ a {
     height: 10em;
 }
 
+/* Table information */
+
 .dashboard .sales {
     margin: 0 1em 0 0;
     display: flex;
@@ -221,9 +225,29 @@ a {
 
 .dashboard .sales .list {
     width: 100%;
-    height: 90%;
+    height: calc(90% - 1em);
+    padding-top: 1em;
 }
 
 .dashboard .sales .list table{
     width: 100%;
+    border-collapse: collapse;
+    min-width: 400px;
+    font-size: 0.9em;
+}
+
+
+.dashboard .sales .list table thead th {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+.dashboard .sales .list table tbody tr:nth-child(odd){
+    background: var(--grey);
+}
+.dashboard .sales .list table tbody td {
+    text-align: center;
+    padding: .5em;
 }
