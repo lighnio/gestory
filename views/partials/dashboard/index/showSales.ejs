@@ -11,6 +11,14 @@
             <th>ticket</th>
             <th>date</th>
         </tr>
-       
+        
+        <% allSales.forEach(sale => {  %>
+            <tr>
+                <td><%= sale.idSale %></td>
+                <td><%= sale.costumer %></td>
+
+            </tr>
+        <%})%>
+
     </table>
 </div>
