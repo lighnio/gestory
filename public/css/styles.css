@@ -212,6 +212,11 @@ a {
 .dashboard .sales .title {
     height: 10%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background: var(--grey);
 }
 
 .dashboard .sales .list {
