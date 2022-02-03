@@ -14,13 +14,13 @@ dashboardController.indexView = async (req, res) => {
             
             if(err) throw err;
             
+            let salesJson = JSON.parse(JSON.stringify(results));
             let sales = {
                 totalSales: results.length,
-                allSales: results
+                allSales: salesJson
             }
             
             const {totalSales, allSales} = sales;
-
 
             res.render('index', {
                 login: true,
