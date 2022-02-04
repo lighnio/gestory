@@ -229,7 +229,7 @@ a {
     padding-top: 1em;
 }
 
-.dashboard .sales .list table{
+.dashboard table{
     width: 100%;
     border-collapse: collapse;
     min-width: 400px;
@@ -237,17 +237,17 @@ a {
 }
 
 
-.dashboard .sales .list table thead th {
+.dashboard table thead th {
     background: var(--dark);
     color: white;
     text-align: center;
     padding: 1em;
 }
 
-.dashboard .sales .list table tbody tr:nth-child(odd){
+.dashboard table tbody tr:nth-child(odd){
     background: var(--grey);
 }
-.dashboard .sales .list table tbody td {
+.dashboard table tbody td {
     text-align: center;
     padding: .5em;
 }
