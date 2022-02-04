@@ -9,9 +9,7 @@ dashboardController.indexView = async (req, res) => {
 
         const { name, rol, user } = req.session.data;
 
-
         connection.query('select * from sales;', async (err, results) => {
-            
             if(err) throw err;
             
             let salesJson = JSON.parse(JSON.stringify(results));
