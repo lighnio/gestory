@@ -17,11 +17,15 @@
             <% allSales.forEach(sale => {  %>
                 <tr>
                     <td>
-                        <a href="/sale">
+                        <a href="/sale/<%= sale.idSale %>">
                             <%= sale.idSale %>
                         </a>
                     </td>
-                    <td><%= sale.costumer %></td>
+                    <td>
+                        <a href="/costumer/<%= sale.costumer %>">
+                            <%= sale.costumer %>
+                        </a>
+                    </td>
                     <td><%= sale.costumer %></td>
                     <td><%= sale.costumer %></td>
                     <td><%= sale.costumer %></td>    
