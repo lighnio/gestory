@@ -45,15 +45,16 @@ dashboardController.sales = (req, res) => {
 dashboardController.products = (req, res) => {
 
     if(req.session.loggedIn){
-        connection.query('SELECT COUNT(*) FROM products;', async (err, results) => {
+        connection.query('SELECT * FROM products;', async (err, results) => {
             if(err) throw err;
     
             const { rol } = req.session.data;
             const data = {
-                rol
+                rol,
+                products: results,
+                total: results.length
             }
-            console.log(data);
-    
+
             res.render('products', data)
     
         });
