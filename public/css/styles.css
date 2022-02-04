@@ -255,7 +255,12 @@ a {
 
 /* Products */
 
-.dashboard .products {
-    margin-top: 1em;
-    
+
+.dashboard .products .title {
+    margin: 1em 0;
+    padding: 1em;
+    text-align: center;
+    width: 100%;
+    background-color: var(--grey);
+    font-weight: bold;
 }
