@@ -7,27 +7,24 @@
         <thead>
             <tr>
                 <th>id</th>
-                <th>product Id</th>
-                <th>price</th>
-                <th>category</th>
-                <th>action</th>
+                <th>Name</th>
+                <th>Serial</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>  
-            </tr>
-            <tr>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>  
-            </tr>
+            <% products.forEach(product => { %>
+                <tr>
+                    <td><%= product.idProduct %></td>
+                    <td><%= product.productName %></td>
+                    <td><%= product.serialNumber %></td>
+                    <td><%= product.productPrice %></td>
+                    <td>Categoría</td>
+                    <td><a href="/product/<%= product.idProduct %>">See product</a></td>
+                </tr>
+            <% })%>
         </tbody>
 
     </table>
