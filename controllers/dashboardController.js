@@ -79,7 +79,14 @@ dashboardController.manageUsers = (req, res) => {
 
 dashboardController.manageCostumers = (req, res) => {
     if(req.session.loggedIn){
-        res.send('Aunthenticated')
+        const { rol } = req.session.data;
+        if(rol == 'admin'){
+            res.render('manageCostumers', {
+                rol
+            })
+        }else{
+            res.redirect('/')
+        }
     }else{
         redirect('/')
     }
