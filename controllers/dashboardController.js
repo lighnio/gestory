@@ -77,4 +77,12 @@ dashboardController.manageUsers = (req, res) => {
     }
 }
 
+dashboardController.manageCostumers = (req, res) => {
+    if(req.session.loggedIn){
+        res.send('Aunthenticated')
+    }else{
+        redirect('/')
+    }
+}
+
 module.exports = dashboardController;

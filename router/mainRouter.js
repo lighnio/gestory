@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {loginView, registerView, logOut, accountView, registerPost, auth} = require('./../controllers/accountController');
-const { indexView, sales, products, manageUsers } = require('../controllers/dashboardController');
+const { indexView, sales, products, manageUsers, manageCostumers } = require('../controllers/dashboardController');
 const { notFound } = require('../controllers/mainController');
 
 // Routing
@@ -10,6 +10,7 @@ router
     .get('/sales', sales)
     .get('/products', products)
     .get('/users', manageUsers)
+    .get('/costumers', manageCostumers)
     // Login and authentication
     .get('/login', loginView)
     .get('/register', registerView)
