@@ -1,3 +1,4 @@
+const { redirect } = require("express/lib/response");
 const connection = require("../database/db");
 
 
@@ -43,15 +44,24 @@ dashboardController.sales = (req, res) => {
 
 dashboardController.products = (req, res) => {
 
-    connection.query('SELECT COUNT(*) FROM products;', async (err, results) => {
-        if(err){
-            console.log(err)
-        }else{
-            console.log(results)
-        }
-    });
+    if(req.session.loggedIn){
+        connection.query('SELECT COUNT(*) FROM products;', async (err, results) => {
+            if(err) throw err;
+    
+            const { rol } = req.session.data;
+            const data = {
+                rol
+            }
+            console.log(data);
+    
+            res.render('products', data)
+    
+        });
+    }else{
+        res.redirect('/')
+    }
 
-    res.redirect('/')
+
 }
 
 dashboardController.manageUsers = (req, res) => {
