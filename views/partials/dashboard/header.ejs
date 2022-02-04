@@ -19,15 +19,14 @@
         </div>
             
     </nav>
-
     <div class="row">
         <aside>
-            <a href="/purchases" class="active"><i class="fas fa-shopping-cart"></i> Sales</a>
-            <a href="/products"><i class="fas fa-shopping-basket"></i> Products</a>
+            <a href="/" id="/" class="navItem active"><i class="fas fa-shopping-cart"></i> Sales</a>
+            <a href="/products" id="/products" class="navItem "><i class="fas fa-shopping-basket"></i> Products</a>
 
             <%if(rol == 'admin'){%>
-                <a href="/users"><i class="fas fa-users"></i> Manage users</a>
-                <a href="/costumers"><i class="fas fa-cash-register"></i> Costumers</a>
+                <a href="/users" id="/users" class="navItem "><i class="fas fa-users"></i> Manage users</a>
+                <a href="/costumers" id="/costumers" class="navItem "><i class="fas fa-cash-register"></i> Costumers</a>
             <% }%>
-
-        </aside>            
+        
+        </aside>        
