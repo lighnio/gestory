@@ -264,3 +264,32 @@ a {
     background-color: var(--grey);
     font-weight: bold;
 }
+
+
+/* Users */
+
+
+.dashboard .users {
+    margin: 1em 0 0 0;
+    width: 100%;
+}
+
+.dashboard .pagination{
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard .pagination a {
+    background: var(--primary);
+    color: white;
+    margin: 0 .5em;
+    padding: 1em;
+}
+
+.dashboard .pagination a:hover {
+    filter: brightness(85%);
+}
+
