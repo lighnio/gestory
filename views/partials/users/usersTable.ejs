@@ -16,7 +16,7 @@
                     <td><%= elem.id %></td>
                     <td><%= elem.user %></td>
                     <td><%= elem.name %></td>
-                    <td><%= elem.mail %></td>
+                    <td><%= elem.mail ? elem.mail : 'N/A' %></td>
                     <td><%= elem.rol %></td>
                 </tr>
             <%})%>
