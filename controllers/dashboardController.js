@@ -69,10 +69,16 @@ dashboardController.manageUsers = (req, res) => {
     if(req.session.loggedIn){
 
         const { rol } = req.session.data;
+        connection.query('SELECT * FROM users', async (err, results) => {
+            if(err) throw err;
 
-        res.render('manageUsers', {
-            rol: rol,
-        });
+            res.render('manageUsers', {
+                rol,
+                users: results,
+                total: results.length
+            })
+        })
+
     }else{
         res.redirect('/')
     }
