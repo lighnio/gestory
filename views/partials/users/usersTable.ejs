@@ -1,0 +1,25 @@
+<div class="list">
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>user</th>
+                <th>name</th>
+                <th>mail</th>
+                <th>role</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <%users.map( elem => {%>
+                <tr>
+                    <td><%= elem.id %></td>
+                    <td><%= elem.user %></td>
+                    <td><%= elem.name %></td>
+                    <td><%= elem.mail %></td>
+                    <td><%= elem.rol %></td>
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
+</div>
