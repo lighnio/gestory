@@ -104,8 +104,6 @@ dashboardController.manageUsers = (req, res) => {
 dashboardController.searchUser = (req, res) => {
     const { user } = req.body;
 
-    console.log(user);
-
     res.redirect(`/users?search=${user}`)
 }
 
