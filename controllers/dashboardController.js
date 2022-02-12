@@ -84,6 +84,15 @@ dashboardController.manageUsers = (req, res) => {
     }
 }
 
+dashboardController.searchUser = (req, res) => {
+    const { user } = req.params;
+
+    console.log(req.params);
+
+    res.redirect('/users')
+}
+
+
 dashboardController.manageCostumers = (req, res) => {
     if(req.session.loggedIn){
         const { rol } = req.session.data;
