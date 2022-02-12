@@ -274,6 +274,44 @@ a {
     width: 100%;
 }
 
+
+.dashboard .search{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+
+}
+
+.dashboard .search form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.dashboard .search form input[type=text]{
+    padding: .5em 1em;
+    margin-right: 1em;
+}
+
+.dashboard .search form input[type=submit]{
+    padding: .5em 1em;
+    border: 1px solid var(--primary);
+    background: none;
+    color: var(--primary);
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.dashboard .search form input[type=submit]:hover{
+    background: var(--primary);
+    color: white;
+}
+
 .dashboard .pagination{
     padding: 1em;
     width: 100%;
