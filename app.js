@@ -1,9 +1,9 @@
-const express = require('express');
-const app = express();
-const dotenv = require('dotenv');
-const path = require('path');
-const session = require('express-session');
+import express from 'express';
+import dotenv from 'dotenv';
+import path from 'path';
+import session from 'express-session';
 
+export const app = express();
 // Settings
 app.set('port', 3000 || process.env.PORT);
     dotenv.config({
@@ -26,4 +26,3 @@ app.use(session({
 app.use('/', require('./router/mainRouter'))
 
 
-module.exports = app;
