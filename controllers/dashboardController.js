@@ -1,5 +1,5 @@
 const { redirect } = require("express/lib/response");
-const connection = require("../database/db");
+import { connection } from '../database/db'
 
 
 const dashboardController = {}

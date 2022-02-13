@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "build/index.js",
     "test": "jest",
-    "dev": "nodemon index.js",
-    "fake": "node fakeData/fake.js"
+    "dev": "nodemon index.js --exec babel-node",
+    "fake": "node fakeData/fake.js",
+    "build": "babel . --out-dir build"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,10 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.2",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
     "jest": "^27.5.1",
     "minifaker": "^1.34.0",
     "nodemon": "^2.0.15",
