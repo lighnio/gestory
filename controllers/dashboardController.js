@@ -73,7 +73,7 @@ dashboardController.manageUsers = (req, res) => {
         if(req.query.search){
             const { search } = req.query;
 
-            const queryString = `SELECT * FROM users WHERE Id LIKE '%${search}' or name Like '%${search}%' or mail LIKE '%${search}%' or user LIKE '%${search}%'`
+            const queryString = `SELECT * FROM users WHERE Id LIKE '%${search}' OR name LIKE '%${search}%' OR mail LIKE '%${search}%' OR user LIKE '%${search}%'`;
             connection.query(queryString, async (err, results) => {
                 if(err) throw err;
                 res.render('manageUsers', {
@@ -84,15 +84,15 @@ dashboardController.manageUsers = (req, res) => {
             })
         }else{
 
-            connection.query('SELECT * FROM users', async (err, results) => {
+            connection.query('SELECT * FROM users LIMIT 10; SELECT * FROM users', [2, 1], async (err, results) => {
                 if(err) throw err;
-    
+                // console.log('results: ', results)
                 res.render('manageUsers', {
                     rol,
-                    users: results,
-                    total: results.length
+                    users: results[0],
+                    total: results[1].length
                 })
-            })
+            }); 
         }
 
 
