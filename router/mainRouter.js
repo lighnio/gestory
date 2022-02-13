@@ -1,8 +1,9 @@
-const router = require('express').Router();
-const {loginView, registerView, logOut, accountView, registerPost, auth} = require('./../controllers/accountController');
+import { Router } from 'express';
+import {loginView, registerView, logOut, accountView, registerPost, auth } from '../controllers/accountController'
 const { indexView, sales, products, manageUsers, manageCostumers, searchUser } = require('../controllers/dashboardController');
 const { notFound } = require('../controllers/mainController');
 
+const router = Router();
 // Routing
 router
     // Dashboard
