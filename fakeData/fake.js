@@ -1,14 +1,41 @@
 const {name, lastName, password, username, email } = require('minifaker');
-const dotenv = require('dotenv');
+const credentials = require('../env/credentials.js');
+    /* Credentials Structure */
+    /*
+        module.exports = {
+        DB_HOST: '',
+        DB_USER: '',
+        DB_PASSWORD: '',
+        DB_NAME: ''
+}
+    */
+
 require('minifaker/locales/en'); 
 
-//Dotenv Configure
-dotenv.config({
-    path: './env/.env'
-})
 
-const connection = require('../database/db.js');
-const Connection = require('mysql/lib/Connection');
+
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+    host: credentials.DB_HOST,
+    user: credentials.DB_USER,
+    password: credentials.DB_PASSWORD,
+    database: credentials.DB_NAME,
+    multipleStatements: true
+});
+
+
+connection.connect(err => {
+    if(err){
+        console.log(`Connection error: ${err}`)
+        return;
+    }
+    return 'Connection succesfully'
+});
+
+
+
+// const connection = require('../database/db.js');
+// const Connection = require('mysql/lib/Connection');
 
 let data = []
 const fill = (amount) => {
