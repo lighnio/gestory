@@ -1,7 +1,6 @@
 const { redirect } = require("express/lib/response");
 import { connection } from '../database/db'
 
-
 const dashboardController = {}
 
 dashboardController.indexView = async (req, res) => {
@@ -72,7 +71,10 @@ dashboardController.manageUsers = (req, res) => {
 
         if(req.query.search){
             const { search } = req.query;
-
+            
+            let fullUrl = `${req.protocol}://${req.get("host")}${req.originalUrl}`;
+            console.log('fullUrl ', fullUrl);
+            
             const queryString = `SELECT * FROM users WHERE Id LIKE '%${search}' OR name LIKE '%${search}%' OR mail LIKE '%${search}%' OR user LIKE '%${search}%'`;
             connection.query(queryString, async (err, results) => {
                 if(err) throw err;
@@ -83,10 +85,12 @@ dashboardController.manageUsers = (req, res) => {
                 })
             })
         }else{
-
-            connection.query('SELECT * FROM users LIMIT 10; SELECT * FROM users', [2, 1], async (err, results) => {
+            let aux = 'LIMIT 0, 10';
+            if(/page/.test(req.originalUrl)){
+                aux = `LIMIT ${(req.originalUrl.match(/\d+$/)-1)*10}, 10`;
+            }
+            connection.query(`SELECT * FROM users ${aux}; SELECT * FROM users`, [2, 1], async (err, results) => {
                 if(err) throw err;
-                // console.log('results: ', results)
                 res.render('manageUsers', {
                     rol,
                     users: results[0],
