@@ -1,5 +1,6 @@
 const { redirect } = require("express/lib/response");
 import { connection } from '../database/db'
+import { lengthCount } from '../helpers/manageUsers';
 
 const dashboardController = {}
 
@@ -65,6 +66,7 @@ dashboardController.products = (req, res) => {
 }
 
 dashboardController.manageUsers = (req, res) => {
+
     if(req.session.loggedIn){
 
         const { rol } = req.session.data;
@@ -72,14 +74,9 @@ dashboardController.manageUsers = (req, res) => {
         if(req.query.search){
 
             const { search } = req.query;
-            const { protocol, originalUrl } = req;
-
-            console.log(protocol, originalUrl)
-            let fullUrl = `${protocol}://${req.get("host")}${originalUrl}`;
-
-            console.log('fullUrl ', fullUrl);
-    
+          
             const queryString = `SELECT * FROM users WHERE Id LIKE '%${search}' OR name LIKE '%${search}%' OR mail LIKE '%${search}%' OR user LIKE '%${search}%'`;
+
             connection.query(queryString, async (err, results) => {
                 if(err) throw err;
                 res.render('manageUsers', {
@@ -88,19 +85,20 @@ dashboardController.manageUsers = (req, res) => {
                     total: results.length
                 })
             })
+
         }else{
-            let aux = 'LIMIT 0, 10';
             
-            if(/page/.test(req.originalUrl)){
-                aux = `LIMIT ${(req.originalUrl.match(/\d+$/)-1)*10}, 10`;
-            }
-            connection.query(`SELECT * FROM users ${aux}; SELECT count(*) FROM users`, [2, 1], async (err, results) => {
+            const { originalUrl } = req;
+
+            let match = (originalUrl.match(/\d+$/)-1)*10;
+            let aux = /page/.test(originalUrl) ? `LIMIT ${match}, 10` : 'LIMIT 0, 10';
+            let query = `SELECT * FROM users ${aux}; SELECT count(*) FROM users;`;
+
+            connection.query(query, [2, 1], async (err, results) => {
                 if(err) throw err;
 
-                const [ count ] = JSON.parse(JSON.stringify(results[1]));
+                const total = lengthCount(results[1])
                 
-                const total = count['count(*)']
-
                 res.render('manageUsers', {
                     rol,
                     users: results[0],
