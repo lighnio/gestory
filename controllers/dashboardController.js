@@ -70,11 +70,15 @@ dashboardController.manageUsers = (req, res) => {
         const { rol } = req.session.data;
 
         if(req.query.search){
+
             const { search } = req.query;
-            
-            let fullUrl = `${req.protocol}://${req.get("host")}${req.originalUrl}`;
+            const { protocol, originalUrl } = req;
+
+            console.log(protocol, originalUrl)
+            let fullUrl = `${protocol}://${req.get("host")}${originalUrl}`;
+
             console.log('fullUrl ', fullUrl);
-            
+    
             const queryString = `SELECT * FROM users WHERE Id LIKE '%${search}' OR name LIKE '%${search}%' OR mail LIKE '%${search}%' OR user LIKE '%${search}%'`;
             connection.query(queryString, async (err, results) => {
                 if(err) throw err;
@@ -86,15 +90,21 @@ dashboardController.manageUsers = (req, res) => {
             })
         }else{
             let aux = 'LIMIT 0, 10';
+            
             if(/page/.test(req.originalUrl)){
                 aux = `LIMIT ${(req.originalUrl.match(/\d+$/)-1)*10}, 10`;
             }
-            connection.query(`SELECT * FROM users ${aux}; SELECT * FROM users`, [2, 1], async (err, results) => {
+            connection.query(`SELECT * FROM users ${aux}; SELECT count(*) FROM users`, [2, 1], async (err, results) => {
                 if(err) throw err;
+
+                const [ count ] = JSON.parse(JSON.stringify(results[1]));
+                
+                const total = count['count(*)']
+
                 res.render('manageUsers', {
                     rol,
                     users: results[0],
-                    total: results[1].length
+                    total
                 })
             }); 
         }
