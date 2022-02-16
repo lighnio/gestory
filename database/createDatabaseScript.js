@@ -1,2 +1,1 @@
-const connection = require("./db");
-
+import { connection } from "./db";
