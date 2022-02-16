@@ -19,23 +19,19 @@ dashboardController.indexView = async (req, res) => {
         connection.query(`${queryAll};${queryProfits};${querySum}`,[1, 2, 3], async (err, results) => {
             if(err) throw err;
             
-            const { sales : salesList, profits, count } = salesHelper(results);
+            const { sales : allSales, profits : profitsObj, count: totalSales } = salesHelper(results);
 
-            let sales = {
-                totalSales: count,
-                allSales: salesList,
-                profits
-            }
-            
-            const {totalSales, allSales} = sales;
+            const { profits } = profitsObj;
 
+            console.log(profits)
             res.render('index', {
                 login: true,
                 name: name,
                 rol: rol,
                 user: user,
                 totalSales,
-                allSales
+                allSales,
+                profits  
              })
         });
 
