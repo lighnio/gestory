@@ -1,6 +1,6 @@
 const { redirect } = require("express/lib/response");
 import { connection } from '../database/db'
-import { formatData } from '../helpers/manageCostumers';
+import { formatData } from '../helpers/manageCostumersHelper';
 import { lengthCount } from '../helpers/manageUsers';
 
 const dashboardController = {}
@@ -128,7 +128,10 @@ dashboardController.manageCostumers = (req, res) => {
 
             connection.query(`SELECT BIN_TO_UUID(id) FROM costumers;`, async (err, results) => {
                 if(err) throw err;
-                console.log(results)
+                
+                let data = formatData(results);
+
+                console.log(data)
                 
             })
             res.render('manageCostumers', {
@@ -138,7 +141,7 @@ dashboardController.manageCostumers = (req, res) => {
             res.redirect('/')
         }
     }else{
-        redirect('/')
+        res.redirect('/')
     }
 }
 
