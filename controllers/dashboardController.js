@@ -1,10 +1,7 @@
-const { redirect } = require("express/lib/response");
 import { connection } from '../database/db'
 import { formatData } from '../helpers/manageCostumersHelper';
 import { lengthCount } from '../helpers/manageUsers';
 import { salesHelper } from '../helpers/salesHelper';
-
-const dashboardController = {}
 
 export const indexView = async (req, res) => {
 
@@ -41,9 +38,19 @@ export const indexView = async (req, res) => {
     }
 };
 
-export const sales = (req, res) => {
+export const salesById = (req, res) => {
 
+    const { saleId } = req.params;
+
+    const query = `SELECT * FROM sales WHERE idSale = '${saleId}';`;
+
+    console.log(query)
+    connection.query(query, async (err, results) => {
+        if(err) throw err;
+        console.log(results)
+    });
     res.redirect('/')
+
 }
 
 export const products = (req, res) => {
