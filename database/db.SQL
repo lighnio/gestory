@@ -9,7 +9,13 @@ CREATE TABLE IF NOT EXISTS products(
 
 
 CREATE TABLE IF NOT EXISTS costumers(
-    id              BINARY(16) PRIMARY KEY
+    id                      BINARY(16) PRIMARY KEY.
+    costumerName            VARCHAR(60),
+    costumerUserName        VARCHAR(20),
+    costumerMail            VARCHAR(50), 
+    pass                    VARCHAR(25),
+    costumerMail            VARCHAR(50) UNIQUE,
+    
 );
 
 -- Query example for costumers
