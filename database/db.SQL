@@ -1,5 +1,16 @@
 /*  USERS TABLE */
 
+CREATE TABLE IF NOT EXISTS users(
+    id                  INT AUTO_INCREMENT PRIMARY KEY,
+    user                VARCHAR(45) UNIQUE,
+    name                VARCHAR(60),
+    pass                VARCHAR(60),
+    rol                 VARCHAR(15),
+    mail                VARCHAR(50)
+
+);
+
+
 /* Products table  */
 
 CREATE TABLE IF NOT EXISTS products(
