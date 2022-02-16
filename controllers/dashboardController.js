@@ -1,6 +1,7 @@
 import { connection } from '../database/db'
 import { formatData } from '../helpers/manageCostumersHelper';
 import { lengthCount } from '../helpers/manageUsers';
+import { salesByIdHelper } from '../helpers/saleById';
 import { salesHelper } from '../helpers/salesHelper';
 
 export const indexView = async (req, res) => {
@@ -44,12 +45,13 @@ export const salesById = (req, res) => {
 
     const query = `SELECT * FROM sales WHERE idSale = '${saleId}';`;
 
-    console.log(query)
     connection.query(query, async (err, results) => {
         if(err) throw err;
-        console.log(results)
+        const sale = salesByIdHelper(results);
+
+        res.send(sale)
+
     });
-    res.redirect('/')
 
 }
 
