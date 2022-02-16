@@ -1,6 +1,12 @@
 CREATE TABLE IF NOT EXISTS products(
-    id          
+    idProduct           int PRIMARY KEY AUTO_INCREMENT,
+    productName         VARCHAR(60),
+    serialNumber        VARCHAR(60) UNIQUE,
+    productPrice        FLOAT,
+    productCategory     VARCHAR(10),
+    purchasePrice       FLOAT          
 );
+
 
 CREATE TABLE IF NOT EXISTS costumers(
     id              BINARY(16) PRIMARY KEY
