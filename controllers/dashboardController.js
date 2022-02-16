@@ -2,6 +2,7 @@ const { redirect } = require("express/lib/response");
 import { connection } from '../database/db'
 import { formatData } from '../helpers/manageCostumersHelper';
 import { lengthCount } from '../helpers/manageUsers';
+import { salesHelper } from '../helpers/salesHelper';
 
 const dashboardController = {}
 
@@ -11,13 +12,19 @@ dashboardController.indexView = async (req, res) => {
 
         const { name, rol, user } = req.session.data;
 
-        connection.query('select * from sales;', async (err, results) => {
+        const queryAll = 'SELECT * FROM sales';
+        const querySum = 'SELECT COUNT(*) AS COUNT FROM sales'
+        const queryProfits = 'SELECT SUM(idSale) as profits FROM sales'
+
+        connection.query(`${queryAll};${queryProfits};${querySum}`,[1, 2, 3], async (err, results) => {
             if(err) throw err;
             
-            let salesJson = JSON.parse(JSON.stringify(results));
+            const { sales : salesList, profits, count } = salesHelper(results);
+
             let sales = {
-                totalSales: results.length,
-                allSales: salesJson
+                totalSales: count,
+                allSales: salesList,
+                profits
             }
             
             const {totalSales, allSales} = sales;
