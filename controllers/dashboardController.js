@@ -6,7 +6,7 @@ import { salesHelper } from '../helpers/salesHelper';
 
 const dashboardController = {}
 
-dashboardController.indexView = async (req, res) => {
+export const indexView = async (req, res) => {
 
     if(req.session.loggedIn){
 
@@ -41,12 +41,12 @@ dashboardController.indexView = async (req, res) => {
     }
 };
 
-dashboardController.sales = (req, res) => {
+export const sales = (req, res) => {
 
     res.redirect('/')
 }
 
-dashboardController.products = (req, res) => {
+export const products = (req, res) => {
 
     if(req.session.loggedIn){
         connection.query('SELECT * FROM products;', async (err, results) => {
@@ -68,8 +68,7 @@ dashboardController.products = (req, res) => {
 
 
 }
-
-dashboardController.manageUsers = (req, res) => {
+export const manageUsers = (req, res) => {
 
     if(req.session.loggedIn){
 
@@ -117,14 +116,14 @@ dashboardController.manageUsers = (req, res) => {
     }
 }
 
-dashboardController.searchUser = (req, res) => {
+export const searchUser = (req, res) => {
     const { user } = req.body;
 
     res.redirect(`/users?search=${user}`)
 }
 
 
-dashboardController.manageCostumers = (req, res) => {
+export const manageCostumers = (req, res) => {
     if(req.session.loggedIn){
         const { rol } = req.session.data;
         if(rol == 'admin'){
@@ -148,4 +147,3 @@ dashboardController.manageCostumers = (req, res) => {
     }
 }
 
-module.exports = dashboardController;

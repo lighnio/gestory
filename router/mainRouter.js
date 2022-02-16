@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import {loginView, registerView, logOut, accountView, registerPost, auth } from '../controllers/accountController'
-const { indexView, sales, products, manageUsers, manageCostumers, searchUser } = require('../controllers/dashboardController');
+import  { indexView, sales, products, manageUsers, manageCostumers, searchUser } from '../controllers/dashboardController';
 const { notFound } = require('../controllers/mainController');
 
 const router = Router();
