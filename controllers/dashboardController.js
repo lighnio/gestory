@@ -1,5 +1,6 @@
 const { redirect } = require("express/lib/response");
 import { connection } from '../database/db'
+import { formatData } from '../helpers/manageCostumers';
 import { lengthCount } from '../helpers/manageUsers';
 
 const dashboardController = {}
@@ -124,6 +125,12 @@ dashboardController.manageCostumers = (req, res) => {
     if(req.session.loggedIn){
         const { rol } = req.session.data;
         if(rol == 'admin'){
+
+            connection.query(`SELECT BIN_TO_UUID(id) FROM costumers;`, async (err, results) => {
+                if(err) throw err;
+                console.log(results)
+                
+            })
             res.render('manageCostumers', {
                 rol
             })
