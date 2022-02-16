@@ -1,3 +1,7 @@
+/*  USERS TABLE */
+
+/* Products table  */
+
 CREATE TABLE IF NOT EXISTS products(
     idProduct           int PRIMARY KEY AUTO_INCREMENT,
     productName         VARCHAR(60),
@@ -7,7 +11,7 @@ CREATE TABLE IF NOT EXISTS products(
     purchasePrice       FLOAT          
 );
 
-
+/* Costumers table */
 CREATE TABLE IF NOT EXISTS costumers(
     id                      BINARY(16) PRIMARY KEY.
     costumerName            VARCHAR(60),
@@ -15,7 +19,7 @@ CREATE TABLE IF NOT EXISTS costumers(
     costumerMail            VARCHAR(50), 
     pass                    VARCHAR(25),
     costumerMail            VARCHAR(50) UNIQUE,
-    
+
 );
 
 -- Query example for costumers
