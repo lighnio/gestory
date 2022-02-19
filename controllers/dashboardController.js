@@ -133,10 +133,19 @@ export const searchUser = (req, res) => {
 
 export const getUser = (req, res) => {
 
-    const { userId } = req.params;
 
-    console.log(userId);
-    res.redirect('/')
+    if(req.session.loggedIn){
+
+        const { userId } = req.params;
+    
+        connection.query(`SELECT * FROM users WHERE Id = ${userId};`, (err, results) => {
+            if(err) throw err;
+            res.send(results);
+        });
+        
+    }else{
+        res.redirect('/')
+    }
 
 
 }

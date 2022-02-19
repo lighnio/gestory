@@ -11,7 +11,7 @@ router
     .get('/products', products)
     .get('/users', manageUsers)
     .post('/users', searchUser)
-    .get('/user/:id', getUser)
+    .get('/user/:userId', getUser)
     .get('/costumers', manageCostumers)
     .get('/sale/:saleId', salesById)
     // Login and authentication
