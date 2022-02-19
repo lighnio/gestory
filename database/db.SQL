@@ -22,6 +22,24 @@ CREATE TABLE IF NOT EXISTS products(
     purchasePrice       FLOAT          
 );
 
+-- EXAMPLE DATA
+
+INSERT INTO products(
+    idProduct,
+    productName,
+    serialNumber,
+    productPrice,
+    productCategory,
+    purchasePrice
+) VALUES (
+    UUID_TO_BIN(UUID()),
+    'Macbook air 15',
+    UUID(),
+    11220.99,
+    'Computer',
+    10133.34
+);
+
 /* Costumers table */
 CREATE TABLE IF NOT EXISTS costumers(
     id                      BINARY(16) PRIMARY KEY.
