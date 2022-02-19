@@ -2,9 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
-import { apiRouter } from './router/apiRouter';
 
 export const app = express();
+
 // Settings
 app.set('port', 3000 || process.env.PORT);
     dotenv.config({

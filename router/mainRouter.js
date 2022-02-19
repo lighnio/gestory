@@ -1,16 +1,13 @@
 import { Router } from 'express';
 import {loginView, registerView, logOut, accountView, registerPost, auth } from '../controllers/accountController'
 import  { indexView, products, manageUsers, manageCostumers, searchUser, salesById, getUser } from '../controllers/dashboardController';
-import { apiRouter } from './apiRouter';
 const { notFound } = require('../controllers/mainController');
-
 
 const router = Router();
 // Routing
 router
     // Dashboard
     .get('/', indexView)
-    .get('/api/', apiRouter)
     .get('/products', products)
     .get('/users', manageUsers)
     .post('/users', searchUser)

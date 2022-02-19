@@ -1,4 +1,4 @@
 
-export const index = (req, res) => {
+export const apiMainPage = (req, res) => {
     res.send('main')
 }
