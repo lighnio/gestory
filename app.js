@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
+import morgan from 'morgan';
 
 export const app = express();
 
@@ -22,6 +23,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+app.use(morgan('tiny'));
 
 
 
