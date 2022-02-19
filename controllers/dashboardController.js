@@ -138,13 +138,13 @@ export const getUser = (req, res) => {
 
         const { userId } = req.params;
     
-        connection.query(`SELECT * FROM users WHERE Id = ${userId};`, (err, results) => {
+        connection.query(`SELECT Id, user, name, rol, mail FROM users WHERE Id = ${userId};`, (err, results) => {
             if(err) throw err;
             res.send(results);
         });
-        
+
     }else{
-        res.redirect('/')
+        res.redirect('/');
     }
 
 
