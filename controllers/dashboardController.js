@@ -131,6 +131,16 @@ export const searchUser = (req, res) => {
     res.redirect(`/users?search=${user}`)
 }
 
+export const getUser = (req, res) => {
+
+    const { userId } = req.params;
+
+    console.log(userId);
+    res.redirect('/')
+
+
+}
+
 
 export const manageCostumers = (req, res) => {
     if(req.session.loggedIn){

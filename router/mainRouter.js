@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import {loginView, registerView, logOut, accountView, registerPost, auth } from '../controllers/accountController'
-import  { indexView, products, manageUsers, manageCostumers, searchUser, salesById } from '../controllers/dashboardController';
+import  { indexView, products, manageUsers, manageCostumers, searchUser, salesById, getUser } from '../controllers/dashboardController';
 const { notFound } = require('../controllers/mainController');
 
 const router = Router();
@@ -11,6 +11,7 @@ router
     .get('/products', products)
     .get('/users', manageUsers)
     .post('/users', searchUser)
+    .get('/user/:id', getUser)
     .get('/costumers', manageCostumers)
     .get('/sale/:saleId', salesById)
     // Login and authentication
