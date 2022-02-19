@@ -26,6 +26,7 @@ app.use(session({
 
 
 // routes
+app.use('/api/', require('./router/apiRouter'))
 app.use('/', require('./router/mainRouter'));
 
 

@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import { index } from '../controllers/apiController';
+import { apiMainPage } from '../controllers/apiController';
 
 
-export const apiRouter = Router();
+const apiRouter = Router();
 
 apiRouter
-    .get('/', index)
+    .get('/', apiMainPage);
+module.exports = apiRouter;
