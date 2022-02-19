@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
+import { apiRouter } from './router/apiRouter';
 
 export const app = express();
 // Settings
@@ -22,7 +23,9 @@ app.use(session({
     saveUninitialized: true
 }));
 
+
+
 // routes
-app.use('/', require('./router/mainRouter'))
+app.use('/', require('./router/mainRouter'));
 
 
