@@ -1,9 +1,12 @@
 import { Router } from 'express';
-import { apiMainPage } from '../controllers/apiController';
+import { apiMainPage, productInformation } from '../controllers/apiController';
 
 
 const apiRouter = Router();
 
 apiRouter
-    .get('/', apiMainPage);
+    .get('/', apiMainPage)
+    .get('/product/:productId', productInformation)
+
+
 module.exports = apiRouter;
