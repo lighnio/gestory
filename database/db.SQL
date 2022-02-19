@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users(
 /* Products table  */
 
 CREATE TABLE IF NOT EXISTS products(
-    idProduct           int PRIMARY KEY AUTO_INCREMENT,
+    idProduct           BINARY(16) PRIMARY KEY,
     productName         VARCHAR(60),
     serialNumber        VARCHAR(60) UNIQUE,
     productPrice        FLOAT,
