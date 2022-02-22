@@ -7,7 +7,7 @@ import morgan from 'morgan';
 export const app = express();
 
 // Settings
-app.set('port', 3000 || process.env.PORT);
+app.set('port', process.env.PORT || 3000);
     dotenv.config({
         path: './env/.env'
     })
