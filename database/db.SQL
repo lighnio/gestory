@@ -14,12 +14,13 @@ CREATE TABLE IF NOT EXISTS users(
 /* Products table  */
 
 CREATE TABLE IF NOT EXISTS products(
-    idProduct           BINARY(16) PRIMARY KEY,
+    idProduct           BINARY(16) PRIMARY KEY DEFAULT (UUID_TO_BIN(UUID())),
     productName         VARCHAR(60),
     serialNumber        VARCHAR(60) UNIQUE,
     productPrice        FLOAT,
     productCategory     VARCHAR(10),
-    purchasePrice       FLOAT          
+    purchasePrice       FLOAT,
+    productImage        LONGBLOB   
 );
 
 -- EXAMPLE DATA
@@ -42,13 +43,11 @@ INSERT INTO products(
 
 /* Costumers table */
 CREATE TABLE IF NOT EXISTS costumers(
-    id                      BINARY(16) PRIMARY KEY.
-    costumerName            VARCHAR(60),
-    costumerUserName        VARCHAR(20),
-    costumerMail            VARCHAR(50), 
-    pass                    VARCHAR(25),
-    costumerMail            VARCHAR(50) UNIQUE,
-
+    costumerId              BINARY(16) PRIMARY KEY DEFAULT (UUID_TO_BIN(UUID())),
+    costumerName            VARCHAR(60) DEFAULT ('N/A') NOT NULL,
+    costumerUsername        VARCHAR(20) DEFAULT ('N/A') NOT NULL,
+    costumerPassword        VARCHAR(25) NOT NULL,
+    costumerMail            VARCHAR(50) UNIQUE DEFAULT ('N/A')  NOT NULL
 );
 
 -- Query example for costumers
