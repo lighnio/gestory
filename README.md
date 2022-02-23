@@ -14,7 +14,7 @@
 
 `$ npm run fake`
 
-## Contributors
+## Contribuitors
 
 * [@ripterdust](https://github.com/ripterdust)
 * [@lighnio](https://github.com/lighnio)
