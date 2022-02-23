@@ -4,15 +4,15 @@
 
 ### Set up
 
->`$ npm install`
+`$ npm install`
 
 ### To start the server on developer mode run:
 
->`$ npm run dev`
+`$ npm run dev`
 
 ### To generate fake data
 
->`$ npm run fake`
+`$ npm run fake`
 
 ## Contributors
 
