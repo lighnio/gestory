@@ -18,4 +18,5 @@
 
 * [@ripterdust](https://github.com/ripterdust)
 * [@lighnio](https://github.com/lighnio)
-* [@usuerio](asdfas)
+* [@danidcode](https://github.com/danidcode)
+  
