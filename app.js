@@ -4,9 +4,9 @@ import path from 'path';
 import session from 'express-session';
 import morgan from 'morgan';
 
-export const app = express();
 
 // Settings
+export const app = express();
 app.set('port', process.env.PORT || 3000);
     dotenv.config({
         path: './env/.env'
@@ -24,8 +24,6 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(morgan('tiny'));
-
-
 
 // routes
 app.use('/api/', require('./router/apiRouter'))
