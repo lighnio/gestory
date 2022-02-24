@@ -28,7 +28,7 @@ export const logOut =  (req: Request, res: Response) => {
 export const accountView = (req: Request, res: Response) => {
 
     if(req.session.loggedIn){
-        const { name  } = req.session.data;
+        const { name } = req.session.data;
         res.render('account', {
             user: name
         });
