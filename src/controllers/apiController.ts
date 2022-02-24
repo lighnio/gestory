@@ -1,6 +1,8 @@
 import { connection } from "../database/db"
+import { Request, Response } from "express"
 
-export const apiMainPage = (req, res) => {
+
+export const apiMainPage = (req: Request, res: Response) => {
     const query = 'SELECT BIN_TO_UUID(idProduct) AS id, productName, productPrice FROM products;'
     connection.query(query, (err, results) => {
         if(err){
@@ -14,7 +16,7 @@ export const apiMainPage = (req, res) => {
     })
 }
 
-export const productInformation = (req, res) => {
+export const productInformation = (req: Request, res: Response) => {
     const { productId } = req.params;
 
     if(!productId){
