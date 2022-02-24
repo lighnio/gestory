@@ -1,8 +1,5 @@
-const mainController = {}
+import { Request, Response } from "express";
 
-
-mainController.notFound = (req, res) => {
+export const notFound = (req: Request, res: Response) => {
     res.redirect('/')
 };
-
-module.exports = mainController;
