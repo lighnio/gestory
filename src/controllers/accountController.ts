@@ -1,5 +1,5 @@
 import bcryptjs from 'bcryptjs/dist/bcrypt';
-import { connection } from './../database/db';
+import { connection } from '../database/db';
 
 
 export const loginView = (req, res) => {
