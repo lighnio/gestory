@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
 import morgan from 'morgan';
-
+import mysql from 'mysql'
 
 // Settings
 export const app = express();
