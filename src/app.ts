@@ -7,9 +7,23 @@ import morgan from 'morgan';
 // Settings
 export const app = express();
 app.set('port', process.env.PORT || 3000);
-    dotenv.config({
-        path: './env/.env'
-    })
+dotenv.config({
+    path: './env/.env'
+})
+
+
+declare module 'express-session'{
+
+    interface Data {
+        [ keys : string ] : string
+    }
+
+    interface SessionData{
+        user: string,
+        loggedIn: boolean,
+        data: Data
+    }
+}
 
 
 
