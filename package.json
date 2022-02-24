@@ -6,7 +6,7 @@
   "scripts": {
     "start": "build/index.js",
     "test": "jest",
-    "dev": "nodemon index.js --exec babel-node",
+    "dev": "nodemon src/index.ts",
     "fake": "node fakeData/fake.js",
     "build": "tsc -p ."
   },
@@ -38,6 +38,7 @@
     "minifaker": "^1.34.0",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2",
+    "ts-node": "^10.5.0",
     "typescript": "^4.5.5"
   }
 }
