@@ -1,4 +1,4 @@
-import bcryptjs from 'bcryptjs/dist/bcrypt';
+const bcryptjs : any = require('bcryptjs/dist/bcrypt');
 import { Request, Response } from 'express';
 import { connection } from '../database/db';
 

@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
 import morgan from 'morgan';
-import mysql from 'mysql'
 
 // Settings
 export const app = express();
@@ -11,6 +10,8 @@ app.set('port', process.env.PORT || 3000);
     dotenv.config({
         path: './env/.env'
     })
+
+
 
 // Middlewares
 app.set('view engine', 'ejs')
