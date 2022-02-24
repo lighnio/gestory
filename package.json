@@ -8,7 +8,7 @@
     "test": "jest",
     "dev": "nodemon index.js --exec babel-node",
     "fake": "node fakeData/fake.js",
-    "build": "babel . --out-dir build"
+    "build": "tsc -p ."
   },
   "keywords": [],
   "author": "",
