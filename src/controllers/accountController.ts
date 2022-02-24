@@ -1,8 +1,9 @@
 import bcryptjs from 'bcryptjs/dist/bcrypt';
+import { Request, Response } from 'express';
 import { connection } from '../database/db';
 
 
-export const loginView = (req, res) => {
+export const loginView = (req: Request, res: Response) => {
     if(req.session.loggedIn){
         res.redirect('/')
     }else{
@@ -12,7 +13,7 @@ export const loginView = (req, res) => {
     }
 }
 
-export const registerView = (req, res) => {
+export const registerView = (req: Request, res: Response) => {
     if(req.session.loggedIn){
         res.redirect('/')
     }else{
@@ -20,11 +21,11 @@ export const registerView = (req, res) => {
     }
 }
 
-export const logOut =  (req, res) => {
+export const logOut =  (req: Request, res: Response) => {
     req.session.destroy(() => res.redirect('/'))
 };
 
-export const accountView = (req, res) => {
+export const accountView = (req: Request, res: Response) => {
 
     if(req.session.loggedIn){
         const { name  } = req.session.data;
@@ -36,7 +37,7 @@ export const accountView = (req, res) => {
     }
 }
 
-export const registerPost = async (req, res) => {
+export const registerPost = async (req: Request, res: Response) => {
     const {user, name, rol, pass} = req.body;
     let passHash = await bcryptjs.hash(pass, 8);
     connection.query('INSERT INTO users SET ?', {
@@ -70,7 +71,7 @@ export const registerPost = async (req, res) => {
     
 }
 
-export const auth = async (req, res) => {
+export const auth = async (req : Request, res: Response) => {
     const {user, pass} = req.body;
     if(user && pass){
         connection.query('SELECT * FROM users WHERE user = ?', [user], async(err, results) => {
