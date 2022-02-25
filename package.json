@@ -7,7 +7,7 @@
     "start": "node dist/index.js",
     "test": "jest",
     "dev": "nodemon src/index.ts",
-    "fake": "node fakeData/fake.js",
+    "fake": "tsc src/fakeData/fake.ts",
     "build": "tsc -p ."
   },
   "keywords": [],
