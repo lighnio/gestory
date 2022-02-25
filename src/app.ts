@@ -8,7 +8,7 @@ import morgan from 'morgan';
 export const app = express();
 app.set('port', process.env.PORT || 3000);
 dotenv.config({
-    path: './env/.env'
+    path: path.join(`${__dirname}/env/.env`)
 })
 
 
@@ -32,6 +32,7 @@ declare module 'express-session'{
 
 // Middlewares
 app.set('view engine', 'ejs')
+app.set('views', path.join(`${__dirname}/views`))
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use('/resources', express.static('public'));
