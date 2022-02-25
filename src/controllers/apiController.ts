@@ -3,7 +3,7 @@ import { Request, Response } from "express"
 
 
 export const apiMainPage = (req: Request, res: Response) => {
-    const query = 'SELECT BIN_TO_UUID(idProduct) AS id, productName, productPrice FROM products;'
+    const query = 'SELECT BIN_TO_UUID(idProduct) AS productId, productName, productPrice FROM products LIMIT 10;'
     connection.query(query, (err, results) => {
         if(err){
             res.send('An erro has ocurred');
