@@ -55,7 +55,6 @@ export const getProductsByCategory = (req : Request, res : Response) => {
 
         let fields = 'BIN_TO_UUID(idProduct) AS idProductd, serialNumber, productPrice, productCategory, productImage';
         let query = `SELECT ${fields} FROM products WHERE productCategory = '${category}'`;
-
         connection.query(query, ( err, results ) => {
 
             if(err){
@@ -64,7 +63,6 @@ export const getProductsByCategory = (req : Request, res : Response) => {
                     msg : err
                 })
             }else {
-                console.log(results)
                 res.send({
                     err: false,
                     data : results
