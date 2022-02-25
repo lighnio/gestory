@@ -88,6 +88,7 @@ export const auth = async (req : Request, res: Response) => {
             }else{
                 req.session.loggedIn = true;
                 const {name, rol, user} = results[0]
+
                 req.session.data = {
                     name, rol, user
                 }

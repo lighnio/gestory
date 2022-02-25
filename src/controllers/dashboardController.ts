@@ -64,6 +64,7 @@ export const products = (req : Request, res : Response) => {
             if(err) throw err;
     
             const { rol } = req.session.data;
+            
             const data = {
                 rol,
                 products: results,
@@ -82,6 +83,7 @@ export const products = (req : Request, res : Response) => {
 export const manageUsers = (req : Request, res : Response) => {
 
     if(req.session.loggedIn){
+
 
         const { rol } = req.session.data;
 
