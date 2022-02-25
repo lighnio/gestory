@@ -7,8 +7,11 @@ export const loginView = (req: Request, res: Response) => {
     if(req.session.loggedIn){
         res.redirect('/')
     }else{
-        res.render('login', {alert: false,
-            user: req.session.user
+
+        const { user } = req.session;
+
+        res.render('login', { alert: false,
+            user: user
         });
     }
 }
