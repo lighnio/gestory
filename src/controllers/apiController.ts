@@ -53,7 +53,7 @@ export const getProductsByCategory = (req : Request, res : Response) => {
         })
     }else {
 
-        let fields = 'BIN_TO_UUID(idProduct) AS idProductd';
+        let fields = 'BIN_TO_UUID(idProduct) AS idProductd, serialNumber, productPrice, productCategory, productImage';
         let query = `SELECT ${fields} FROM products WHERE productCategory = '${category}'`;
 
         connection.query(query, ( err, results ) => {
