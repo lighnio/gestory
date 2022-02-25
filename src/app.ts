@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
 import morgan from 'morgan';
+import cors from 'cors';
 
 // Settings
 export const app = express();
@@ -36,7 +37,8 @@ app.set('views', path.join(`${__dirname}/views`))
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use('/resources', express.static('public'));
-app.use('/resources', express.static(path.join(__dirname, 'public')));                                          
+app.use('/resources', express.static(path.join(__dirname, 'public')));    
+app.use(cors())                                      
 app.use(session({
     secret: 'secret',
     resave: true,

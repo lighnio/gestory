@@ -12,18 +12,14 @@ export const indexView = async (req: Request, res: Response) => {
         // @ts-ignore
         const { name, rol, user } = req.session.data;
 
-        const queryAll = 'SELECT * FROM sales';
-        const querySum = 'SELECT COUNT(*) AS COUNT FROM sales'
-        const queryProfits = 'SELECT SUM(idSale) as profits FROM sales'
+        const queryAll : string = 'SELECT * FROM sales';
+        const querySum : string = 'SELECT COUNT(*) AS COUNT FROM sales'
+        const queryProfits : string = 'SELECT SUM(idSale) as profits FROM sales'
 
         connection.query(`${queryAll};${queryProfits};${querySum}`,[1, 2, 3], async (err, results) => {
             if(err) throw err;
-            
             const { sales : allSales, profits : profitsObj, count: totalSales } = salesHelper(results);
-
             const { profits } = profitsObj;
-
-            console.log(profits)
             res.render('index', {
                 login: true,
                 name: name,
@@ -163,7 +159,7 @@ export const manageCostumers = (req : Request, res : Response) => {
         const { rol } = req.session.data;
         if(rol == 'admin'){
 
-            connection.query(`SELECT BIN_TO_UUID(id) FROM costumers;`, async (err, results) => {
+            connection.query(`SELECT BIN_TO_UUID(costumerId) FROM costumers;`, async (err, results) => {
                 if(err) throw err;
                 
                 let data = formatData(results);
