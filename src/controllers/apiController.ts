@@ -1,6 +1,17 @@
 import { connection } from "../database/db"
 import { Request, Response } from "express"
 
+
+// To return any information folow the next structure: 
+// If it have a error
+// {
+//     err: true,
+//     msg : err
+// }
+
+
+// This returns the last 10 added products to the sale
+
 export const apiMainPage = (req: Request, res: Response) => {
     const query = 'SELECT BIN_TO_UUID(idProduct) AS productId, productName, productPrice FROM products LIMIT 10;'
     connection.query(query, (err, results) => {
@@ -15,6 +26,8 @@ export const apiMainPage = (req: Request, res: Response) => {
     })
 }
 
+
+// This get a single product n' returns it
 export const productInformation = (req: Request, res: Response) => {
     const { productId } = req.params;
 
@@ -43,8 +56,12 @@ export const productInformation = (req: Request, res: Response) => {
 }
 
 
+// This controller get all the products by category
+
 export const getProductsByCategory = (req : Request, res : Response) => {
     
+
+    // Getting the category 
     const { category } = req.params;
 
     if(!category){
@@ -55,6 +72,7 @@ export const getProductsByCategory = (req : Request, res : Response) => {
 
         let fields = 'BIN_TO_UUID(idProduct) AS idProductd, serialNumber, productPrice, productCategory, productImage';
         let query = `SELECT ${fields} FROM products WHERE productCategory = '${category}'`;
+
         connection.query(query, ( err, results ) => {
 
             if(err){
