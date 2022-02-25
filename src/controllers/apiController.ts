@@ -10,6 +10,7 @@ import { Request, Response } from "express"
 // }
 
 
+
 // This returns the last 10 added products to the sale
 
 export const apiMainPage = (req: Request, res: Response) => {
@@ -100,7 +101,7 @@ export const searchData = (req : Request, res : Response) => {
 
         const { search } = req.query
         
-        let fields = 'BIN_TO_UUID(idProduct) AS idProduct, productName, productCategory';
+        let fields = 'BIN_TO_UUID(idProduct) AS idProduct, productName, productCategory, productPrice';
         let whereParams = `productName LIKE '%${search}%' OR productCategory LIKE '%${search}%' OR serialNumber LIKE '%${search}%'`;
         let query = `SELECT ${fields} FROM products WHERE ${whereParams};` ;
 
