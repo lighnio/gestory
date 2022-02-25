@@ -1,25 +1,22 @@
-const {name, lastName, password, username, email } = require('minifaker');
+import {name, lastName, password, username, email } from 'minifaker';
 import { connection } from '../database/db';
-    /* Credentials Structure */
-    /*
-        module.exports = {
-        DB_HOST: '',
-        DB_USER: '',
-        DB_PASSWORD: '',
-        DB_NAME: ''
-}
-    */
-
 require('minifaker/locales/en'); 
 
-console.log('faker')
+interface User{
+    firstname : any,
+    user : string,
+    password : string,
+    mail : string,
+    rol : string
+}
 
-let data : object[] = []
+let data : Array<User> = [];
+
 const fill = (amount) => {
     if(amount <= 0){
         return;
     }else{
-        var dataGen = {
+        var dataGen : User = {
             firstName: `${name()} ${lastName()}`,
             user: username(),
             pass: password(),
