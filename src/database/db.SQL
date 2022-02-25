@@ -50,6 +50,14 @@ CREATE TABLE IF NOT EXISTS costumers(
     costumerMail            VARCHAR(50) UNIQUE DEFAULT ('N/A')  NOT NULL
 );
 
+
+-- WORKING
+CREATE TABLE IF NOT EXISTS sales (
+    idSale int NOT NULL AUTO_INCREMENT,
+    costumer varchar(50) DEFAULT NULL,
+    PRIMARY KEY (`idSale`)
+);
+
 -- Query example for costumers
 -- INSERT INTO costumers(id) VALUES(UUID_TO_BIN( UUID() ) );
 -- SELECT BIN_TO_UUID(id) FROM costumers;
