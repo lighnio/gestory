@@ -9,6 +9,11 @@ import { Request, Response } from "express"
 //     msg : err.code
 // }
 
+interface ResponseFormat {
+    err : boolean,
+    msg? : string,
+    data? : Array<object>
+}
 
 
 // This returns the last 10 added products to the sale
@@ -17,7 +22,14 @@ export const apiMainPage = (req: Request, res: Response) => {
     const query = 'SELECT BIN_TO_UUID(idProduct) AS productId, productName, productPrice FROM products LIMIT 10;'
     connection.query(query, (err, results) => {
         if(err){
-            res.send('An erro has ocurred');
+
+            let response : ResponseFormat = {
+                err : true,
+                msg: err.code
+            }
+
+            res.send(response);
+
             throw err;
         }
         res.send({
@@ -33,22 +45,29 @@ export const productInformation = (req: Request, res: Response) => {
     const { productId } = req.params;
 
     if(!productId){
-        res.send({
-            err: true
-        })
+
+        let response : ResponseFormat = {
+            err : true,
+            msg : 'No id was provided'
+        }
+        res.send(response);
+
     }else{
         const query = `SELECT productName, productPrice, productCategory FROM products WHERE BIN_TO_UUID(idProduct) = "${productId}"`
         connection.query(query, (err, results) => {
             if(err){
-                res.send({
-                    err: true,
-                    msg: err
-                })
+                let response : ResponseFormat = {
+                    err : true,
+                    msg : err.code
+                }
+                res.send(response);
             }else{
-                res.send({
-                    err: false,
-                    data : results
-                })
+
+                let response : ResponseFormat = {
+                    err : false,
+                    data: results
+                }
+                res.send(response);
             }
         })
 
@@ -66,9 +85,13 @@ export const getProductsByCategory = (req : Request, res : Response) => {
     const { category } = req.params;
 
     if(!category){
-        res.send({
-            err: true
-        })
+
+        let response : ResponseFormat = {
+            err : true,
+            msg : 'No category was specified'
+        }
+        res.send(response)
+
     }else {
 
         let fields = 'BIN_TO_UUID(idProduct) AS idProductd, serialNumber, productPrice, productCategory, productImage';
@@ -77,15 +100,21 @@ export const getProductsByCategory = (req : Request, res : Response) => {
         connection.query(query, ( err, results ) => {
 
             if(err){
-                res.send({
-                    err: true,
+
+                let response : ResponseFormat = {
+                    err : true,
                     msg : err.code
-                })
+                }
+
+                res.send(response)
             }else {
-                res.send({
-                    err: false,
+
+                let response : ResponseFormat = {
+                    err : false,
                     data : results
-                })
+                }
+
+                res.send(response)
             }
 
         })
@@ -107,24 +136,33 @@ export const searchData = (req : Request, res : Response) => {
 
         connection.query(query, (err, results) => {
             if(err) {
-                res.send({
-                    err: true,
-                    msg: err.code
-                })
+
+                let response : ResponseFormat = {
+                    err : true,
+                    msg : err.code
+                }
+                res.send(response)
             }else {
-                res.send({
-                    err : false,
+
+                let response : ResponseFormat = {
+                    err: false,
                     data : results
-                })
+                }
+
+                res.send(response)
             }
 
 
         })
 
     }else {
-        res.send({
-            err: true,
-            msg : 'No query especified'
-        })
+
+        let response : ResponseFormat = {
+            err : true,
+            msg : 'No query was specified'
+        }
+
+        res.send(response)
+
     }
 }
