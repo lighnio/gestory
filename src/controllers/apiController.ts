@@ -6,7 +6,7 @@ import { Request, Response } from "express"
 // If it have a error
 // {
 //     err: true,
-//     msg : err
+//     msg : err.code
 // }
 
 
@@ -78,7 +78,7 @@ export const getProductsByCategory = (req : Request, res : Response) => {
             if(err){
                 res.send({
                     err: true,
-                    msg : err
+                    msg : err.code
                 })
             }else {
                 res.send({
@@ -90,4 +90,40 @@ export const getProductsByCategory = (req : Request, res : Response) => {
         })
     }
 
+}
+
+
+// Search by query
+
+export const searchData = (req : Request, res : Response) => {
+    if(req.query.search){
+
+        const { search } = req.query
+        
+        let fields = 'BIN_TO_UUID(idProduct) AS idProduct, productName, productCategory';
+        let whereParams = `productName LIKE '%${search}%' OR productCategory LIKE '%${search}%' OR serialNumber LIKE '%${search}%'`;
+        let query = `SELECT ${fields} FROM products WHERE ${whereParams};` ;
+
+        connection.query(query, (err, results) => {
+            if(err) {
+                res.send({
+                    err: true,
+                    msg: err.code
+                })
+            }else {
+                res.send({
+                    err : false,
+                    data : results
+                })
+            }
+
+
+        })
+
+    }else {
+        res.send({
+            err: true,
+            msg : 'No query especified'
+        })
+    }
 }
