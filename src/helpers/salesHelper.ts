@@ -1,4 +1,4 @@
-export const salesHelper = results => {
+export const salesHelper = (results : string[]) => {
 
     const [sales, profitsSum, countSales] = JSON.parse(JSON.stringify(results));
 
