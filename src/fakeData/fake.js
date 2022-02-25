@@ -1,18 +1,8 @@
 "use strict";
 exports.__esModule = true;
-var _a = require('minifaker'), name = _a.name, lastName = _a.lastName, password = _a.password, username = _a.username, email = _a.email;
+var minifaker_1 = require("minifaker");
 var db_1 = require("../database/db");
-/* Credentials Structure */
-/*
-    module.exports = {
-    DB_HOST: '',
-    DB_USER: '',
-    DB_PASSWORD: '',
-    DB_NAME: ''
-}
-*/
 require('minifaker/locales/en');
-console.log('faker');
 var data = [];
 var fill = function (amount) {
     if (amount <= 0) {
@@ -20,10 +10,10 @@ var fill = function (amount) {
     }
     else {
         var dataGen = {
-            firstName: "".concat(name(), " ").concat(lastName()),
-            user: username(),
-            pass: password(),
-            mail: email(),
+            firstName: "".concat((0, minifaker_1.name)(), " ").concat((0, minifaker_1.lastName)()),
+            user: (0, minifaker_1.username)(),
+            pass: (0, minifaker_1.password)(),
+            mail: (0, minifaker_1.email)(),
             rol: amount % 2 == 0 ? 'admin' : 'data entry'
         };
         // console.log('data: ', dataGen)
@@ -31,7 +21,8 @@ var fill = function (amount) {
     }
     data.push(dataGen);
 };
-fill(process.argv[2]);
+var quantity = parseInt(process.argv[2]);
+fill(quantity);
 // console.log(data);
 for (var i in data) {
     db_1.connection.query('INSERT INTO users SET ?', {

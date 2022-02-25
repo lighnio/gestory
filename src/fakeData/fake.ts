@@ -29,7 +29,9 @@ const fill = (amount : number) => {
     }
     data.push(dataGen);
 }
-fill(process.argv[2]);
+
+let quantity : number = parseInt(process.argv[2])
+fill(quantity);
 // console.log(data);
 
 for(let i in data){
@@ -40,4 +42,4 @@ for(let i in data){
         mail: data[i].mail,
         rol: data[i].rol
     });
-}
+}   
