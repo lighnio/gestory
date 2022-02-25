@@ -9,7 +9,8 @@ import {Request, Response} from 'express'
 export const indexView = async (req: Request, res: Response) => {
 
     if(req.session.loggedIn){
-
+        
+        // @ts-ignore
         const { name, rol, user } = req.session.data;
 
         const queryAll = 'SELECT * FROM sales';
@@ -63,6 +64,7 @@ export const products = (req : Request, res : Response) => {
         connection.query('SELECT * FROM products;', async (err, results) => {
             if(err) throw err;
     
+            // @ts-ignore
             const { rol } = req.session.data;
             
             const data = {
@@ -84,7 +86,7 @@ export const manageUsers = (req : Request, res : Response) => {
 
     if(req.session.loggedIn){
 
-
+        // @ts-ignore
         const { rol } = req.session.data;
 
         if(req.query.search){
@@ -106,6 +108,7 @@ export const manageUsers = (req : Request, res : Response) => {
             
             const { originalUrl }  = req;
 
+            // @ts-ignore
             let match  = (originalUrl.match(/\d+$/)-1)*10;
             let aux = /page/.test(originalUrl) ? `LIMIT ${match}, 10` : 'LIMIT 0, 10';
             let query = `SELECT * FROM users ${aux}; SELECT count(*) FROM users;`;
@@ -157,6 +160,7 @@ export const getUser = (req : Request, res : Response) => {
 
 export const manageCostumers = (req : Request, res : Response) => {
     if(req.session.loggedIn){
+        // @ts-ignore
         const { rol } = req.session.data;
         if(rol == 'admin'){
 
