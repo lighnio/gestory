@@ -3,16 +3,16 @@ import { connection } from '../database/db';
 require('minifaker/locales/en'); 
 
 interface User{
-    firstname : any,
+    firstName : unknown,
     user : string,
-    password : string,
+    pass: string,
     mail : string,
     rol : string
 }
 
 let data : Array<User> = [];
 
-const fill = (amount) => {
+const fill = (amount : number) => {
     if(amount <= 0){
         return;
     }else{
