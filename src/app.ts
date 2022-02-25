@@ -11,19 +11,18 @@ dotenv.config({
     path: './env/.env'
 })
 
-
 declare module 'express-session'{
 
     interface Data {
-        name: string,
-        rol: string,
-        user: string
+        name? : string,
+        rol? : string,
+        user? : string
     }
 
     interface SessionData{
-        user: string,
-        loggedIn: boolean,
-        data: Data
+        loggedIn : boolean,
+        data : Data,
+        user : string
     }
 }
 
