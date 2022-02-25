@@ -2,8 +2,18 @@ import { connection } from "../database/db"
 import { Request, Response } from "express"
 
 
+// To return any information folow the next structure: 
+// If it have a error
+// {
+//     err: true,
+//     msg : err.code
+// }
+
+
+// This returns the last 10 added products to the sale
+
 export const apiMainPage = (req: Request, res: Response) => {
-    const query = 'SELECT BIN_TO_UUID(idProduct) AS id, productName, productPrice FROM products;'
+    const query = 'SELECT BIN_TO_UUID(idProduct) AS productId, productName, productPrice FROM products LIMIT 10;'
     connection.query(query, (err, results) => {
         if(err){
             res.send('An erro has ocurred');
@@ -11,11 +21,13 @@ export const apiMainPage = (req: Request, res: Response) => {
         }
         res.send({
             err: false,
-            results
+            data : results
         })
     })
 }
 
+
+// This get a single product n' returns it
 export const productInformation = (req: Request, res: Response) => {
     const { productId } = req.params;
 
@@ -34,11 +46,84 @@ export const productInformation = (req: Request, res: Response) => {
             }else{
                 res.send({
                     err: false,
-                    results
+                    data : results
                 })
             }
         })
 
     }
 
+}
+
+
+// This controller get all the products by category
+
+export const getProductsByCategory = (req : Request, res : Response) => {
+    
+
+    // Getting the category 
+    const { category } = req.params;
+
+    if(!category){
+        res.send({
+            err: true
+        })
+    }else {
+
+        let fields = 'BIN_TO_UUID(idProduct) AS idProductd, serialNumber, productPrice, productCategory, productImage';
+        let query = `SELECT ${fields} FROM products WHERE productCategory = '${category}'`;
+
+        connection.query(query, ( err, results ) => {
+
+            if(err){
+                res.send({
+                    err: true,
+                    msg : err.code
+                })
+            }else {
+                res.send({
+                    err: false,
+                    data : results
+                })
+            }
+
+        })
+    }
+
+}
+
+
+// Search by query
+
+export const searchData = (req : Request, res : Response) => {
+    if(req.query.search){
+
+        const { search } = req.query
+        
+        let fields = 'BIN_TO_UUID(idProduct) AS idProduct, productName, productCategory';
+        let whereParams = `productName LIKE '%${search}%' OR productCategory LIKE '%${search}%' OR serialNumber LIKE '%${search}%'`;
+        let query = `SELECT ${fields} FROM products WHERE ${whereParams};` ;
+
+        connection.query(query, (err, results) => {
+            if(err) {
+                res.send({
+                    err: true,
+                    msg: err.code
+                })
+            }else {
+                res.send({
+                    err : false,
+                    data : results
+                })
+            }
+
+
+        })
+
+    }else {
+        res.send({
+            err: true,
+            msg : 'No query especified'
+        })
+    }
 }
