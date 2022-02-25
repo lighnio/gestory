@@ -5,7 +5,6 @@ import { salesByIdHelper } from '../helpers/saleById';
 import { salesHelper } from '../helpers/salesHelper';
 import {Request, Response} from 'express'
 
-
 export const indexView = async (req: Request, res: Response) => {
 
     if(req.session.loggedIn){

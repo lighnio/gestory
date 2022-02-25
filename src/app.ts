@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
 import morgan from 'morgan';
-
+import { Data } from './types/Data';
 // Settings
 export const app = express();
 app.set('port', process.env.PORT || 3000);
@@ -11,14 +11,16 @@ dotenv.config({
     path: './env/.env'
 })
 
-declare module 'express-session'{
 
+
+declare module 'express-session'{
+    
     interface Data {
         name : string,
         rol : string,
         user : string
     }
-
+   
     interface SessionData{
         loggedIn : boolean,
         data : Data,
