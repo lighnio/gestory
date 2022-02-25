@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
 import morgan from 'morgan';
-import { Data } from './types/Data';
+
 // Settings
 export const app = express();
 app.set('port', process.env.PORT || 3000);
