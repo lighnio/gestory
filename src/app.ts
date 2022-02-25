@@ -15,7 +15,9 @@ dotenv.config({
 declare module 'express-session'{
 
     interface Data {
-        [ keys : string ] : string
+        name: string,
+        rol: string,
+        user: string
     }
 
     interface SessionData{

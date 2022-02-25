@@ -3,8 +3,10 @@ import { formatData } from '../helpers/manageCostumersHelper';
 import { lengthCount } from '../helpers/manageUsers';
 import { salesByIdHelper } from '../helpers/saleById';
 import { salesHelper } from '../helpers/salesHelper';
+import {Request, Response} from 'express'
 
-export const indexView = async (req, res) => {
+
+export const indexView = async (req: Request, res: Response) => {
 
     if(req.session.loggedIn){
 
@@ -39,7 +41,7 @@ export const indexView = async (req, res) => {
     }
 };
 
-export const salesById = (req, res) => {
+export const salesById = (req : Request, res : Response) => {
 
     const { saleId } = req.params;
 
@@ -55,7 +57,7 @@ export const salesById = (req, res) => {
 
 }
 
-export const products = (req, res) => {
+export const products = (req : Request, res : Response) => {
 
     if(req.session.loggedIn){
         connection.query('SELECT * FROM products;', async (err, results) => {
@@ -77,7 +79,7 @@ export const products = (req, res) => {
 
 
 }
-export const manageUsers = (req, res) => {
+export const manageUsers = (req : Request, res : Response) => {
 
     if(req.session.loggedIn){
 
@@ -100,9 +102,9 @@ export const manageUsers = (req, res) => {
 
         }else{
             
-            const { originalUrl } = req;
+            const { originalUrl }  = req;
 
-            let match = (originalUrl.match(/\d+$/)-1)*10;
+            let match  = (originalUrl.match(/\d+$/)-1)*10;
             let aux = /page/.test(originalUrl) ? `LIMIT ${match}, 10` : 'LIMIT 0, 10';
             let query = `SELECT * FROM users ${aux}; SELECT count(*) FROM users;`;
 
@@ -125,13 +127,13 @@ export const manageUsers = (req, res) => {
     }
 }
 
-export const searchUser = (req, res) => {
+export const searchUser = (req : Request, res : Response) => {
     const { user } = req.body;
 
     res.redirect(`/users?search=${user}`)
 }
 
-export const getUser = (req, res) => {
+export const getUser = (req : Request, res : Response) => {
 
 
     if(req.session.loggedIn){
@@ -151,7 +153,7 @@ export const getUser = (req, res) => {
 }
 
 
-export const manageCostumers = (req, res) => {
+export const manageCostumers = (req : Request, res : Response) => {
     if(req.session.loggedIn){
         const { rol } = req.session.data;
         if(rol == 'admin'){
