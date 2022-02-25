@@ -1,7 +1,6 @@
 import { connection } from "../database/db"
 import { Request, Response } from "express"
 
-
 export const apiMainPage = (req: Request, res: Response) => {
     const query = 'SELECT BIN_TO_UUID(idProduct) AS productId, productName, productPrice FROM products LIMIT 10;'
     connection.query(query, (err, results) => {
@@ -11,7 +10,7 @@ export const apiMainPage = (req: Request, res: Response) => {
         }
         res.send({
             err: false,
-            results
+            data : results
         })
     })
 }
@@ -34,11 +33,45 @@ export const productInformation = (req: Request, res: Response) => {
             }else{
                 res.send({
                     err: false,
-                    results
+                    data : results
                 })
             }
         })
 
+    }
+
+}
+
+
+export const getProductsByCategory = (req : Request, res : Response) => {
+    
+    const { category } = req.params;
+
+    if(!category){
+        res.send({
+            err: true
+        })
+    }else {
+
+        let fields = 'BIN_TO_UUID(idProduct) AS idProductd';
+        let query = `SELECT ${fields} FROM products WHERE productCategory = '${category}'`;
+
+        connection.query(query, ( err, results ) => {
+
+            if(err){
+                res.send({
+                    err: true,
+                    msg : err
+                })
+            }else {
+                console.log(results)
+                res.send({
+                    err: false,
+                    data : results
+                })
+            }
+
+        })
     }
 
 }
