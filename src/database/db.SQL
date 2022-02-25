@@ -53,3 +53,10 @@ CREATE TABLE IF NOT EXISTS costumers(
 -- Query example for costumers
 -- INSERT INTO costumers(id) VALUES(UUID_TO_BIN( UUID() ) );
 -- SELECT BIN_TO_UUID(id) FROM costumers;
+
+/* SALES TABLE */
+
+CREATE TABLE IF NOT EXISTS sales(
+    idSale          BINARY(16) PRIMARY KEY NOT NULL DEFAULT(UUID_TO_BIN(UUID())),
+    saleProfit      FLOAT
+);
