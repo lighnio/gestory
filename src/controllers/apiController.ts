@@ -1,6 +1,6 @@
 import { connection } from "../database/db"
 import { Request, Response } from "express"
-
+import { ResponseFormat } from '../types/apiType';
 
 // To return any information folow the next structure: 
 // If it have a error
@@ -9,11 +9,6 @@ import { Request, Response } from "express"
 //     msg : err.code
 // }
 
-interface ResponseFormat {
-    err : boolean,
-    msg? : string,
-    data? : Array<object>
-}
 
 
 // This returns the last 10 added products to the sale
