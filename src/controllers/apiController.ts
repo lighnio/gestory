@@ -166,3 +166,14 @@ export const searchData = (req : Request, res : Response) => {
 
     }
 }
+
+// If there is a not valid route
+export const noValidUrl = (req : Request, res: Response) => {
+
+    let response : ResponseFormat = {
+        err : true,
+        msg: 'Not valid url'
+    }
+
+    res.send(response)
+}
