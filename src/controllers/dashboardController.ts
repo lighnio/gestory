@@ -153,17 +153,21 @@ export const getUser = (req : Request, res : Response) => {
 }
 
 
+// This is the route to manage the users
+
 export const manageCostumers = (req : Request, res : Response) => {
     if(req.session.loggedIn){
         // @ts-ignore
         const { rol } = req.session.data;
         if(rol == 'admin'){
 
-            connection.query(`SELECT BIN_TO_UUID(costumerId) FROM costumers;`, async (err, results) => {
+            let selectedFields : string = `BIN_TO_UUID(costumerId) AS costumerId, costumerUsername, costumerMail, costumerName`
+            let query : string = `SELECT ${selectedFields} FROM costumers;`;
+
+            connection.query(query, async (err, results) => {
                 if(err) throw err;
                 
-                let data = formatData(results);
-
+                let data : Array<object> = formatData(results);
                 console.log(data)
                 
             })
