@@ -95,7 +95,7 @@ export const manageUsers = (req : Request, res : Response) => {
                 res.render('manageUsers', {
                     rol,
                     users: results,
-                    total: results.length
+                    total: null
                 })
             })
 
