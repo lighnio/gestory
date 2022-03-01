@@ -15,17 +15,21 @@ export const indexView = async (req: Request, res: Response) => {
         const queryAll : string = 'SELECT * FROM sales';
         const querySum : string = 'SELECT COUNT(*) AS COUNT FROM sales'
         const queryProfits : string = 'SELECT ROUND(SUM(saleProfit), 2) as profits FROM sales'
+        const queryAvg : string = `SELECT ROUND(AVG(saleProfit), 2) AS avgSum FROM sales`;
 
-        connection.query(`${queryAll};${queryProfits};${querySum}`,[1, 2, 3], async (err, results) => {
+        connection.query(`${queryAll};${queryProfits};${querySum};${queryAvg}`,[1, 2, 3, 4], async (err, results) => {
             if(err) throw err;
             
             const {
                 sales: allSales,
                 profits: profitObj,
-                count: totalSales
+                count: totalSales,
+                avgSum: averageSum
             } = salesHelper(results);
             const {profits} = profitObj
-
+            const {avgSum} = averageSum;
+            
+            
             res.render('index', {
                 login: true,
                 name: name,
@@ -33,7 +37,8 @@ export const indexView = async (req: Request, res: Response) => {
                 user: user,
                 totalSales,
                 allSales,
-                profits
+                profits, 
+                avgSum
             });
             
 
