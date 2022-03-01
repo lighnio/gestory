@@ -14,12 +14,18 @@ export const indexView = async (req: Request, res: Response) => {
 
         const queryAll : string = 'SELECT * FROM sales';
         const querySum : string = 'SELECT COUNT(*) AS COUNT FROM sales'
-        const queryProfits : string = 'SELECT SUM(idSale) as profits FROM sales'
+        const queryProfits : string = 'SELECT ROUND(SUM(saleProfit), 2) as profits FROM sales'
 
         connection.query(`${queryAll};${queryProfits};${querySum}`,[1, 2, 3], async (err, results) => {
             if(err) throw err;
-            const { sales : allSales, profits : profitsObj, count: totalSales } = salesHelper(results);
-            const { profits } = profitsObj;
+            
+            const {
+                sales: allSales,
+                profits: profitObj,
+                count: totalSales
+            } = salesHelper(results);
+            const {profits} = profitObj
+
             res.render('index', {
                 login: true,
                 name: name,
@@ -27,8 +33,10 @@ export const indexView = async (req: Request, res: Response) => {
                 user: user,
                 totalSales,
                 allSales,
-                profits  
-             })
+                profits
+            });
+            
+
         });
 
         
