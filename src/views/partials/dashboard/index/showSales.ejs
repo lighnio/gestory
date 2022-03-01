@@ -6,21 +6,16 @@
     <table>
         <thead>
             <tr>
-                <th>id</th>
-                <th>Costumer Id</th>
-                <th>Sale</th>
-                <th>ticket</th>
-                <th>date</th>
+                <th>Costumer</th>
+                <th>Sale Id</th>
+                <th>Ticket</th>
+                <th>Date</th>
+                <th>ID</th>
             </tr>
         </thead>
         <tbody>
             <% allSales.forEach(sale => {  %>
                 <tr>
-                    <td>
-                        <a href="/sale/<%= sale.idSale %>" class="detail">
-                            Detail
-                        </a>
-                    </td>
                     <td>
                         <a href="/costumer/<%= sale.costumer %>">
                             <%= sale.costumer %>
@@ -29,6 +24,11 @@
                     <td><%= sale.saleProfit %></td>
                     <td><%= sale.costumer %></td>
                     <td><%= sale.dateSale %></td>    
+                    <td>
+                        <a href="/sale/<%= sale.idSale %>" class="detail">
+                            Detail
+                        </a>
+                    </td>
                 </tr>
             <%})%>
             <tr>

@@ -257,10 +257,6 @@ a {
     padding: .5em;
 }
 
-.dashboard table tbody td a{
-    text-decoration: revert;
-    color: blue;
-}
 
 /* Products */
 
