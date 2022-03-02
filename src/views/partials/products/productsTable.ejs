@@ -1,5 +1,21 @@
 <div class="title">
-    All Products
+    <form action="/products" method="POST">
+        <div class="price">
+            <span>By price</span>
+            <select name="price">
+                <option value="">Low to high</option>
+                <option value="">High to low</option>
+            </select>
+        </div>
+        <div class="date">
+            <span>By date</span>
+            <select name="price">
+                <option value="">Newest</option>
+                <option value="">Oldest</option>
+            </select>
+        </div>
+        <input type="submit" value="Filter">
+    </form>
 </div>
 
 <div class="list">
