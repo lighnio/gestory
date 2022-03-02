@@ -1,6 +1,13 @@
-import { Router } from "express";
-import { accountView, auth, loginView, logOut, registerPost, registerView } from "../controllers/accountController";
-import { notFound } from "../controllers/mainController";
+import { Router } from 'express';
+import {
+    accountView,
+    auth,
+    loginView,
+    logOut,
+    registerPost,
+    registerView,
+} from '../controllers/accountController';
+import { notFound } from '../controllers/mainController';
 
 export const authRouter = Router();
 

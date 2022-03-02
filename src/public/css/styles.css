@@ -14,9 +14,6 @@ a {
     color: #333;
 }
 
-
-
-
 /* Navbar styles */
 
 .navbar-dashboard {
@@ -40,16 +37,14 @@ a {
 .navbar-dashboard a {
     color: white;
     padding: 1em;
-   
 }
 
 .navbar-dashboard a i {
     color: white;
     font-size: 13px;
     text-align: center;
-    margin-right: .5em;
+    margin-right: 0.5em;
 }
-
 
 /* Body styles */
 
@@ -69,15 +64,15 @@ a {
 }
 
 .row aside a {
-    padding: .8em 1em;
+    padding: 0.8em 1em;
     text-align: left;
     color: var(--fontDarkBg);
 }
 
-.row aside a i{
+.row aside a i {
     color: var(--fontDarkBg);
     font-size: 14px;
-    margin-right: .5em;
+    margin-right: 0.5em;
 }
 
 .row aside .active {
@@ -105,27 +100,26 @@ a {
     align-items: center;
 }
 
-.dashboard .metrics .metric{
+.dashboard .metrics .metric {
     height: 5em;
     width: calc(24% - 1em);
     display: flex;
     justify-content: space-around;
     align-items: center;
     color: white;
-
 }
 
-.dashboard .metrics .metric .text{
+.dashboard .metrics .metric .text {
     display: flex;
     flex-direction: column;
     justify-content: left;
 }
 
-.dashboard .metrics .metric .text .number{
+.dashboard .metrics .metric .text .number {
     font-size: 25px;
 }
 
-.dashboard .metrics .metric .text span{
+.dashboard .metrics .metric .text span {
     font-size: 13px;
 }
 
@@ -150,7 +144,6 @@ a {
     background: var(--danger);
 }
 
-
 /* Graphics file */
 
 .dashboard .graphics {
@@ -158,7 +151,7 @@ a {
     width: 100%;
     display: grid;
     grid-template-columns: 25% auto;
-    column-gap: .5em;
+    column-gap: 0.5em;
 }
 
 .dashboard .graphics .select {
@@ -183,20 +176,18 @@ a {
     margin-bottom: 1.3em;
 }
 
-.dashboard .graphics .select .date input[type="text"]{
+.dashboard .graphics .select .date input[type='text'] {
     width: 100%;
 }
 
-.dashboard .graphics .select .date input[type="submit"]{
-    
+.dashboard .graphics .select .date input[type='submit'] {
     background: var(--primary);
     border: none;
     color: white;
-    padding: .3em 0;
+    padding: 0.3em 0;
     font-size: 14px;
     width: 25%;
 }
-
 
 .dashboard .graphics .select .box {
     width: 100%;
@@ -229,18 +220,17 @@ a {
     padding-top: 1em;
 }
 
-#tableManageUsers{
-    overflow-y:scroll;
-    height:375px;
+#tableManageUsers {
+    overflow-y: scroll;
+    height: 375px;
 }
 
-.dashboard table{
+.dashboard table {
     width: 100%;
     border-collapse: collapse;
     min-width: 400px;
     font-size: 0.9em;
 }
-
 
 .dashboard table thead th {
     background: var(--dark);
@@ -249,17 +239,15 @@ a {
     padding: 1em;
 }
 
-.dashboard table tbody tr:nth-child(odd){
+.dashboard table tbody tr:nth-child(odd) {
     background: var(--grey);
 }
 .dashboard table tbody td {
     text-align: center;
-    padding: .5em;
+    padding: 0.5em;
 }
 
-
 /* Products */
-
 
 .dashboard .products .title {
     margin: 1em 0;
@@ -270,23 +258,19 @@ a {
     font-weight: bold;
 }
 
-
 /* Users */
-
 
 .dashboard .users {
     margin: 1em 0 0 0;
     width: 100%;
 }
 
-
-.dashboard .search{
+.dashboard .search {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 1em;
-
 }
 
 .dashboard .search form {
@@ -294,30 +278,29 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
-.dashboard .search form input[type=text]{
-    padding: .5em 1em;
+.dashboard .search form input[type='text'] {
+    padding: 0.5em 1em;
     margin-right: 1em;
 }
 
-.dashboard .search form input[type=submit]{
-    padding: .5em 1em;
+.dashboard .search form input[type='submit'] {
+    padding: 0.5em 1em;
     border: 1px solid var(--primary);
     background: none;
     color: var(--primary);
     font-size: 15px;
     cursor: pointer;
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
-.dashboard .search form input[type=submit]:hover{
+.dashboard .search form input[type='submit']:hover {
     background: var(--primary);
     color: white;
 }
 
-.dashboard .pagination{
+.dashboard .pagination {
     padding: 1em;
     width: 100%;
     display: flex;
@@ -328,11 +311,10 @@ a {
 .dashboard .pagination a {
     background: var(--primary);
     color: white;
-    margin: 0 .5em;
+    margin: 0 0.5em;
     padding: 1em;
 }
 
 .dashboard .pagination a:hover {
     filter: brightness(85%);
 }
-
