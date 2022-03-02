@@ -5,6 +5,8 @@ import { salesByIdHelper } from '../helpers/saleById';
 import { salesHelper } from '../helpers/salesHelper';
 import {Request, Response} from 'express'
 
+
+// THis is the main view
 export const indexView = async (req: Request, res: Response) => {
 
     if(req.session.loggedIn){
@@ -52,6 +54,8 @@ export const indexView = async (req: Request, res: Response) => {
         res.redirect('/login')
     }
 };
+
+// This return the sale by id
 
 export const salesById = (req : Request, res : Response) => {
 
