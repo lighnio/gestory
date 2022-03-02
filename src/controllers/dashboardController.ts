@@ -66,7 +66,3 @@ export const salesById = (req: Request, res: Response) => {
         res.send(sale);
     });
 };
-
-// This get all products
-
-// This is the route to manage the users
