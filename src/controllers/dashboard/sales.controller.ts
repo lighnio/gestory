@@ -9,8 +9,15 @@ export const indexView = async (req: Request, res: Response) => {
         // @ts-ignore
         const { name, rol, user } = req.session.data;
 
+        const {date} = req.query;
+        console.log('date: ', date);
+        const datequery = date? `WHERE dateSale BETWEEN '${date}-01-01' AND '${date}-12-31'` : '';
+        
+        console.log('datequery: ', datequery);
+        
+
         const queryAll: string =
-            'SELECT BIN_TO_UUID(idSale) AS idSale, saleProfit, dateSale, BIN_TO_UUID(costumerId) AS costumerId FROM sales ORDER BY dateSale DESC';
+            `SELECT BIN_TO_UUID(idSale) AS idSale, saleProfit, dateSale, BIN_TO_UUID(costumerId) AS costumerId FROM sales ${datequery} ORDER BY dateSale DESC`;
         const querySum: string = 'SELECT COUNT(*) AS COUNT FROM sales';
         const queryProfits: string =
             'SELECT ROUND(SUM(saleProfit), 2) as profits FROM sales';
@@ -31,8 +38,6 @@ export const indexView = async (req: Request, res: Response) => {
 
                 const { profits } = profitObj;
                 const { avgSum } = averageSum;
-
-                console.log(allSales);
 
                 res.render('index', {
                     login: true,
@@ -74,4 +79,12 @@ export const downloadTicket = (req: Request, res: Response) => {
     } else {
         res.redirect('/');
     }
+};
+
+// This return the order by date
+
+export const dateSales = async (req: Request, res: Response) => {
+    const {date} = req.body;
+
+    res.redirect(`/?date=${date}`);
 };

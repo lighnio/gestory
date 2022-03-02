@@ -3,6 +3,7 @@ import {
     indexView,
     salesById,
     downloadTicket,
+    dateSales,
 } from '../controllers/dashboard/sales.controller';
 import { products } from '../controllers/dashboard/products.controller';
 import {
@@ -16,6 +17,7 @@ const dashboardRouter = Router();
 
 dashboardRouter
     .get('/', indexView)
+    .post('/', dateSales)
     .get('/products', products)
     .get('/users', manageUsers)
     .post('/users', searchUser)
