@@ -3,14 +3,14 @@ import {
     indexView,
     salesById,
     downloadTicket,
-} from '../controllers/dashboard/sales';
-import { products } from '../controllers/dashboard/products';
+} from '../controllers/dashboard/sales.controller';
+import { products } from '../controllers/dashboard/products.controller';
 import {
     getUser,
     manageUsers,
     searchUser,
-} from '../controllers/dashboard/users';
-import { manageCostumers } from '../controllers/dashboard/costumers';
+} from '../controllers/dashboard/users.controller';
+import { manageCostumers } from '../controllers/dashboard/costumers.controller';
 
 const dashboardRouter = Router();
 

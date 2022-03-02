@@ -49,7 +49,6 @@ export const manageUsers = (req: Request, res: Response) => {
 };
 
 // This function process the query and redirect to a search
-
 export const searchUser = (req: Request, res: Response) => {
     const { user } = req.body;
 
@@ -57,7 +56,6 @@ export const searchUser = (req: Request, res: Response) => {
 };
 
 // This fuctions get a user by id
-
 export const getUser = (req: Request, res: Response) => {
     if (req.session.loggedIn) {
         const { userId } = req.params;
