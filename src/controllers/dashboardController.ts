@@ -12,7 +12,7 @@ export const indexView = async (req: Request, res: Response) => {
         // @ts-ignore
         const { name, rol, user } = req.session.data;
 
-        const queryAll : string = 'SELECT BIN_TO_UUID(idSale) AS idSale, saleProfit, dateSale FROM sales ORDER BY dateSale DESC';
+        const queryAll : string = 'SELECT BIN_TO_UUID(idSale) AS idSale, saleProfit, dateSale, BIN_TO_UUID(costumerId) AS costumerId FROM sales ORDER BY dateSale DESC';
         const querySum : string = 'SELECT COUNT(*) AS COUNT FROM sales'
         const queryProfits : string = 'SELECT ROUND(SUM(saleProfit), 2) as profits FROM sales'
         const queryAvg : string = `SELECT ROUND(AVG(saleProfit), 2) AS avgSum FROM sales`;
@@ -20,6 +20,7 @@ export const indexView = async (req: Request, res: Response) => {
         connection.query(`${queryAll};${queryProfits};${querySum};${queryAvg}`,[1, 2, 3, 4], async (err, results) => {
             if(err) throw err;
             
+            console.log(results)
             const {
                 sales: allSales,
                 profits: profitObj,
