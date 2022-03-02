@@ -17,12 +17,14 @@
             <% allSales.forEach(sale => {  %>
                 <tr>
                     <td>
-                        <a href="/costumer/<%= sale.costumer %>">
-                            <%= sale.costumer %>
+                        <a href="/costumer/<%= sale.costumerId %>">
+                            Constumer info
                         </a>
                     </td>
                     <td><%= sale.saleProfit %></td>
-                    <td><%= sale.costumer %></td>
+                    <td>
+                        <a href="/ticket/<%= sale.idSale %>" target="_blank">Download ticket</a>
+                    </td>
                     <td><%= sale.dateSale %></td>    
                     <td>
                         <a href="/sale/<%= sale.idSale %>" class="detail">
