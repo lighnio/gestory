@@ -279,6 +279,11 @@ a {
     color: white;
 }
 
+.dashboard .products .title .newProduct {
+    background: var(--primary);
+    padding: 0.5em 1em;
+    color: white;
+}
 /* Users */
 
 .dashboard .users {
