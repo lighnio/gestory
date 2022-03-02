@@ -32,8 +32,6 @@ export const indexView = async (req: Request, res: Response) => {
                 const { profits } = profitObj;
                 const { avgSum } = averageSum;
 
-                console.log(allSales);
-
                 res.render('index', {
                     login: true,
                     name: name,
