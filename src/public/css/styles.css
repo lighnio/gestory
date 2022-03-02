@@ -254,8 +254,14 @@ a {
     padding: 1em;
     text-align: center;
     width: 100%;
-    background-color: var(--grey);
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dashboard .products .title form {
+    display: flex;
 }
 
 /* Users */
