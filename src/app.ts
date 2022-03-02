@@ -4,7 +4,6 @@ import path from 'path';
 import session from 'express-session';
 import morgan from 'morgan';
 import cors from 'cors';
-
 // Settings
 export const app = express();
 app.set('port', process.env.PORT || 3000);
@@ -45,4 +44,5 @@ app.use(morgan('tiny'));
 
 // routes
 app.use('/api/', require('./router/apiRouter'));
-app.use('/', require('./router/mainRouter'));
+app.use('/', require('./router/dashboardRouter'));
+app.use('/', require('./router/authRouter'));

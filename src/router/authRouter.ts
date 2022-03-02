@@ -1,17 +1,29 @@
 import { Router } from 'express';
 import {
-    accountView,
-    auth,
     loginView,
-    logOut,
-    registerPost,
     registerView,
+    logOut,
+    accountView,
+    registerPost,
+    auth,
 } from '../controllers/accountController';
-import { notFound } from '../controllers/mainController';
+import {
+    indexView,
+    products,
+    manageUsers,
+    manageCostumers,
+    searchUser,
+    salesById,
+    getUser,
+    downloadTicket,
+} from '../controllers/dashboardController';
+const { notFound } = require('../controllers/mainController');
 
-export const authRouter = Router();
-
-authRouter
+const router = Router();
+// Routing
+router
+    // Dashboard
+    // Login and authentication
     .get('/login', loginView)
     .get('/register', registerView)
     .get('/logout', logOut)
@@ -19,3 +31,5 @@ authRouter
     .post('/register', registerPost)
     .post('/auth', auth)
     .get('*', notFound);
+
+module.exports = router;
