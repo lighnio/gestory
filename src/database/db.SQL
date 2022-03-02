@@ -51,21 +51,10 @@ CREATE TABLE IF NOT EXISTS costumers(
 );
 
 
--- WORKING
-CREATE TABLE IF NOT EXISTS sales (
-    idSale int NOT NULL AUTO_INCREMENT,
-    costumer varchar(50) DEFAULT NULL,
-    PRIMARY KEY (`idSale`)
-);
-
--- Query example for costumers
--- INSERT INTO costumers(id) VALUES(UUID_TO_BIN( UUID() ) );
--- SELECT BIN_TO_UUID(id) FROM costumers;
-
 /* SALES TABLE */
 
 CREATE TABLE IF NOT EXISTS sales(
     idSale          BINARY(16) PRIMARY KEY NOT NULL DEFAULT(UUID_TO_BIN(UUID())),
     saleProfit      FLOAT,
-    dateSale        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    dateSale        TIMESTAMP NOT NULL DEFAULT NOW() 
 );
