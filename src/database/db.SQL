@@ -67,5 +67,5 @@ CREATE TABLE IF NOT EXISTS sales (
 CREATE TABLE IF NOT EXISTS sales(
     idSale          BINARY(16) PRIMARY KEY NOT NULL DEFAULT(UUID_TO_BIN(UUID())),
     saleProfit      FLOAT,
-    dateSale        TIMESTAMP
+    dateSale        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
