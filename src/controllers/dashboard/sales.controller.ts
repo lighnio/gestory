@@ -8,9 +8,7 @@ export const indexView = async (req: Request, res: Response) => {
     if (req.session.loggedIn) {
         // @ts-ignore
         const { name, rol, user } = req.session.data;
-
         const {date} = req.query;
-        console.log('date: ', date);
         const datequery = date? `WHERE dateSale BETWEEN '${date}-01-01' AND '${date}-12-31'` : '';
         
         console.log('datequery: ', datequery);
@@ -39,6 +37,8 @@ export const indexView = async (req: Request, res: Response) => {
                 const { profits } = profitObj;
                 const { avgSum } = averageSum;
 
+                let d = new Date;
+                const auxdate = date? date : d.getFullYear();
                 res.render('index', {
                     login: true,
                     name: name,
@@ -48,6 +48,7 @@ export const indexView = async (req: Request, res: Response) => {
                     allSales,
                     profits,
                     avgSum,
+                    auxdate
                 });
             }
         );
