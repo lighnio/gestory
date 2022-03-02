@@ -20,13 +20,13 @@ export const indexView = async (req: Request, res: Response) => {
         connection.query(`${queryAll};${queryProfits};${querySum};${queryAvg}`,[1, 2, 3, 4], async (err, results) => {
             if(err) throw err;
             
-            console.log(results)
             const {
                 sales: allSales,
                 profits: profitObj,
                 count: totalSales,
                 avgSum: averageSum
             } = salesHelper(results);
+
             const {profits} = profitObj
             const {avgSum} = averageSum;
             
