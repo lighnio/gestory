@@ -93,6 +93,8 @@ export const products = (req : Request, res : Response) => {
 
 
 }
+
+// This function returns all the users
 export const manageUsers = (req : Request, res : Response) => {
 
     if(req.session.loggedIn){
@@ -143,11 +145,16 @@ export const manageUsers = (req : Request, res : Response) => {
     }
 }
 
+
+// This function process the query and redirect to a search
+
 export const searchUser = (req : Request, res : Response) => {
     const { user } = req.body;
 
     res.redirect(`/users?search=${user}`)
 }
+
+// This fuctions get a user by id
 
 export const getUser = (req : Request, res : Response) => {
 
