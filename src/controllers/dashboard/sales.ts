@@ -1,9 +1,9 @@
-import { connection } from '../database/db';
-import { salesByIdHelper } from '../helpers/saleById';
-import { salesHelper } from '../helpers/salesHelper';
+import { salesByIdHelper } from '../../helpers/saleById';
+import { salesHelper } from '../../helpers/salesHelper';
+import { connection } from '../../database/db';
 import { Request, Response } from 'express';
 
-// THis is the main view
+// THis is the main view and it retuns all the sales
 export const indexView = async (req: Request, res: Response) => {
     if (req.session.loggedIn) {
         // @ts-ignore

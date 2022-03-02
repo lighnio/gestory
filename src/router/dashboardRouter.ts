@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { indexView, salesById } from '../controllers/dashboardController';
+import { indexView, salesById } from '../controllers/dashboard/sales';
 import { products, downloadTicket } from '../controllers/dashboard/products';
 import {
     getUser,
