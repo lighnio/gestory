@@ -7,16 +7,6 @@ import {
     registerPost,
     auth,
 } from '../controllers/accountController';
-import {
-    indexView,
-    products,
-    manageUsers,
-    manageCostumers,
-    searchUser,
-    salesById,
-    getUser,
-    downloadTicket,
-} from '../controllers/dashboardController';
 const { notFound } = require('../controllers/mainController');
 
 const router = Router();

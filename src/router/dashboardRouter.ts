@@ -6,10 +6,8 @@ import {
     searchUser,
     salesById,
     getUser,
-    downloadTicket,
 } from '../controllers/dashboardController';
-
-import { products } from '../controllers/dashboard/products';
+import { products, downloadTicket } from '../controllers/dashboard/products';
 
 const dashboardRouter = Router();
 
