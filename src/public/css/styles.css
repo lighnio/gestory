@@ -262,6 +262,21 @@ a {
 
 .dashboard .products .title form {
     display: flex;
+    width: 35%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard .products .title form input[type='submit'],
+.dashboard .products .title form select {
+    cursor: pointer;
+}
+
+.dashboard .products .title form input[type='submit'] {
+    padding: 0.5em 1em;
+    background: var(--dark);
+    border: none;
+    color: white;
 }
 
 /* Users */
