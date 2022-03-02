@@ -1,6 +1,10 @@
 import { Router } from 'express';
-import { indexView, salesById } from '../controllers/dashboard/sales';
-import { products, downloadTicket } from '../controllers/dashboard/products';
+import {
+    indexView,
+    salesById,
+    downloadTicket,
+} from '../controllers/dashboard/sales';
+import { products } from '../controllers/dashboard/products';
 import {
     getUser,
     manageUsers,
