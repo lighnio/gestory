@@ -25,23 +25,19 @@
     <table>
         <thead>
             <tr>
-                <th>id</th>
                 <th>Name</th>
                 <th>Serial</th>
                 <th>Price</th>
                 <th>Category</th>
-                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <% products.forEach(product => { %>
                 <tr>
-                    <td>                                                                                                    </td>
-                    <td><%= product.productName %></td>
+                    <td><a href="/product/<%= product.idProduct %>"><%= product.productName %></a></td>
                     <td><%= product.serialNumber %></td>
                     <td><%= product.productPrice %></td>
                     <td><%= product.productCategory %></td>
-                    <td><a href="/product/<%= product.idProduct %>">See product</a></td>
                 </tr>
             <% })%>
         </tbody>
