@@ -60,3 +60,5 @@ CREATE TABLE IF NOT EXISTS sales(
     ticket          LONGBLOB NOT NULL DEFAULT ('N/A'),
     costumerId      BINARY(16) NOT NULL DEFAULT (UUID_TO_BIN(UUID()))
 );
+
+INSERT INTO sales (saleProfit) VALUES (round(rand() * 100, 2));
