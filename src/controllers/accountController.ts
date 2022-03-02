@@ -34,7 +34,6 @@ export const accountView = (req: Request, res: Response) => {
     res.redirect("/");
   }
 };
-
 export const registerPost = async (req: Request, res: Response) => {
   const { user, name, rol, pass } = req.body;
   let passHash = await bcryptjs.hash(pass, 8);
