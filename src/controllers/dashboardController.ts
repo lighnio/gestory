@@ -72,7 +72,11 @@ export const salesById = (req: Request, res: Response) => {
 
 export const products = (req: Request, res: Response) => {
     if (req.session.loggedIn) {
-        connection.query('SELECT * FROM products;', async (err, results) => {
+        const fields: string =
+            'BIN_TO_UUID( idProduct ) AS idProduct, productName, serialNumber, productPrice, productCategory';
+        const query: string = `SELECT ${fields} from products`;
+
+        connection.query(query, async (err, results) => {
             if (err) throw err;
 
             // @ts-ignore
