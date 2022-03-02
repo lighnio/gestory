@@ -69,6 +69,8 @@ export const salesById = (req : Request, res : Response) => {
 
 }
 
+// This get all products 
+
 export const products = (req : Request, res : Response) => {
 
     if(req.session.loggedIn){
