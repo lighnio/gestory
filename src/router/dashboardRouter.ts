@@ -1,15 +1,13 @@
 import { Router } from 'express';
-import {
-    indexView,
-    manageCostumers,
-    salesById,
-} from '../controllers/dashboardController';
+import { indexView, salesById } from '../controllers/dashboardController';
 import { products, downloadTicket } from '../controllers/dashboard/products';
 import {
     getUser,
     manageUsers,
     searchUser,
 } from '../controllers/dashboard/users';
+import { manageCostumers } from '../controllers/dashboard/costumers';
+
 const dashboardRouter = Router();
 
 dashboardRouter
