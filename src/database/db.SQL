@@ -58,5 +58,5 @@ CREATE TABLE IF NOT EXISTS sales(
     saleProfit      FLOAT,
     dateSale        TIMESTAMP NOT NULL DEFAULT NOW(),
     ticket          LONGBLOB NOT NULL DEFAULT ('N/A'),
-    costumerId      BINARY(16) DEFAULT (UUID_TO_BIN(UUID()))
+    costumerId      BINARY(16) NOT NULL DEFAULT (UUID_TO_BIN(UUID()))
 );
