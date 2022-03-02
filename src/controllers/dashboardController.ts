@@ -1,5 +1,4 @@
 import { connection } from '../database/db';
-import { formatData } from '../helpers/manageCostumersHelper';
 import { salesByIdHelper } from '../helpers/saleById';
 import { salesHelper } from '../helpers/salesHelper';
 import { Request, Response } from 'express';
