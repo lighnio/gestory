@@ -15,10 +15,10 @@ export const indexView = async (req: Request, res: Response) => {
         
         const queryAll: string =
             `SELECT BIN_TO_UUID(idSale) AS idSale, saleProfit, dateSale, BIN_TO_UUID(costumerId) AS costumerId FROM sales ${datequery} ORDER BY dateSale DESC`;
-        const querySum: string = 'SELECT COUNT(*) AS COUNT FROM sales';
+        const querySum: string = `SELECT COUNT(*) AS COUNT FROM sales ${datequery}`;
         const queryProfits: string =
-            'SELECT ROUND(SUM(saleProfit), 2) as profits FROM sales';
-        const queryAvg: string = `SELECT ROUND(AVG(saleProfit), 2) AS avgSum FROM sales`;
+            `SELECT ROUND(SUM(saleProfit), 2) as profits FROM sales ${datequery}`;
+        const queryAvg: string = `SELECT ROUND(AVG(saleProfit), 2) AS avgSum FROM sales ${datequery}`;
 
         connection.query(
             `${queryAll};${queryProfits};${querySum};${queryAvg}`,
@@ -36,8 +36,8 @@ export const indexView = async (req: Request, res: Response) => {
                 const { profits } = profitObj;
                 const { avgSum } = averageSum;
 
-                let d = new Date;
-                const auxdate = date? date : d.getFullYear();
+                const creationDate = new Date();
+                const auxdate = date? date : creationDate.getFullYear();
                 res.render('index', {
                     login: true,
                     name: name,
