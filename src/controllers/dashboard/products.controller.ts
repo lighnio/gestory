@@ -26,3 +26,5 @@ export const products = (req: Request, res: Response) => {
         res.redirect('/');
     }
 };
+
+export const createProduct = (req: Request, res: Response) => {};
