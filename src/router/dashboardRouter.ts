@@ -16,6 +16,7 @@ import {
     searchUser,
 } from '../controllers/dashboard/users.controller';
 import { manageCostumers } from '../controllers/dashboard/costumers.controller';
+import { fileupload } from '../multer/multerConfig';
 
 const dashboardRouter = Router();
 
@@ -28,7 +29,7 @@ dashboardRouter
     .post('/', dateSales)
     .get('/products', products)
     .get('/newProduct', createProduct)
-    .post('/newProduct', saveProduct)
+    .post('/newProduct', fileupload, saveProduct)
     // Users
     .get('/users', manageUsers)
     .post('/users', searchUser)
