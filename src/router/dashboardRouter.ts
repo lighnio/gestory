@@ -8,6 +8,7 @@ import {
 import {
     createProduct,
     products,
+    saveProduct,
 } from '../controllers/dashboard/products.controller';
 import {
     getUser,
@@ -27,6 +28,7 @@ dashboardRouter
     .post('/', dateSales)
     .get('/products', products)
     .get('/newProduct', createProduct)
+    .post('//newProduct', saveProduct)
     // Users
     .get('/users', manageUsers)
     .post('/users', searchUser)

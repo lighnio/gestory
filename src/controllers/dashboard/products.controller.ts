@@ -49,3 +49,5 @@ export const createProduct = (req: Request, res: Response) => {
         res.redirect('/');
     }
 };
+
+export const saveProduct = (req: Request, res: Response) => {};
