@@ -51,13 +51,30 @@ export const createProduct = (req: Request, res: Response) => {
     }
 };
 
+// This controller save the image on the db
 export const saveProduct = (req: Request, res: Response) => {
-    const { body } = req;
+    const {
+        name: productName,
+        price: productPrice,
+        category: productCategory,
+        purchase: purchasePrice,
+    } = req.body;
 
-    const image = fs.readFileSync(
+    const productImage = fs.readFileSync(
         join(__dirname, '../../images/' + req.file?.filename)
     );
-    console.log(image);
 
-    res.send(body);
+    const fields: string =
+        'productName, productPrice, productCategory, purchasePrice, productImage';
+    const query: string = `INSERT INTO products SET ?`;
+
+    connection.query(query, {
+        productName,
+        productPrice,
+        productCategory,
+        productImage,
+        purchasePrice,
+    });
+
+    res.send(query);
 };
