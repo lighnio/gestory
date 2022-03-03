@@ -361,3 +361,21 @@ a {
     align-items: center;
     flex-direction: column;
 }
+
+.newProduct .form_title i {
+    font-size: 40px;
+    color: var(--dark);
+}
+
+.newProduct .form_title span {
+    font-size: 14px;
+    margin-top: 1em;
+    color: var(--dark);
+}
+
+.newProduct form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
