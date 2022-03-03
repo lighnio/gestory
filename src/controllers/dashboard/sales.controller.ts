@@ -10,10 +10,9 @@ export const indexView = async (req: Request, res: Response) => {
         const { name, rol, user } = req.session.data;
         const {date} = req.query;
         const datequery = date? `WHERE dateSale BETWEEN '${date}-01-01' AND '${date}-12-31'` : '';
-        
-        console.log('datequery: ', datequery);
-        
 
+        const currencyPrefix = 'Q';
+        
         const queryAll: string =
             `SELECT BIN_TO_UUID(idSale) AS idSale, saleProfit, dateSale, BIN_TO_UUID(costumerId) AS costumerId FROM sales ${datequery} ORDER BY dateSale DESC`;
         const querySum: string = 'SELECT COUNT(*) AS COUNT FROM sales';
@@ -48,7 +47,8 @@ export const indexView = async (req: Request, res: Response) => {
                     allSales,
                     profits,
                     avgSum,
-                    auxdate
+                    auxdate,
+                    currencyPrefix
                 });
             }
         );
