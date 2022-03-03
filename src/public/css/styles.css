@@ -346,7 +346,7 @@ a {
 }
 
 /* New product file */
-.newProduct {
+.addProduct {
     width: 100%;
     height: 100%;
     display: flex;
@@ -355,25 +355,25 @@ a {
     flex-direction: column;
 }
 
-.newProduct .form_title {
+.addProduct .form_title {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.newProduct .form_title i {
+.addProduct .form_title i {
     font-size: 40px;
     color: var(--dark);
 }
 
-.newProduct .form_title span {
+.addProduct .form_title span {
     font-size: 14px;
     margin-top: 1em;
     color: var(--dark);
 }
 
-.newProduct form {
+.addProduct form {
     display: flex;
     justify-content: center;
     align-items: center;
