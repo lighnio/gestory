@@ -1,0 +1,29 @@
+<form action="/newProduct" method="POST">
+    <div class="form_title">
+        <i class="fa-solid fa-boxes-stacked"></i>
+        <span>Add new product</span>
+    </div>
+    <div class="form_section">
+        <span>Product name</span>
+        <input type="text" name="name" id="" placeholder="Product name" />
+    </div>
+    <div class="form_section">
+        <span>Description</span>
+        <textarea name="description" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="form_section">
+        <span>Price: </span>
+        <input type="number" name="price"/>
+    </div>
+    <div class="form_section">
+        <span>Purchase</span>
+        <input type="text" name="purchase" />
+    </div>
+    <div class="form_section">
+        <span>Product image</span>
+        <input type="file" name="image" accept="image/png, image/jpeg" />
+    </div>
+    <div class="form_section">
+        <input type="submit" value="Add product" />
+    </div>
+</form>
