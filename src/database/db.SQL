@@ -20,7 +20,9 @@ CREATE TABLE IF NOT EXISTS products(
     productPrice        FLOAT,
     productCategory     VARCHAR(10),
     purchasePrice       FLOAT,
-    productImage        LONGBLOB   
+    productImage        LONGBLOB,
+    productImageType    VARCHAR(10),
+    productImageName    VARCHAR(50)   
 );
 
 -- EXAMPLE DATA
