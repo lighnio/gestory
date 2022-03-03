@@ -28,5 +28,5 @@ export const products = (req: Request, res: Response) => {
 };
 
 export const createProduct = (req: Request, res: Response) => {
-    res.send('Product');
+    res.render('newProduct');
 };
