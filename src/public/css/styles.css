@@ -344,3 +344,5 @@ a {
 .dashboard .pagination a:hover {
     filter: brightness(85%);
 }
+
+@import './partials/newProduct.css';
