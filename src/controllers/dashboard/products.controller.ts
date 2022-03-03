@@ -27,25 +27,21 @@ export const products = (req: Request, res: Response) => {
     }
 };
 
+// This function returns the newProduct form
 export const createProduct = (req: Request, res: Response) => {
     // @ts-ignore
     const { loggedIn } = req.session;
 
-    //
-    if (loggedIn) {
-        if (req.session.data) {
-            // @ts-ignore
-            const { rol } = req.session.data;
+    if (loggedIn && req.session.data) {
+        // @ts-ignore
+        const { rol } = req.session.data;
 
-            if (rol == 'admin') {
-                const responseFormat: object = {
-                    rol,
-                };
+        if (rol == 'admin') {
+            const responseFormat: object = {
+                rol,
+            };
 
-                res.render('newProduct', responseFormat);
-            } else {
-                res.redirect('/');
-            }
+            res.render('newProduct', responseFormat);
         } else {
             res.redirect('/');
         }
