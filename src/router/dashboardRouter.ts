@@ -3,6 +3,7 @@ import {
     indexView,
     salesById,
     downloadTicket,
+    dateSales,
 } from '../controllers/dashboard/sales.controller';
 import { products } from '../controllers/dashboard/products.controller';
 import {
@@ -17,7 +18,10 @@ const dashboardRouter = Router();
 dashboardRouter
     //sales
     .get('/', indexView)
+    .get('/sale/:saleId', salesById)
+    .get('/ticket/:saleId', downloadTicket);
     // Products
+    .post('/', dateSales)
     .get('/products', products)
     // Users
     .get('/users', manageUsers)
@@ -25,7 +29,6 @@ dashboardRouter
     .get('/user/:userId', getUser)
     // Costumers
     .get('/costumers', manageCostumers)
-    .get('/sale/:saleId', salesById)
-    .get('/ticket/:saleId', downloadTicket);
+    
 
 module.exports = dashboardRouter;
