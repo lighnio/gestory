@@ -11,8 +11,9 @@ import { ResponseFormat } from '../types/apiType';
 
 // This returns the last 10 added products to the sale
 export const apiMainPage = (req: Request, res: Response) => {
-    const query =
-        'SELECT BIN_TO_UUID(idProduct) AS productId, productName, productPrice FROM products LIMIT 10;';
+    const fields: string =
+        'BIN_TO_UUID(idProduct) AS id, productName, serialNumber, productPrice, productCategory, purchasePrice, productImage';
+    const query: string = `SELECT ${fields} FROM products LIMIT 10`;
     connection.query(query, (err, results) => {
         if (err) {
             let response: ResponseFormat = {
