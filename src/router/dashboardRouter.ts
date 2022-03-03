@@ -5,7 +5,10 @@ import {
     downloadTicket,
     dateSales,
 } from '../controllers/dashboard/sales.controller';
-import { products } from '../controllers/dashboard/products.controller';
+import {
+    createProduct,
+    products,
+} from '../controllers/dashboard/products.controller';
 import {
     getUser,
     manageUsers,
@@ -23,6 +26,7 @@ dashboardRouter
     // Products
     .post('/', dateSales)
     .get('/products', products)
+    .get('/products/create', createProduct)
     // Users
     .get('/users', manageUsers)
     .post('/users', searchUser)
