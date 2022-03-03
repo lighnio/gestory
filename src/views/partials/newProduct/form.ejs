@@ -5,23 +5,29 @@
     </div>
     <div class="form_section">
         <span>Product name</span>
-        <input type="text" name="name" id="" placeholder="Product name" />
+        <input type="text" name="name" id="" placeholder="Product name" required />
     </div>
     <div class="form_section">
         <span>Description</span>
-        <textarea name="description" id="" cols="30" rows="10"></textarea>
+        <textarea name="description" id="" cols="30" rows="10" required></textarea>
     </div>
     <div class="form_section">
         <span>Price: </span>
-        <input type="number" name="price"/>
+        <input type="number" name="price" required/>
     </div>
     <div class="form_section">
         <span>Purchase</span>
-        <input type="text" name="purchase" />
+        <input type="text" name="purchase" required />
+    </div>
+    <div class="form_section">
+        <span>Category</span>
+        <select name="category" id="" required>
+            <option value="computer">Computer</option>
+        </select>
     </div>
     <div class="form_section">
         <span>Product image</span>
-        <input type="file" name="image" accept="image/png, image/jpeg" />
+        <input type="file" name="image" accept="image/png, image/jpeg" required />
     </div>
     <div class="form_section">
         <input type="submit" value="Add product" />
