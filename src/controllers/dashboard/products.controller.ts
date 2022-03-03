@@ -60,12 +60,13 @@ export const saveProduct = (req: Request, res: Response) => {
         purchase: purchasePrice,
     } = req.body;
 
+    const productImageType = req.file?.mimetype;
+    const productImageName = req.file?.originalname;
+
     const productImage = fs.readFileSync(
         join(__dirname, '../../images/' + req.file?.filename)
     );
 
-    const fields: string =
-        'productName, productPrice, productCategory, purchasePrice, productImage';
     const query: string = `INSERT INTO products SET ?`;
 
     connection.query(query, {
