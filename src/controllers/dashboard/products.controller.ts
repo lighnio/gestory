@@ -1,8 +1,5 @@
 import { Request, Response } from 'express';
 import { connection } from '../../database/db';
-import multer from 'multer';
-import fs from 'fs';
-import path from 'path';
 
 // This returns all the products
 export const products = (req: Request, res: Response) => {
