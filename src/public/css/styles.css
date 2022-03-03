@@ -348,11 +348,14 @@ a {
 /* New product file */
 .newProduct {
     width: 100%;
-    background: black;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
 }
 
-.form_title {
-    background: black;
+.newProduct .form_title {
     display: flex;
     justify-content: center;
     align-items: center;
