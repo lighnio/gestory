@@ -28,7 +28,7 @@ dashboardRouter
     .post('/', dateSales)
     .get('/products', products)
     .get('/newProduct', createProduct)
-    .post('//newProduct', saveProduct)
+    .post('/newProduct', saveProduct)
     // Users
     .get('/users', manageUsers)
     .post('/users', searchUser)

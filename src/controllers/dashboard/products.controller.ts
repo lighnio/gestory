@@ -50,4 +50,10 @@ export const createProduct = (req: Request, res: Response) => {
     }
 };
 
-export const saveProduct = (req: Request, res: Response) => {};
+export const saveProduct = (req: Request, res: Response) => {
+    const { body } = req;
+
+    console.log(body);
+
+    res.send(body);
+};
