@@ -19,7 +19,7 @@ dashboardRouter
     //sales
     .get('/', indexView)
     .get('/sale/:saleId', salesById)
-    .get('/ticket/:saleId', downloadTicket);
+    .get('/ticket/:saleId', downloadTicket)
     // Products
     .post('/', dateSales)
     .get('/products', products)
@@ -28,7 +28,6 @@ dashboardRouter
     .post('/users', searchUser)
     .get('/user/:userId', getUser)
     // Costumers
-    .get('/costumers', manageCostumers)
-    
+    .get('/costumers', manageCostumers);
 
 module.exports = dashboardRouter;
