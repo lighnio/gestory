@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { connection } from '../../database/db';
 import fs from 'fs';
-
+import { join } from 'path';
 // This returns all the products
 export const products = (req: Request, res: Response) => {
     if (req.session.loggedIn) {
@@ -54,7 +54,10 @@ export const createProduct = (req: Request, res: Response) => {
 export const saveProduct = (req: Request, res: Response) => {
     const { body } = req;
 
-    console.log(body);
+    const image = fs.readFileSync(
+        join(__dirname, '../../images/' + req.file?.filename)
+    );
+    console.log(image);
 
     res.send(body);
 };

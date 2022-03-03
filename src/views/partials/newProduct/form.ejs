@@ -2,7 +2,7 @@
     <i class="fa-solid fa-boxes-stacked"></i>
     <span>Add new product</span>
 </div>
-<form action="/newProduct" method="POST">
+<form action="/newProduct" method="POST" enctype="multipart/form-data">
     
     <div class="form_section">
         <span>Product name</span>
@@ -28,7 +28,7 @@
     </div>
     <div class="form_section">
         <span>Product image</span>
-        <input type="file" name="image" accept="image/png, image/jpeg" required />
+        <input type="file" name="img" accept="image/png, image/jpeg" required />
     </div>
     <div class="form_section">
         <input type="submit" value="Add product" />
