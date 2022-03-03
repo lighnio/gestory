@@ -345,4 +345,16 @@ a {
     filter: brightness(85%);
 }
 
-@import './partials/newProduct.css';
+/* New product file */
+.newProduct {
+    width: 100%;
+    background: black;
+}
+
+.form_title {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
