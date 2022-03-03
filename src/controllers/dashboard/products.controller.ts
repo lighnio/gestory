@@ -75,6 +75,8 @@ export const saveProduct = (req: Request, res: Response) => {
         productCategory,
         productImage,
         purchasePrice,
+        productImageType,
+        productImageName,
     });
 
     res.send(query);
