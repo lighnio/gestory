@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { connection } from '../../database/db';
+import fs from 'fs';
 
 // This returns all the products
 export const products = (req: Request, res: Response) => {
