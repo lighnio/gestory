@@ -28,5 +28,28 @@ export const products = (req: Request, res: Response) => {
 };
 
 export const createProduct = (req: Request, res: Response) => {
-    res.render('newProduct');
+    // @ts-ignore
+    const { loggedIn } = req.session;
+
+    //
+    if (loggedIn) {
+        if (req.session.data) {
+            // @ts-ignore
+            const { rol } = req.session.data;
+
+            if (rol == 'admin') {
+                const responseFormat: object = {
+                    rol,
+                };
+
+                res.render('newProduct', responseFormat);
+            } else {
+                res.redirect('/');
+            }
+        } else {
+            res.redirect('/');
+        }
+    } else {
+        res.redirect('/');
+    }
 };
