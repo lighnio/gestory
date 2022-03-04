@@ -1,0 +1,1 @@
+const productByIdHelper = (data: object) => {};
