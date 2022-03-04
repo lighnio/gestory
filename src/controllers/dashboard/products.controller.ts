@@ -71,6 +71,7 @@ export const saveProduct = (req: Request, res: Response) => {
         price: productPrice,
         category: productCategory,
         purchase: purchasePrice,
+        description: productDescription,
     } = req.body;
 
     const productImageType = req.file?.mimetype;
@@ -84,6 +85,7 @@ export const saveProduct = (req: Request, res: Response) => {
 
     connection.query(query, {
         productName,
+        productDescription,
         productPrice,
         productCategory,
         productImage,
