@@ -6,7 +6,7 @@ interface dataStructure {
     productPrice: number;
     productCategory: string;
     purchasePrice: number;
-    productImage: Array<string | Array<object>> | string;
+    productImage: any;
 }
 
 export const productByIdHelper = (data: Array<dataStructure>) => {
@@ -20,4 +20,19 @@ export const productByIdHelper = (data: Array<dataStructure>) => {
         purchasePrice,
         productImage,
     } = data[0];
+
+    const imgToBase64: any = Buffer.from(productImage).toString('base64');
+
+    const response: dataStructure = {
+        idProduct,
+        productName,
+        productCategory,
+        productDescription,
+        serialNumber,
+        productPrice,
+        purchasePrice,
+        productImage: imgToBase64,
+    };
+
+    return response;
 };

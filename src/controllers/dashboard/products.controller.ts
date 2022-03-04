@@ -47,7 +47,6 @@ export const getProductById = (req: Request, res: Response) => {
             let formatedData = JSON.parse(JSON.stringify(results));
             const data = productByIdHelper(formatedData);
 
-            console.log(formatedData);
             // const imgProcessed = Buffer.from(img).toString('base64');
             res.render('viewProduct', {
                 rol,
