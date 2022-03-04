@@ -53,8 +53,6 @@ export const createProduct = (req: Request, res: Response) => {
                         categories,
                     };
 
-                    console.log(responseFormat.categories);
-
                     res.render('newProduct', responseFormat);
                 }
             );
