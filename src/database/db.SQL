@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS users(
 CREATE TABLE IF NOT EXISTS products(
     idProduct           BINARY(16) PRIMARY KEY DEFAULT (UUID_TO_BIN(UUID())),
     productName         VARCHAR(60),
+    productDescription  TEXT NOT NULL,
     serialNumber        VARCHAR(60) UNIQUE DEFAULT (CONCAT('DRESSU-', UUID_SHORT())),
     productPrice        FLOAT,
     productCategory     VARCHAR(10),
