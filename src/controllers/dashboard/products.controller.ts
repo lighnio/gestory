@@ -44,9 +44,10 @@ export const getProductById = (req: Request, res: Response) => {
         connection.query(query, (err, results) => {
             if (err) throw err;
 
-            const data = productByIdHelper(results);
+            let formatedData = JSON.parse(JSON.stringify(results));
+            const data = productByIdHelper(formatedData);
 
-            console.log(results);
+            console.log(formatedData);
             // const imgProcessed = Buffer.from(img).toString('base64');
             res.render('viewProduct', {
                 rol,
