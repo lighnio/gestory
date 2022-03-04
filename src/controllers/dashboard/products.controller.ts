@@ -79,5 +79,5 @@ export const saveProduct = (req: Request, res: Response) => {
         productImageName,
     });
 
-    res.send(query);
+    res.redirect('/products');
 };
