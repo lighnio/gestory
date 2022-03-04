@@ -6,7 +6,7 @@ interface dataStructure {
     productPrice: number;
     productCategory: string;
     purchasePrice: number;
-    productImage: any;
+    productImage: Array<string | Array<object>> | string;
 }
 
 export const productByIdHelper = (data: Array<dataStructure>) => {
