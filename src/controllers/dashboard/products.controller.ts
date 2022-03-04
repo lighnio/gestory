@@ -43,10 +43,17 @@ export const createProduct = (req: Request, res: Response) => {
                 (err, results) => {
                     if (err) throw err;
 
-                    const responseFormat: object = {
+                    interface responseFormatType {
+                        rol: string;
+                        categories: Array<object>;
+                    }
+                    let categories = JSON.parse(JSON.stringify(results));
+                    const responseFormat: responseFormatType = {
                         rol,
-                        categories: results,
+                        categories,
                     };
+
+                    console.log(responseFormat.categories);
 
                     res.render('newProduct', responseFormat);
                 }
