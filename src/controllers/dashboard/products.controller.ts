@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { connection } from '../../database/db';
+import { productByIdHelper } from '../../helpers/products/getProductByIdHellper';
 import fs from 'fs';
 import { join } from 'path';
 // This returns all the products
@@ -43,13 +44,13 @@ export const getProductById = (req: Request, res: Response) => {
         connection.query(query, (err, results) => {
             if (err) throw err;
 
-            const data = JSON.parse(JSON.stringify(results));
+            const data = productByIdHelper(results);
 
-            const img = data[0].productImage;
-            const imgProcessed = Buffer.from(img).toString('base64');
+            console.log(results);
+            // const imgProcessed = Buffer.from(img).toString('base64');
             res.render('viewProduct', {
                 rol,
-                data: imgProcessed,
+                data,
             });
         });
     } else {

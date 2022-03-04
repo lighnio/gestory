@@ -1,1 +1,5 @@
-const productByIdHelper = (data: object) => {};
+interface dataStructure {}
+
+export const productByIdHelper = (data: Array<dataStructure>) => {
+    console.log(data);
+};
