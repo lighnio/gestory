@@ -37,14 +37,16 @@ export const getProductById = (req: Request, res: Response) => {
         const { rol } = data;
         const { id } = req.params;
         const fields: string =
-            'BIN_TO_UUID(idProduct) AS idProduct, productName, productDescription, serialNumber, productPrice, productCategory, purchasePrice';
+            'BIN_TO_UUID(idProduct) AS idProduct, productName, productDescription, serialNumber, productPrice, productCategory, purchasePrice, productImage';
         const query: string = `SELECT ${fields} FROM products WHERE BIN_TO_UUID(idProduct) = '${id}';`;
 
         connection.query(query, (err, results) => {
             if (err) throw err;
 
+            const data = JSON.parse(JSON.stringify(results));
             res.render('viewProduct', {
                 rol,
+                data,
             });
         });
     } else {
