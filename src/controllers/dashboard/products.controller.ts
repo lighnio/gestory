@@ -33,7 +33,7 @@ export const products = (req: Request, res: Response) => {
 export const getProductById = (req: Request, res: Response) => {
     const { id } = req.params;
 
-    const query: string = `SELECT * FROM products WHERE UUID_TO_BIN(idProduct) = '${id}';`;
+    const query: string = `SELECT * FROM products WHERE BIN_TO_UUID(idProduct) = '${id}';`;
 
     connection.query(query, (err, results) => {
         if (err) throw err;
