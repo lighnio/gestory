@@ -28,6 +28,20 @@ export const products = (req: Request, res: Response) => {
     }
 };
 
+// This controller gets a single product
+
+export const getProductById = (req: Request, res: Response) => {
+    const { id } = req.params;
+
+    const query: string = `SELECT * FROM products WHERE UUID_TO_BIN(idProduct) = '${id}';`;
+
+    connection.query(query, (err, results) => {
+        if (err) throw err;
+
+        res.send(results);
+    });
+};
+
 // This function returns the newProduct form
 export const createProduct = (req: Request, res: Response) => {
     // @ts-ignore
