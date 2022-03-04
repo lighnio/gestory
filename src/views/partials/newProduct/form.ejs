@@ -23,7 +23,11 @@
     <div class="form_section">
         <span>Category</span>
         <select name="category" id="" required>
-            <option value="computer">Computer</option>
+            <% categories.map( element => { %>
+
+                <option value="<%= element %>">* <%= element %></option>
+
+            <%})%>
         </select>
     </div>
     <div class="form_section">
