@@ -25,7 +25,7 @@
         <select name="category" id="" required>
             <% categories.map( element => { %>
 
-                <option value="<%= element %>">* <%= element %></option>
+                <option value="<%= element %>"><%= element.category %></option>
 
             <%})%>
         </select>
