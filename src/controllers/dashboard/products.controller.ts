@@ -44,9 +44,12 @@ export const getProductById = (req: Request, res: Response) => {
             if (err) throw err;
 
             const data = JSON.parse(JSON.stringify(results));
+
+            const img = data[0].productImage;
+            const imgProcessed = Buffer.from(img).toString('base64');
             res.render('viewProduct', {
                 rol,
-                data,
+                data: imgProcessed,
             });
         });
     } else {
