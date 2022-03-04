@@ -38,11 +38,19 @@ export const createProduct = (req: Request, res: Response) => {
         const { rol } = req.session.data;
 
         if (rol == 'admin') {
-            const responseFormat: object = {
-                rol,
-            };
+            connection.query(
+                `SELECT category FROM categories`,
+                (err, results) => {
+                    if (err) throw err;
 
-            res.render('newProduct', responseFormat);
+                    const responseFormat: object = {
+                        rol,
+                        categories: results,
+                    };
+
+                    res.render('newProduct', responseFormat);
+                }
+            );
         } else {
             res.redirect('/');
         }

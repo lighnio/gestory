@@ -70,3 +70,9 @@ CREATE TABLE IF NOT EXISTS sales(
 );
 
 INSERT INTO sales (saleProfit) VALUES (round(rand() * 100, 2));
+
+/* Categories table */
+
+CREATE TABLE IF NOT EXISTS categories(
+    category    VARCHAR(10) NOT NULL UNIQUE
+);
