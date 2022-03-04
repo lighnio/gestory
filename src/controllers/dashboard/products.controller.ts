@@ -31,17 +31,25 @@ export const products = (req: Request, res: Response) => {
 // This controller gets a single product
 
 export const getProductById = (req: Request, res: Response) => {
-    const { id } = req.params;
+    const { loggedIn, data } = req.session;
 
-    const fields: string =
-        'BIN_TO_UUID(idProduct) AS idProduct, productName, productDescription, serialNumber, productPrice, productCategory, purchasePrice';
-    const query: string = `SELECT ${fields} FROM products WHERE BIN_TO_UUID(idProduct) = '${id}';`;
+    if (loggedIn && data) {
+        const { rol } = data;
+        const { id } = req.params;
+        const fields: string =
+            'BIN_TO_UUID(idProduct) AS idProduct, productName, productDescription, serialNumber, productPrice, productCategory, purchasePrice';
+        const query: string = `SELECT ${fields} FROM products WHERE BIN_TO_UUID(idProduct) = '${id}';`;
 
-    connection.query(query, (err, results) => {
-        if (err) throw err;
+        connection.query(query, (err, results) => {
+            if (err) throw err;
 
-        res.send(results);
-    });
+            res.render('viewProduct', {
+                rol,
+            });
+        });
+    } else {
+        res.redirect('/');
+    }
 };
 
 // This function returns the newProduct form
