@@ -351,13 +351,13 @@ a {
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 1em;
 }
 
 .addProduct .title {
     width: 100%;
-    padding: 0 0 1em 0;
+    padding: 1em;
     font-weight: 700;
+    background: var(--grey);
 }
 
 .addProduct .form_title i {
