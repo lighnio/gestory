@@ -399,4 +399,22 @@ a {
 }
 
 .addProduct form .form_input {
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addProduct form .form_input input {
+    padding: 0.5em 1em;
+    border: none;
+    background: var(--primary);
+    font-size: 15px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+.addProduct form .form_input input:active {
+    filter: brightness(0.9);
 }
