@@ -359,18 +359,3 @@ a {
     font-weight: 700;
     background: var(--grey);
 }
-
-.addProduct .form_title i {
-    font-size: 40px;
-    color: var(--dark);
-}
-
-.addProduct .form_title span {
-    font-size: 14px;
-    margin-top: 1em;
-    color: var(--dark);
-}
-
-.addProduct form {
-    display: grid;
-}
