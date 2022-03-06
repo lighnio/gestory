@@ -39,7 +39,7 @@ export const apiMainPage = (req: Request, res: Response) => {
         console.log(formatedResults);
         res.send({
             err: false,
-            data: 'hola',
+            data: formatedResults,
         });
     });
 };
