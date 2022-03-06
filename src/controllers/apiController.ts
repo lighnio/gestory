@@ -25,6 +25,14 @@ export const apiMainPage = (req: Request, res: Response) => {
 
             throw err;
         }
+
+        let formatedResults: Array<object> = [];
+
+        results.map((product: object) => {
+            formatedResults = [...formatedResults, product];
+        });
+
+        console.log(formatedResults);
         res.send({
             err: false,
             data: results,
