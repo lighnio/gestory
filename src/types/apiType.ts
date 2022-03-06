@@ -6,4 +6,10 @@ export interface ResponseFormat {
 
 export interface productType {
     id: string;
+    productName: string;
+    serialNumber: number;
+    productPrice: number;
+    productCategory: string;
+    purchasePrice: number;
+    productImage: any;
 }
