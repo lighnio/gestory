@@ -55,7 +55,9 @@ export const productInformation = (req: Request, res: Response) => {
         };
         res.send(response);
     } else {
-        const query = `SELECT productName, productPrice, productCategory FROM products WHERE BIN_TO_UUID(idProduct) = '${productId}';`;
+        const fields: string =
+            'BIN_TO_UUID(idProduct) AS idProduct, productName, productDescription, productPrice, serialNumber, productCategory, productImage';
+        const query = `SELECT ${fields} FROM products WHERE BIN_TO_UUID(idProduct) = '${productId}';`;
         connection.query(query, (err, results) => {
             console.log(err);
             if (err) {
