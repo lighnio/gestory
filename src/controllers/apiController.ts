@@ -13,7 +13,7 @@ import { processProductHelper } from '../helpers/api/getProductHelper';
 // This returns the last 10 added products to the sale
 export const apiMainPage = (req: Request, res: Response) => {
     const fields: string =
-        'BIN_TO_UUID(idProduct) AS id, productName, serialNumber, productPrice, productCategory, purchasePrice, productImage';
+        'BIN_TO_UUID(idProduct) AS id, productName, serialNumber, productPrice, productCategory, productImage';
     const query: string = `SELECT ${fields} FROM products LIMIT 10`;
     connection.query(query, (err, results) => {
         if (err) {

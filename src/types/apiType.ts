@@ -10,6 +10,5 @@ export interface productType {
     serialNumber: number;
     productPrice: number;
     productCategory: string;
-    purchasePrice: number;
     productImage: any;
 }

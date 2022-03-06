@@ -8,7 +8,6 @@ export const processProductHelper = (product: productType) => {
         productName,
         productPrice,
         serialNumber,
-        purchasePrice,
     } = product;
 
     const data: productType = {
@@ -17,7 +16,6 @@ export const processProductHelper = (product: productType) => {
         productName,
         productPrice,
         serialNumber,
-        purchasePrice,
         productImage: Buffer.from(productImage).toString('base64'),
     };
 
