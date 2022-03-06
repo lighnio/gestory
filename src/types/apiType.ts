@@ -3,3 +3,7 @@ export interface ResponseFormat {
     msg?: string;
     data?: Array<object>;
 }
+
+export interface productType {
+    id: string;
+}

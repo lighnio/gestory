@@ -1,6 +1,7 @@
 import { connection } from '../database/db';
 import { Request, Response } from 'express';
-import { ResponseFormat } from '../types/apiType';
+import { ResponseFormat, productType } from '../types/apiType';
+import { processProductHelper } from '../helpers/api/getProductHelper';
 
 // To return any information folow the next structure:
 // If it have a error
@@ -28,14 +29,17 @@ export const apiMainPage = (req: Request, res: Response) => {
 
         let formatedResults: Array<object> = [];
 
-        results.map((product: object) => {
-            formatedResults = [...formatedResults, product];
+        results.map((product: productType) => {
+            formatedResults = [
+                ...formatedResults,
+                processProductHelper(product),
+            ];
         });
 
         console.log(formatedResults);
         res.send({
             err: false,
-            data: results,
+            data: 'hola',
         });
     });
 };
