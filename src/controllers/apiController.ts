@@ -56,7 +56,7 @@ export const productInformation = (req: Request, res: Response) => {
         res.send(response);
     } else {
         const fields: string =
-            'BIN_TO_UUID(idProduct) AS idProduct, productName, productDescription, productPrice, serialNumber, productCategory, productImage';
+            'BIN_TO_UUID(idProduct) AS id, productName, productDescription, productPrice, serialNumber, productCategory, productImage';
         const query = `SELECT ${fields} FROM products WHERE BIN_TO_UUID(idProduct) = '${productId}';`;
         connection.query(query, (err, results) => {
             console.log(err);
@@ -67,11 +67,17 @@ export const productInformation = (req: Request, res: Response) => {
                 };
                 res.send(response);
             } else {
+                let toArray = JSON.parse(JSON.stringify(results));
+
+                let orderedData: Array<productType> = toArray.map(
+                    (element: productType) => processProductHelper(element)
+                );
+                console.log(orderedData);
                 let response: ResponseFormat = {
                     err: false,
-                    data: results,
+                    data: orderedData,
                 };
-                res.send(response);
+                res.json(response);
             }
         });
     }
