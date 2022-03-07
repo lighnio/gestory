@@ -50,7 +50,7 @@ a {
 /* Aside styles */
 .row aside {
   width: 13%;
-  background: var(--dark);
+  background: #2c3e50;
   display: flex;
   flex-direction: column;
 }
@@ -58,17 +58,17 @@ a {
 .row aside a {
   padding: 0.8em 1em;
   text-align: left;
-  color: var(--fontDarkBg);
+  color: #bdc3c7;
 }
 
 .row aside a i {
-  color: var(--fontDarkBg);
+  color: #bdc3c7;
   font-size: 14px;
   margin-right: 0.5em;
 }
 
 .row aside .active {
-  background: var(--primary);
+  background: #3498db;
   color: white;
 }
 
@@ -119,19 +119,19 @@ a {
 }
 
 .dashboard .metrics .primary {
-  background: var(--primary);
+  background: #3498db;
 }
 
 .dashboard .metrics .success {
-  background: var(--success);
+  background: #2ecc71;
 }
 
 .dashboard .metrics .warning {
-  background: var(--warning);
+  background: #f1c40f;
 }
 
 .dashboard .metrics .danger {
-  background: var(--danger);
+  background: #e74c3c;
 }
 
 /* Graphics file */
@@ -170,7 +170,7 @@ a {
 }
 
 .dashboard .graphics .select .date input[type=submit] {
-  background: var(--primary);
+  background: #3498db;
   border: none;
   color: white;
   padding: 0.3em 0;
@@ -199,7 +199,7 @@ a {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  background: var(--grey);
+  background: #ecf0f1;
 }
 
 .dashboard .sales .list {
@@ -221,14 +221,14 @@ a {
 }
 
 .dashboard table thead th {
-  background: var(--dark);
+  background: #2c3e50;
   color: white;
   text-align: center;
   padding: 1em;
 }
 
 .dashboard table tbody tr:nth-child(odd) {
-  background: var(--grey);
+  background: #ecf0f1;
 }
 
 .dashboard table tbody td {
@@ -261,13 +261,13 @@ a {
 
 .dashboard .products .title form input[type=submit] {
   padding: 0.5em 1em;
-  background: var(--dark);
+  background: #2c3e50;
   border: none;
   color: white;
 }
 
 .dashboard .products .title .newProduct {
-  background: var(--primary);
+  background: #3498db;
   padding: 0.5em 1em;
   color: white;
   margin-left: 1em;
@@ -301,16 +301,16 @@ a {
 
 .dashboard .search form input[type=submit] {
   padding: 0.5em 1em;
-  border: 1px solid var(--primary);
+  border: 1px solid #3498db;
   background: none;
-  color: var(--primary);
+  color: #3498db;
   font-size: 15px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
 
 .dashboard .search form input[type=submit]:hover {
-  background: var(--primary);
+  background: #3498db;
   color: white;
 }
 
@@ -323,7 +323,7 @@ a {
 }
 
 .dashboard .pagination a {
-  background: var(--primary);
+  background: #3498db;
   color: white;
   margin: 0 0.5em;
   padding: 1em;
@@ -346,7 +346,7 @@ a {
   width: 100%;
   padding: 1em;
   font-weight: 700;
-  background: var(--grey);
+  background: #ecf0f1;
 }
 
 .addProduct form {
@@ -358,7 +358,7 @@ a {
   width: 100%;
   display: grid;
   grid-template-columns: 20% 80%;
-  border: 1px solid var(--grey);
+  border: 1px solid #ecf0f1;
 }
 
 .addProduct form .form_section span {
@@ -366,7 +366,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid var(--grey);
+  border-right: 1px solid #ecf0f1;
   font-size: 14px;
 }
 
@@ -398,7 +398,7 @@ a {
 .addProduct form .form_input input {
   padding: 0.5em 1em;
   border: none;
-  background: var(--primary);
+  background: #3498db;
   font-size: 15px;
   color: white;
   font-weight: 700;
