@@ -1,420 +1,416 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('./variables.css');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("./variables.css");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto';
-    color: #333;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+  color: #333;
 }
 
 a {
-    text-decoration: none;
-    color: #333;
+  text-decoration: none;
+  color: #333;
 }
 
 /* Navbar styles */
-
 .navbar-dashboard {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    height: 3em;
-    align-items: center;
-    background: var(--dark);
-    color: white;
-    z-index: 10;
-    padding: 0 1em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 3em;
+  align-items: center;
+  background: var(--dark);
+  color: white;
+  z-index: 10;
+  padding: 0 1em;
 }
 
 .navbar-dashboard .options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-dashboard a {
-    color: white;
-    padding: 1em;
+  color: white;
+  padding: 1em;
 }
 
 .navbar-dashboard a i {
-    color: white;
-    font-size: 13px;
-    text-align: center;
-    margin-right: 0.5em;
+  color: white;
+  font-size: 13px;
+  text-align: center;
+  margin-right: 0.5em;
 }
 
 /* Body styles */
-
 .row {
-    display: flex;
-    position: relative;
-    height: calc(100vh - 3em);
+  display: flex;
+  position: relative;
+  height: calc(100vh - 3em);
 }
 
 /* Aside styles */
-
 .row aside {
-    width: 13%;
-    background: var(--dark);
-    display: flex;
-    flex-direction: column;
+  width: 13%;
+  background: var(--dark);
+  display: flex;
+  flex-direction: column;
 }
 
 .row aside a {
-    padding: 0.8em 1em;
-    text-align: left;
-    color: var(--fontDarkBg);
+  padding: 0.8em 1em;
+  text-align: left;
+  color: var(--fontDarkBg);
 }
 
 .row aside a i {
-    color: var(--fontDarkBg);
-    font-size: 14px;
-    margin-right: 0.5em;
+  color: var(--fontDarkBg);
+  font-size: 14px;
+  margin-right: 0.5em;
 }
 
 .row aside .active {
-    background: var(--primary);
-    color: white;
+  background: var(--primary);
+  color: white;
 }
 
 .row aside .active i {
-    color: white;
+  color: white;
 }
 
 /* Dashboard styles */
-
 .dashboard {
-    width: calc(100% - 13%);
-    padding: 1em;
+  width: 87%;
+  padding: 1em;
 }
 
 /* Metrics */
-
 .dashboard .metrics {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .dashboard .metrics .metric {
-    height: 5em;
-    width: calc(24% - 1em);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: white;
+  height: 5em;
+  width: calc(24% - 1em);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
 }
 
 .dashboard .metrics .metric .text {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
 }
 
 .dashboard .metrics .metric .text .number {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .dashboard .metrics .metric .text span {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .dashboard .metrics .metric i {
-    font-size: 30px;
-    text-align: center;
+  font-size: 30px;
+  text-align: center;
 }
 
 .dashboard .metrics .primary {
-    background: var(--primary);
+  background: var(--primary);
 }
 
 .dashboard .metrics .success {
-    background: var(--success);
+  background: var(--success);
 }
 
 .dashboard .metrics .warning {
-    background: var(--warning);
+  background: var(--warning);
 }
 
 .dashboard .metrics .danger {
-    background: var(--danger);
+  background: var(--danger);
 }
 
 /* Graphics file */
-
 .dashboard .graphics {
-    margin-top: 1em;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 25% auto;
-    column-gap: 0.5em;
+  margin-top: 1em;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25% auto;
+  column-gap: 0.5em;
 }
 
 .dashboard .graphics .select {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .dashboard .graphics .select .date {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1em;
 }
 
 .dashboard .graphics .select .date .text {
-    font-size: 13px;
-    font-weight: bold;
-    margin-bottom: 1.3em;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 1.3em;
 }
 
-.dashboard .graphics .select .date input[type='text'] {
-    width: 100%;
+.dashboard .graphics .select .date input[type=text] {
+  width: 100%;
 }
 
-.dashboard .graphics .select .date input[type='submit'] {
-    background: var(--primary);
-    border: none;
-    color: white;
-    padding: 0.3em 0;
-    font-size: 14px;
-    width: 25%;
+.dashboard .graphics .select .date input[type=submit] {
+  background: var(--primary);
+  border: none;
+  color: white;
+  padding: 0.3em 0;
+  font-size: 14px;
+  width: 25%;
 }
 
 .dashboard .graphics .select .box {
-    width: 100%;
-    height: 10em;
+  width: 100%;
+  height: 10em;
 }
 
 /* Table information */
-
 .dashboard .sales {
-    margin: 0 1em 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  margin: 0 1em 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .dashboard .sales .title {
-    height: 10%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    background: var(--grey);
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  background: var(--grey);
 }
 
 .dashboard .sales .list {
-    width: 100%;
-    height: calc(90% - 1em);
-    padding-top: 1em;
+  width: 100%;
+  height: calc(90% - 1em);
+  padding-top: 1em;
 }
 
 #tableManageUsers {
-    overflow-y: scroll;
-    height: 375px;
+  overflow-y: scroll;
+  height: 375px;
 }
 
 .dashboard table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 400px;
-    font-size: 0.9em;
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 400px;
+  font-size: 0.9em;
 }
 
 .dashboard table thead th {
-    background: var(--dark);
-    color: white;
-    text-align: center;
-    padding: 1em;
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 1em;
 }
 
 .dashboard table tbody tr:nth-child(odd) {
-    background: var(--grey);
+  background: var(--grey);
 }
+
 .dashboard table tbody td {
-    text-align: center;
-    padding: 0.5em;
+  text-align: center;
+  padding: 0.5em;
 }
 
 /* Products */
-
 .dashboard .products .title {
-    margin: 1em 0;
-    padding: 1em;
-    text-align: center;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin: 1em 0;
+  padding: 1em;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dashboard .products .title form {
-    display: flex;
-    width: 35%;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  width: 35%;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.dashboard .products .title form input[type='submit'],
+.dashboard .products .title form input[type=submit],
 .dashboard .products .title form select {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.dashboard .products .title form input[type='submit'] {
-    padding: 0.5em 1em;
-    background: var(--dark);
-    border: none;
-    color: white;
+.dashboard .products .title form input[type=submit] {
+  padding: 0.5em 1em;
+  background: var(--dark);
+  border: none;
+  color: white;
 }
 
 .dashboard .products .title .newProduct {
-    background: var(--primary);
-    padding: 0.5em 1em;
-    color: white;
-    margin-left: 1em;
+  background: var(--primary);
+  padding: 0.5em 1em;
+  color: white;
+  margin-left: 1em;
 }
-/* Users */
 
+/* Users */
 .dashboard .users {
-    margin: 1em 0 0 0;
-    width: 100%;
+  margin: 1em 0 0 0;
+  width: 100%;
 }
 
 .dashboard .search {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
 }
 
 .dashboard .search form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.dashboard .search form input[type='text'] {
-    padding: 0.5em 1em;
-    margin-right: 1em;
+.dashboard .search form input[type=text] {
+  padding: 0.5em 1em;
+  margin-right: 1em;
 }
 
-.dashboard .search form input[type='submit'] {
-    padding: 0.5em 1em;
-    border: 1px solid var(--primary);
-    background: none;
-    color: var(--primary);
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+.dashboard .search form input[type=submit] {
+  padding: 0.5em 1em;
+  border: 1px solid var(--primary);
+  background: none;
+  color: var(--primary);
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 
-.dashboard .search form input[type='submit']:hover {
-    background: var(--primary);
-    color: white;
+.dashboard .search form input[type=submit]:hover {
+  background: var(--primary);
+  color: white;
 }
 
 .dashboard .pagination {
-    padding: 1em;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 1em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dashboard .pagination a {
-    background: var(--primary);
-    color: white;
-    margin: 0 0.5em;
-    padding: 1em;
+  background: var(--primary);
+  color: white;
+  margin: 0 0.5em;
+  padding: 1em;
 }
 
 .dashboard .pagination a:hover {
-    filter: brightness(85%);
+  filter: brightness(85%);
 }
 
 /* New product file */
 .addProduct {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .addProduct .title {
-    width: 100%;
-    padding: 1em;
-    font-weight: 700;
-    background: var(--grey);
+  width: 100%;
+  padding: 1em;
+  font-weight: 700;
+  background: var(--grey);
 }
 
 .addProduct form {
-    width: 90%;
-    margin-top: 1em;
+  width: 90%;
+  margin-top: 1em;
 }
 
 .addProduct form .form_section {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 20% 80%;
-    border: 1px solid var(--grey);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  border: 1px solid var(--grey);
 }
 
 .addProduct form .form_section span {
-    padding: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid var(--grey);
-    font-size: 14px;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid var(--grey);
+  font-size: 14px;
 }
 
 .addProduct form .form_section input,
 .addProduct form .form_section textarea,
 .addProduct form .form_section select {
-    width: 90%;
-    padding: 0 1em;
+  width: 90%;
+  padding: 0 1em;
 }
+
 .addProduct form .form_section input,
 .addProduct form .form_section select {
-    height: 100%;
-    border: none;
+  height: 100%;
+  border: none;
 }
 
 .addProduct form .form_section textarea {
-    padding: 1em;
+  padding: 1em;
 }
 
 .addProduct form .form_input {
-    width: 100%;
-    padding: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .addProduct form .form_input input {
-    padding: 0.5em 1em;
-    border: none;
-    background: var(--primary);
-    font-size: 15px;
-    color: white;
-    font-weight: 700;
-    cursor: pointer;
+  padding: 0.5em 1em;
+  border: none;
+  background: var(--primary);
+  font-size: 15px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
 }
+
 .addProduct form .form_input input:active {
-    filter: brightness(0.9);
+  filter: brightness(0.9);
 }
+
+/*# sourceMappingURL=styles.css.map */
