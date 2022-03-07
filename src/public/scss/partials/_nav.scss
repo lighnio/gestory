@@ -10,22 +10,22 @@
     color: white;
     z-index: 10;
     padding: 0 1em;
-}
 
-.navbar-dashboard .options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .options {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.navbar-dashboard a {
-    color: white;
-    padding: 1em;
-}
+    a {
+        color: white;
+        padding: 1em;
 
-.navbar-dashboard a i {
-    color: white;
-    font-size: 13px;
-    text-align: center;
-    margin-right: 0.5em;
+        i {
+            color: white;
+            font-size: 13px;
+            text-align: center;
+            margin-right: 0.5em;
+        }
+    }
 }
