@@ -14,38 +14,9 @@ a {
     color: #333;
 }
 
-/* Navbar styles */
+// Navbar styles
 
-.navbar-dashboard {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    height: 3em;
-    align-items: center;
-    background: var(--dark);
-    color: white;
-    z-index: 10;
-    padding: 0 1em;
-}
-
-.navbar-dashboard .options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbar-dashboard a {
-    color: white;
-    padding: 1em;
-}
-
-.navbar-dashboard a i {
-    color: white;
-    font-size: 13px;
-    text-align: center;
-    margin-right: 0.5em;
-}
-
+@import './partials/nav';
 /* Body styles */
 
 .row {
