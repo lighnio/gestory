@@ -7,6 +7,7 @@ export const manageUsers = (req: Request, res: Response) => {
     if (req.session.loggedIn) {
         // @ts-ignore
         const { rol } = req.session.data;
+        const pageName = "users"
 
         if (req.query.search) {
             const { search } = req.query;
@@ -19,6 +20,7 @@ export const manageUsers = (req: Request, res: Response) => {
                     rol,
                     users: results,
                     total: null,
+                    pageName
                 });
             });
         } else {
@@ -40,6 +42,7 @@ export const manageUsers = (req: Request, res: Response) => {
                     rol,
                     users: results[0],
                     total,
+                    pageName
                 });
             });
         }

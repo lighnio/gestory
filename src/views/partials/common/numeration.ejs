@@ -1,5 +1,5 @@
 <div class="pagination">
     <%for(let i = 0; i < total; i+=10){%>
-        <a href="/users?page=<%= (i/10)+1 %>"><%= (i/10)+1 %></a>
+        <a href="/<%= pageName %>/?page=<%= (i/10)+1 %>"><%= (i/10)+1 %></a>
     <%}%>
 </div>

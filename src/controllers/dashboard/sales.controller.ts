@@ -10,11 +10,12 @@ export const indexView = async (req: Request, res: Response) => {
         const { name, rol, user } = req.session.data;
         const {date} = req.query;
         const datequery = date? `WHERE dateSale BETWEEN '${date}-01-01' AND '${date}-12-31'` : '';
+        
 
         const currencyPrefix = 'Q';
         
         const queryAll: string =
-            `SELECT BIN_TO_UUID(idSale) AS idSale, saleProfit, dateSale, BIN_TO_UUID(costumerId) AS costumerId FROM sales ${datequery} ORDER BY dateSale DESC`;
+            `SELECT BIN_TO_UUID(idSale) AS idSale, saleProfit, dateSale, BIN_TO_UUID(costumerId) AS costumerId FROM sales ${datequery} ORDER BY dateSale DESC LIMIT 0, 10`;
         const querySum: string = `SELECT COUNT(*) AS COUNT FROM sales ${datequery}`;
         const queryProfits: string =
             `SELECT ROUND(SUM(saleProfit), 2) as profits FROM sales ${datequery}`;
@@ -29,9 +30,11 @@ export const indexView = async (req: Request, res: Response) => {
                 const {
                     sales: allSales,
                     profits: profitObj,
-                    count: totalSales,
+                    count: total,
                     avgSum: averageSum,
                 } = salesHelper(results);
+
+                const pageName = 'sales'
 
                 const { profits } = profitObj;
                 const { avgSum } = averageSum;
@@ -43,12 +46,13 @@ export const indexView = async (req: Request, res: Response) => {
                     name: name,
                     rol: rol,
                     user: user,
-                    totalSales,
+                    total,
                     allSales,
                     profits,
                     avgSum,
                     auxdate,
-                    currencyPrefix
+                    currencyPrefix,
+                    pageName
                 });
             }
         );
@@ -89,3 +93,7 @@ export const dateSales = async (req: Request, res: Response) => {
 
     res.redirect(`/?date=${date}`);
 };
+
+export const page = async(req: Request, res: Response) => {
+    const {page} = req.body;
+}
