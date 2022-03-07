@@ -23,8 +23,9 @@ const dashboardRouter = Router();
 
 dashboardRouter
     //sales
+    .get('/', indexView)
     .get('/sales', indexView)
-    .get('/sales/:saleId', salesById)
+    .get('/sale/:saleId', salesById)
     .get('/ticket/:saleId', downloadTicket)
     // Products
     .post('/', dateSales)
