@@ -104,10 +104,13 @@ export const saveProduct = (req: Request, res: Response) => {
         description: productDescription,
     } = req.body;
 
+    // @ts-ignore
     const productImageType = req.file?.mimetype;
+    // @ts-ignore
     const productImageName = req.file?.originalname;
 
     const productImage = fs.readFileSync(
+        // @ts-ignore
         join(__dirname, '../../images/' + req.file?.filename)
     );
 
