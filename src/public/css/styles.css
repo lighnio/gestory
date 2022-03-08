@@ -40,7 +40,7 @@ a {
   margin-right: 0.5em;
 }
 
-/* Body styles */
+/* Body styles and aside styles */
 .row {
   display: flex;
   position: relative;

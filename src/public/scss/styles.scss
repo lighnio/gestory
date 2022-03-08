@@ -17,43 +17,8 @@ a {
 // Navbar styles
 
 @import './partials/nav';
-/* Body styles */
-
-.row {
-    display: flex;
-    position: relative;
-    height: calc(100vh - 3em);
-}
-
-/* Aside styles */
-
-.row aside {
-    width: 13%;
-    background: $dark;
-    display: flex;
-    flex-direction: column;
-}
-
-.row aside a {
-    padding: 0.8em 1em;
-    text-align: left;
-    color: $fontDarkBg;
-}
-
-.row aside a i {
-    color: $fontDarkBg;
-    font-size: 14px;
-    margin-right: 0.5em;
-}
-
-.row aside .active {
-    background: $primary;
-    color: white;
-}
-
-.row aside .active i {
-    color: white;
-}
+/* Body styles and aside styles */
+@import './partials/bodyAndAside';
 
 /* Dashboard styles */
 
