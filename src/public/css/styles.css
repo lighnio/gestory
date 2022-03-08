@@ -46,32 +46,26 @@ a {
   position: relative;
   height: calc(100vh - 3em);
 }
-
-/* Aside styles */
 .row aside {
   width: 13%;
   background: #2c3e50;
   display: flex;
   flex-direction: column;
 }
-
 .row aside a {
   padding: 0.8em 1em;
   text-align: left;
   color: #bdc3c7;
 }
-
 .row aside a i {
   color: #bdc3c7;
   font-size: 14px;
   margin-right: 0.5em;
 }
-
 .row aside .active {
   background: #3498db;
   color: white;
 }
-
 .row aside .active i {
   color: white;
 }
