@@ -1,34 +1,37 @@
 <%- include('./partials/dashboard/header'); %>
 
     <div class="productInformation">
-        <div class="product_name">
-            <label for="prouctName">Product name: </label>
-            <%= data.productName %>
-        </div>
-        <div class="product_description">
-            <label for="product description">Product Description</label>
-            <div class="description">
-                <%=data.productDescription%>
 
+        <img src="data:media_type;base64, <%= data.productImage %>" alt="">
+
+        <div class="stats">
+            <div class="product_name">
+                <label for="prouctName">Product name: </label>
+                <%= data.productName %>
+            </div>
+            <div class="product_description">
+                <label for="product description">Product Description</label>
+                <div class="description">
+                    <%=data.productDescription%>
+    
+                </div>
+            </div>
+            <div class="product_serial">
+                <label for="product serial number">Serial Number:</label>
+                <div class="serial">
+                    <%= data.serialNumber %>
+                </div>
+            </div>
+            <div class="product_price">
+                <label for="price">Price:</label>
+                <div><%= data.productPrice %></div>
+            </div>
+            <div class="product_category">
+                <label for="category">Category: </label>
+                <div><%= data.productCategory %></div>
             </div>
         </div>
-        <div class="product_serial">
-            <label for="product serial number">Serial Number:</label>
-            <div class="serial">
-                <%= data.serialNumber %>
-            </div>
-        </div>
-        <div class="product_price">
-            <label for="price">Price:</label>
-            <div><%= data.productPrice %></div>
-        </div>
-        <div class="product_category">
-            <label for="category">Category: </label>
-            <div><%= data.productCategory %></div>
-        </div>
-        <div class="product_image">
-            <img src="data:media_type;base64, <%= data.productImage %>" alt="">
-        </div>
+
     </div>
 
 
