@@ -6,8 +6,14 @@
     padding: 1em;
     column-gap: 1em;
 
-    img {
+    .img {
         width: 100%;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+            height: 100%;
+        }
     }
 
     .stats {

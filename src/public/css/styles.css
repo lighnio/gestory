@@ -411,8 +411,13 @@ a {
   padding: 1em;
   column-gap: 1em;
 }
-.productInformation img {
+.productInformation .img {
   width: 100%;
+  overflow: hidden;
+}
+.productInformation .img img {
+  object-fit: cover;
+  height: 100%;
 }
 .productInformation .stats {
   padding: 1em 0.5em;
