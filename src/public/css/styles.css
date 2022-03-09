@@ -403,4 +403,16 @@ a {
   filter: brightness(0.9);
 }
 
+.productInformation {
+  width: 90%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.productInformation img {
+  width: 3em;
+}
+
 /*# sourceMappingURL=styles.css.map */
