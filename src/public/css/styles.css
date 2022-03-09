@@ -427,8 +427,13 @@ a {
   flex-direction: column;
 }
 .productInformation .stats div label {
-  font-size: 13px;
+  font-size: 14px;
   color: #3498db;
+}
+.productInformation .stats div div {
+  width: 100%;
+  padding: 1em;
+  background: rgba(0, 0, 0, 0.03);
 }
 
 /*# sourceMappingURL=styles.css.map */
