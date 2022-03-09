@@ -129,3 +129,7 @@ export const saveProduct = (req: Request, res: Response) => {
 
     res.redirect('/products');
 };
+
+export const deleteProductById = (req: Request, res: Response) => {
+    res.redirect('/products');
+};
