@@ -131,5 +131,12 @@ export const saveProduct = (req: Request, res: Response) => {
 };
 
 export const deleteProductById = (req: Request, res: Response) => {
-    res.redirect('/products');
+    const { id } = req.params;
+
+    let query = `DELETE FROM products WHERE BIN_TO_UUID(idProduct) = "${id}";`;
+
+    connection.query(query, (err) => {
+        if (err) throw err;
+        res.redirect('/products');
+    });
 };
