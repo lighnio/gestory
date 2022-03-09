@@ -414,6 +414,9 @@ a {
 .productInformation .img {
   width: 100%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .productInformation .img img {
   object-fit: cover;
