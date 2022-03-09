@@ -31,7 +31,13 @@
             </div>
             <div class="product_category">
                 <label for="category">Category: </label>
-                <div><%= data.productCategory %></div>
+                <div><a href="/products?category=<%= data.productCategory %>">
+                    <%= data.productCategory %>
+                </a></div>
+            </div>
+            <div class="actions">
+                <a href="/product/edit/<%= data.idProduct %>">Edit</a>
+                <button class="btn">Delete</button>
             </div>
         </div>
 
