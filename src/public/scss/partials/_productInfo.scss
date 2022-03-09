@@ -22,11 +22,8 @@
             display: flex;
             flex-direction: column;
             label {
-                font-size: 20px;
-                width: 100%;
-                padding: 0.5em 0;
-                border-bottom: 1px solid $dark;
-                margin-bottom: 0.5em;
+                font-size: 13px;
+                color: $primary;
             }
         }
     }
