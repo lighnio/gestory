@@ -406,13 +406,13 @@ a {
 .productInformation {
   width: 90%;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1em;
+  column-gap: 1em;
 }
 .productInformation img {
-  width: 3em;
+  width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */
