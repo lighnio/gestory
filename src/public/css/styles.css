@@ -414,5 +414,19 @@ a {
 .productInformation img {
   width: 100%;
 }
+.productInformation .stats {
+  padding: 1em 0.5em;
+}
+.productInformation .stats div {
+  display: flex;
+  flex-direction: column;
+}
+.productInformation .stats div label {
+  font-size: 20px;
+  width: 100%;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #2c3e50;
+  margin-bottom: 0.5em;
+}
 
 /*# sourceMappingURL=styles.css.map */
