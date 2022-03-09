@@ -36,8 +36,8 @@
 
         .actions {
             display: flex;
-            justify-content: space-around;
             align-items: center;
+            justify-content: center;
             flex-direction: row;
             margin-top: 1em;
             a {
@@ -52,6 +52,7 @@
 
             .delete {
                 background: $danger;
+                margin-left: 1.5em;
                 &:hover {
                     background: darken($danger, 5);
                 }
