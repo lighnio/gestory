@@ -435,5 +435,27 @@ a {
   padding: 1em;
   background: rgba(0, 0, 0, 0.03);
 }
+.productInformation .stats .actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 1em;
+}
+.productInformation .stats .actions a {
+  border: none;
+  background: #3498db;
+  padding: 0.5em 1em;
+  color: white;
+}
+.productInformation .stats .actions a:hover {
+  background: #258cd1;
+}
+.productInformation .stats .actions .delete {
+  background: #e74c3c;
+}
+.productInformation .stats .actions .delete:hover {
+  background: #e43725;
+}
 
 /*# sourceMappingURL=styles.css.map */

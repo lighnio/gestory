@@ -31,5 +31,29 @@
                 background: rgba(0, 0, 0, 0.03);
             }
         }
+
+        .actions {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 1em;
+            a {
+                border: none;
+                background: $primary;
+                padding: 0.5em 1em;
+                color: white;
+                &:hover {
+                    background: darken($primary, 5);
+                }
+            }
+
+            .delete {
+                background: $danger;
+                &:hover {
+                    background: darken($danger, 5);
+                }
+            }
+        }
     }
 }
