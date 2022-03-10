@@ -436,7 +436,6 @@ a {
 .productInformation .stats div div {
   width: 100%;
   padding: 1em;
-  background: rgba(0, 0, 0, 0.03);
 }
 .productInformation .stats .actions {
   display: flex;

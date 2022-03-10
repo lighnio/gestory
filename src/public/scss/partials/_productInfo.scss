@@ -23,6 +23,7 @@
         div {
             display: flex;
             flex-direction: column;
+
             label {
                 font-size: 14px;
                 color: $primary;
@@ -30,7 +31,6 @@
             div {
                 width: 100%;
                 padding: 1em;
-                background: rgba(0, 0, 0, 0.03);
             }
         }
 
