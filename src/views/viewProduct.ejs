@@ -29,6 +29,11 @@
                 <label for="price">Price:</label>
                 <div>$. <%= data.productPrice.toFixed(2) %></div>
             </div>
+            <div class="product_purchase">
+                <label for="price">Purchase price:</label>
+                <div>$. <%= data.productPrice.toFixed(2) %>
+                </div>
+            </div>
             <div class="product_category">
                 <label for="category">Category: </label>
                 <div><a href="/products?category=<%= data.productCategory %>">
