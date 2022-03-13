@@ -33,7 +33,6 @@ var options = {
 const MySQLStore   = expressMySqlSession(expressSession);
 const sessionStore = new MySQLStore(options);
 
-
 declare module 'express-session'{
     
     interface Data {
