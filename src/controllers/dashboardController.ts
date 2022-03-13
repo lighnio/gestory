@@ -34,6 +34,7 @@ export const indexView = async (req: Request, res: Response) => {
         
     }else{
         res.redirect('/login')
+        
     }
 };
 

@@ -58,7 +58,9 @@ export const registerPost = async (req: Request, res: Response) => {
                 showConfirmButton: false,
                 time: 2500,
                 ruta: '/register'
+                
             })
+            
         }else{
             res.render('register', {
                 alert: true,
@@ -88,13 +90,15 @@ export const auth = async (req : Request, res: Response) => {
                     time: 13000,
                     ruta: '/login'
                 })
-            }else{
+            }else{ 
                 req.session.loggedIn = true;
                 const {name, rol, user} = results[0]
-
+                 
+              
                 req.session.data = {
                     name, rol, user
-                }
+                } 
+               
                 res.render('login', {
                     alert: true,
                     alertTitle: 'Success',
@@ -103,8 +107,8 @@ export const auth = async (req : Request, res: Response) => {
                     showConfirmButton: false,
                     time: 1500,
                     ruta: '/'
-                })
-            }
+                }) 
+            } 
         });
     }else{
         res.render('login', {
