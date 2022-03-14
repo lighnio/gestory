@@ -33,9 +33,9 @@ export const indexView = async (req: Request, res: Response) => {
             const auxdate = date ? date : creationDate.getFullYear();
             res.render('index', {
                 login: true,
-                name: name,
-                rol: rol,
-                user: user,
+                name,
+                rol,
+                user,
                 total,
                 allSales,
                 profits,
