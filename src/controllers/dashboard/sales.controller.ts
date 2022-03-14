@@ -7,17 +7,14 @@ import { getQuery } from '../../helpers/getSalesQuery';
 // THis is the main view and it retuns all the sales
 export const indexView = async (req: Request, res: Response) => {
     if (req.session.loggedIn) {
+        // Getting the date on the query
+        const { date } = req.query;
+        // Getting session data
         // @ts-ignore
         const { name, rol, user } = req.session.data;
-        const { date } = req.query;
-
         const currencyPrefix = 'Q';
+        const query = getQuery(date);
 
-        const datequery: string = date
-            ? `WHERE dateSale BETWEEN '${date}-01-01' AND '${date}-12-31'`
-            : '';
-
-        const query = getQuery(datequery);
         connection.query(query, [1, 2, 3, 4], async (err, results) => {
             if (err) throw err;
 
