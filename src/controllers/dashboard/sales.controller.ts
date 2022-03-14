@@ -2,47 +2,60 @@ import { salesByIdHelper } from '../../helpers/saleById';
 import { salesHelper } from '../../helpers/salesHelper';
 import { connection } from '../../database/db';
 import { Request, Response } from 'express';
-import { getQuery } from '../../helpers/getSalesQuery';
-import { getDataHellper } from '../../helpers/getDateHelper';
 
 // THis is the main view and it retuns all the sales
 export const indexView = async (req: Request, res: Response) => {
     if (req.session.loggedIn) {
         // @ts-ignore
         const { name, rol, user } = req.session.data;
+        const {date} = req.query;
+        const datequery = date? `WHERE dateSale BETWEEN '${date}-01-01' AND '${date}-12-31'` : '';
+        
 
-        const { date } = req.query;
+        const currencyPrefix = 'Q';
+        
+        const queryAll: string =
+            `SELECT BIN_TO_UUID(idSale) AS idSale, saleProfit, dateSale, BIN_TO_UUID(costumerId) AS costumerId FROM sales ${datequery} ORDER BY dateSale DESC LIMIT 0, 10`;
+        const querySum: string = `SELECT COUNT(*) AS COUNT FROM sales ${datequery}`;
+        const queryProfits: string =
+            `SELECT ROUND(SUM(saleProfit), 2) as profits FROM sales ${datequery}`;
+        const queryAvg: string = `SELECT ROUND(AVG(saleProfit), 2) AS avgSum FROM sales ${datequery}`;
 
-        const query = getQuery(date);
+        connection.query(
+            `${queryAll};${queryProfits};${querySum};${queryAvg}`,
+            [1, 2, 3, 4],
+            async (err, results) => {
+                if (err) throw err;
 
-        connection.query(query, [1, 2, 3, 4], async (err, results) => {
-            if (err) throw err;
-            const {
-                sales,
-                profits,
-                count: total,
-                averageSum: avgSum,
-            } = salesHelper(results);
+                const {
+                    sales: allSales,
+                    profits: profitObj,
+                    count: total,
+                    avgSum: averageSum,
+                } = salesHelper(results);
 
-            console.log(avgSum);
+                const pageName = 'sales'
 
-            const auxdate = getDataHellper(date);
+                const { profits } = profitObj;
+                const { avgSum } = averageSum;
 
-            const dataToRender = {
-                login: true,
-                name,
-                rol,
-                user,
-                total,
-                sales,
-                profits,
-                avgSum,
-                auxdate,
-                currencyPrefix: 'Q',
-                pageName: 'sales',
-            };
-            res.render('index', dataToRender);
-        });
+                const creationDate = new Date();
+                const auxdate = date? date : creationDate.getFullYear();
+                res.render('index', {
+                    login: true,
+                    name: name,
+                    rol: rol,
+                    user: user,
+                    total,
+                    allSales,
+                    profits,
+                    avgSum,
+                    auxdate,
+                    currencyPrefix,
+                    pageName
+                });
+            }
+        );
     } else {
         res.redirect('/login');
     }
@@ -76,11 +89,11 @@ export const downloadTicket = (req: Request, res: Response) => {
 // This return the order by date
 
 export const dateSales = async (req: Request, res: Response) => {
-    const { date } = req.body;
+    const {date} = req.body;
 
     res.redirect(`/?date=${date}`);
 };
 
-export const page = async (req: Request, res: Response) => {
-    const { page } = req.body;
-};
+export const page = async(req: Request, res: Response) => {
+    const {page} = req.body;
+}

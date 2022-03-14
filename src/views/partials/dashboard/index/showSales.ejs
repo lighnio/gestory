@@ -6,32 +6,36 @@
     <table>
         <thead>
             <tr>
-                <th>id</th>
-                <th>Costumer Id</th>
-                <th>Sale</th>
-                <th>ticket</th>
-                <th>date</th>
+                <th>Costumer</th>
+                <th>Profit</th>
+                <th>Ticket</th>
+                <th>Date</th>
+                <th>Details</th>
             </tr>
         </thead>
         <tbody>
-            <% allSales.map(sale => {  %>
+            <% allSales.forEach(sale => {  %>
                 <tr>
                     <td>
-                        <a href="/sale/<%= allSales.idSale %>">
-                            <%= sale.idSale %>
+                        <a href="/costumer/<%= sale.costumerId %>">
+                            Constumer info
                         </a>
                     </td>
+                    <td><%= currencyPrefix %><%= sale.saleProfit %></td>
                     <td>
-                        <a href="/costumer/<%= sale.costumer %>">
-                            <%= sale.costumer %>
+                        <a href="/ticket/<%= sale.idSale %>" target="_blank">Download ticket</a>
+                    </td>
+                    <td><%= sale.dateSale %></td>    
+                    <td>
+                        <a href="/sale/<%= sale.idSale %>" class="detail">
+                            See
                         </a>
                     </td>
-                    <td><%= sale.costumer %></td>
-                    <td><%= sale.costumer %></td>
-                    <td><%= sale.costumer %></td>    
                 </tr>
             <%})%>
         </tbody>
 
     </table>
+    <%- include('../../common/numeration'); %>
+    
 </div>

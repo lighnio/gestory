@@ -1,7 +1,5 @@
-export const lengthCount = (results : any) => {
+export const lengthCount = (results: any) => {
+    const [count] = JSON.parse(JSON.stringify(results));
 
-    const [ count ] = JSON.parse(JSON.stringify(results));
-            
-    return count['count(*)']
-
-}
+    return count['count(*)'];
+};

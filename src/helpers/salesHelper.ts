@@ -3,10 +3,10 @@ export const salesHelper = (results: string[]) => {
         JSON.stringify(results)
     );
 
-    const [profitObj] = profitsSum;
-    const { profits } = profitObj;
+    const [avgSum] = averageSum;
+    const [profits] = profitsSum;
     const [total] = countSales;
     const { COUNT: count } = total;
 
-    return { sales, profits, count, averageSum };
+    return { sales, profits, count, avgSum };
 };
