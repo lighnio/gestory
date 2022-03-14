@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <% allSales.forEach(sale => {  %>
+            <% allSales.map(sale => {  %>
                 <tr>
                     <td>
                         <a href="/sale/<%= allSales.idSale %>">
@@ -31,20 +31,6 @@
                     <td><%= sale.costumer %></td>    
                 </tr>
             <%})%>
-            <tr>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>  
-            </tr>
-            <tr>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>
-                <td>Prueba</td>  
-            </tr>
         </tbody>
 
     </table>
