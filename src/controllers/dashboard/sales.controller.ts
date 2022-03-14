@@ -3,6 +3,7 @@ import { salesHelper } from '../../helpers/salesHelper';
 import { connection } from '../../database/db';
 import { Request, Response } from 'express';
 import { getQuery } from '../../helpers/getSalesQuery';
+import { getDataHellper } from '../../helpers/getDateHelper';
 
 // THis is the main view and it retuns all the sales
 export const indexView = async (req: Request, res: Response) => {
@@ -25,8 +26,7 @@ export const indexView = async (req: Request, res: Response) => {
 
             console.log(avgSum);
 
-            const creationDate = new Date();
-            const auxdate = date ? date : creationDate.getFullYear();
+            const auxdate = getDataHellper(date);
 
             const dataToRender = {
                 login: true,
