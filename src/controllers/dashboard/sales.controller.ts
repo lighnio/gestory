@@ -20,7 +20,7 @@ export const indexView = async (req: Request, res: Response) => {
             if (err) throw err;
 
             const {
-                sales: allSales,
+                sales,
                 profits: profitObj,
                 count: total,
                 avgSum: averageSum,
@@ -33,19 +33,20 @@ export const indexView = async (req: Request, res: Response) => {
 
             const auxdate = getDateHelper(date);
 
-            res.render('index', {
-                login: true,
-                name: name,
-                rol: rol,
-                user: user,
+            const responseData = {
+                name,
+                rol,
+                user,
                 total,
-                allSales,
+                sales,
                 profits,
                 avgSum,
                 auxdate,
                 currencyPrefix,
                 pageName,
-            });
+            };
+
+            res.render('index', responseData);
         });
     } else {
         res.redirect('/login');
