@@ -21,17 +21,17 @@ export const indexView = async (req: Request, res: Response) => {
             if (err) throw err;
             const {
                 sales: allSales,
-                profits: profitObj,
+                profits,
                 count: total,
-                avgSum: averageSum,
+                averageSum: avgSum,
             } = salesHelper(results);
 
-            const { profits } = profitObj;
-            const { avgSum } = averageSum;
+            console.log(avgSum);
 
             const creationDate = new Date();
             const auxdate = date ? date : creationDate.getFullYear();
-            res.render('index', {
+
+            const dataToRender = {
                 login: true,
                 name,
                 rol,
@@ -43,7 +43,8 @@ export const indexView = async (req: Request, res: Response) => {
                 auxdate,
                 currencyPrefix,
                 pageName: 'sales',
-            });
+            };
+            res.render('index', dataToRender);
         });
     } else {
         res.redirect('/login');

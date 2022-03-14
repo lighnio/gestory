@@ -13,8 +13,9 @@ export const getQuery = (date: any) => {
     const queryProfits: string = `SELECT ROUND(SUM(saleProfit), 2) as profits FROM sales ${datequery}`;
 
     // Avg sale query
-    const queryAvg: string = `SELECT ROUND(AVG(saleProfit), 2) AS avgSum FROM sales ${datequery}`;
+    const queryAvg: string = `SELECT ROUND(AVG(saleProfit), 2) AS avgSum FROM sales;`;
 
+    console.table(queryAvg);
     // Full querys
     return `${queryAll};${queryProfits};${querySum};${queryAvg}`;
 };
