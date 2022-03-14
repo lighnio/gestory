@@ -15,7 +15,6 @@ export const manageCostumers = (req: Request, res: Response) => {
                 if (err) throw err;
 
                 let data: Array<object> = formatData(results);
-                console.log(data);
             });
             res.render('manageCostumers', {
                 rol,
