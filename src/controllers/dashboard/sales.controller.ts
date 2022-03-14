@@ -18,7 +18,7 @@ export const indexView = async (req: Request, res: Response) => {
         connection.query(query, [1, 2, 3, 4], async (err, results) => {
             if (err) throw err;
             const {
-                sales: allSales,
+                sales,
                 profits,
                 count: total,
                 averageSum: avgSum,
@@ -34,7 +34,7 @@ export const indexView = async (req: Request, res: Response) => {
                 rol,
                 user,
                 total,
-                allSales,
+                sales,
                 profits,
                 avgSum,
                 auxdate,
