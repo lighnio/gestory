@@ -6,36 +6,46 @@
     <table>
         <thead>
             <tr>
-                <th>Costumer</th>
-                <th>Profit</th>
-                <th>Ticket</th>
-                <th>Date</th>
-                <th>Details</th>
+                <th>id</th>
+                <th>Costumer Id</th>
+                <th>Sale</th>
+                <th>ticket</th>
+                <th>date</th>
             </tr>
         </thead>
         <tbody>
             <% allSales.forEach(sale => {  %>
                 <tr>
                     <td>
-                        <a href="/costumer/<%= sale.costumerId %>">
-                            Constumer info
+                        <a href="/sale/<%= sale.idSale %>">
+                            <%= sale.idSale %>
                         </a>
                     </td>
-                    <td><%= currencyPrefix %><%= sale.saleProfit %></td>
                     <td>
-                        <a href="/ticket/<%= sale.idSale %>" target="_blank">Download ticket</a>
-                    </td>
-                    <td><%= sale.dateSale %></td>    
-                    <td>
-                        <a href="/sale/<%= sale.idSale %>" class="detail">
-                            See
+                        <a href="/costumer/<%= sale.costumer %>">
+                            <%= sale.costumer %>
                         </a>
                     </td>
+                    <td><%= sale.costumer %></td>
+                    <td><%= sale.costumer %></td>
+                    <td><%= sale.costumer %></td>    
                 </tr>
             <%})%>
+            <tr>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>  
+            </tr>
+            <tr>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>
+                <td>Prueba</td>  
+            </tr>
         </tbody>
 
     </table>
-    <%- include('../../common/numeration'); %>
-    
 </div>

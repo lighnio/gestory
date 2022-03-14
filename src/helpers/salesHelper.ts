@@ -1,12 +1,10 @@
-export const salesHelper = (results: string[]) => {
-    const [sales, profitsSum, countSales, averageSum] = JSON.parse(
-        JSON.stringify(results)
-    );
+export const salesHelper = (results : string[]) => {
 
-    const [avgSum] = averageSum;
-    const [profits] = profitsSum;
+    const [sales, profitsSum, countSales] = JSON.parse(JSON.stringify(results));
+
+    const [ profits ] = profitsSum;
     const [total] = countSales;
-    const { COUNT: count } = total;
+    const { COUNT : count } = total;
 
-    return { sales, profits, count, avgSum };
-};
+    return {sales, profits, count }
+}

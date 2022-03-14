@@ -5,6 +5,3 @@ src/images/
 .vscode
 build
 dist
-src/images
-src/images/*
-
