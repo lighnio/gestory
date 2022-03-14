@@ -13,13 +13,12 @@ export const indexView = async (req: Request, res: Response) => {
         // @ts-ignore
         const { name, rol, user } = req.session.data;
         const currencyPrefix = 'Q';
+
+        // Query
         const query = getQuery(date);
 
         connection.query(query, [1, 2, 3, 4], async (err, results) => {
             if (err) throw err;
-
-            console.log(results);
-
             const {
                 sales: allSales,
                 profits: profitObj,
