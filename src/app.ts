@@ -2,7 +2,6 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
-import * as expressSession from 'express-session';
 import morgan from 'morgan';
 import cors from 'cors';
 // Settings
