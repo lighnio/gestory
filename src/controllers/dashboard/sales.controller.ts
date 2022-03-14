@@ -7,14 +7,11 @@ import { getQuery } from '../../helpers/getSalesQuery';
 // THis is the main view and it retuns all the sales
 export const indexView = async (req: Request, res: Response) => {
     if (req.session.loggedIn) {
-        // Getting the date on the query
-        const { date } = req.query;
-        // Getting session data
         // @ts-ignore
         const { name, rol, user } = req.session.data;
-        const currencyPrefix = 'Q';
 
-        // Query
+        const { date } = req.query;
+
         const query = getQuery(date);
 
         connection.query(query, [1, 2, 3, 4], async (err, results) => {
@@ -41,7 +38,7 @@ export const indexView = async (req: Request, res: Response) => {
                 profits,
                 avgSum,
                 auxdate,
-                currencyPrefix,
+                currencyPrefix: 'Q',
                 pageName: 'sales',
             };
             res.render('index', dataToRender);
