@@ -9,9 +9,7 @@ export const manageCostumers = (req: Request, res: Response) => {
         // @ts-ignore
         const { rol } = req.session.data;
         if (rol == 'admin') {
-            getQueryForCostumersHelper();
-            let selectedFields: string = `BIN_TO_UUID(costumerId) AS costumerId, costumerUsername, costumerMail, costumerName`;
-            let query: string = `SELECT ${selectedFields} FROM costumers;`;
+            let query: string = getQueryForCostumersHelper();
 
             connection.query(query, async (err, results) => {
                 if (err) throw err;
