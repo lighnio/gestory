@@ -36,7 +36,7 @@ export const apiMainPage = (req: Request, res: Response) => {
             ];
         });
 
-        console.log(formatedResults);
+        // console.log("formatedResults: ", formatedResults);
         res.send({
             err: false,
             data: formatedResults,
@@ -72,7 +72,7 @@ export const productInformation = (req: Request, res: Response) => {
                 let orderedData: Array<productType> = toArray.map(
                     (element: productType) => processProductHelper(element)
                 );
-                console.log(orderedData);
+                // console.log("orderedData: ", orderedData);
                 let response: ResponseFormat = {
                     err: false,
                     data: orderedData,
