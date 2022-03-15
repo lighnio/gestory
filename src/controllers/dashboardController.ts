@@ -153,7 +153,7 @@ export const manageCostumers = (req: Request, res: Response) => {
 
                     let data = formatData(results);
 
-                    console.log(data);
+                    // console.log("data: ", data);
                 }
             );
             res.render('manageCostumers', {

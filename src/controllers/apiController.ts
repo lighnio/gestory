@@ -71,7 +71,7 @@ export const productInformation = (req: Request, res: Response) => {
                 let orderedData: Array<productType> = toArray.map(
                     (element: productType) => processProductHelper(element)
                 );
-                console.log(orderedData);
+                // console.log("orderedData: ", orderedData);
                 let response: ResponseFormat = {
                     err: false,
                     data: orderedData,
