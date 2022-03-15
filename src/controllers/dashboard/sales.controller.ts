@@ -10,11 +10,13 @@ export const indexView = async (req: Request, res: Response) => {
     if (req.session.loggedIn) {
         // @ts-ignore
         const { name, rol, user } = req.session.data;
-        const { date } = req.query;
+        const { date, page } = req.query;
 
         const currencyPrefix = 'Q';
 
-        const query = getQuery(date);
+        // let match = (originalUrl.match(/\d+$/) - 1) * 10;
+        // let match = (originalUrl.match(/\d+$/));
+        const query = getQuery(date, page);
 
         connection.query(query, [1, 2, 3, 4], async (err, results) => {
             if (err) throw err;
@@ -86,6 +88,6 @@ export const dateSales = async (req: Request, res: Response) => {
     res.redirect(`/?date=${date}`);
 };
 
-export const page = async (req: Request, res: Response) => {
-    const { page } = req.body;
-};
+// export const page = async (req: Request, res: Response) => {
+//     const { page } = req.body;
+// };
