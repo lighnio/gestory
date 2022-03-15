@@ -14,11 +14,13 @@ export const manageCostumers = (req: Request, res: Response) => {
             connection.query(query, [1, 2], async (err, results) => {
                 if (err) throw err;
 
-                let data: Array<object> = formatData(results);
-                console.log(data);
-            });
-            res.render('manageCostumers', {
-                rol,
+                let { costumers, total } = formatData(results);
+
+                res.render('manageCostumers', {
+                    rol,
+                    costumers,
+                    total,
+                });
             });
         } else {
             res.redirect('/');
