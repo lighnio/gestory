@@ -2,7 +2,6 @@
     <table>
         <thead>
             <tr>
-                <th>id</th>
                 <th>user</th>
                 <th>name</th>
                 <th>mail</th>
@@ -11,13 +10,12 @@
         </thead>
 
         <tbody>
-            <%users.map( elem => {%>
+            <%users.map( ({ user, name, mail, rol}) => {%>
                 <tr>
-                    <td><a href="/user/<%= elem.Id %>"><%= elem.Id %></a></td>
-                    <td><%= elem.user %></td>
-                    <td><%= elem.name %></td>
-                    <td><%= elem.mail ? elem.mail : 'N/A' %></td>
-                    <td><%= elem.rol %></td>
+                    <td><%= user %></td>
+                    <td><%= name %></td>
+                    <td><%= mail ? mail : 'N/A' %></td>
+                    <td><%= rol %></td>
                 </tr>
             <%})%>
         </tbody>
