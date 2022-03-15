@@ -1,11 +1,11 @@
 let navItems = document.querySelectorAll('.navItem');
 
-let { pathname : path } = window.location;
+let { pathname: path } = window.location;
 
-navItems.forEach(element => {
+navItems.forEach((element) => {
     element.classList.remove('active');
-    
-    if(element.id == path){
+
+    if (element.id == path) {
         element.classList.add('active');
     }
-})
+});
