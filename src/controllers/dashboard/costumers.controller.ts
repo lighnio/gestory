@@ -11,7 +11,7 @@ export const manageCostumers = (req: Request, res: Response) => {
         if (rol == 'admin') {
             let query: string = getQueryForCostumersHelper();
 
-            connection.query(query, async (err, results) => {
+            connection.query(query, [1, 2], async (err, results) => {
                 if (err) throw err;
 
                 let data: Array<object> = formatData(results);
