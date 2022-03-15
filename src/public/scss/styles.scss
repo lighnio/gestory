@@ -152,11 +152,6 @@ a {
     padding-top: 1em;
 }
 
-#tableManageUsers {
-    overflow-y: scroll;
-    height: 375px;
-}
-
 .dashboard table {
     width: 100%;
     border-collapse: collapse;
@@ -169,6 +164,9 @@ a {
     color: white;
     text-align: center;
     padding: 1em;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 .dashboard table tbody tr:nth-child(odd) {
@@ -177,6 +175,11 @@ a {
 .dashboard table tbody td {
     text-align: center;
     padding: 0.5em;
+}
+
+#tableManageUsers {
+    overflow-y: scroll;
+    height: 340px;
 }
 
 /* Products */
@@ -259,18 +262,19 @@ a {
 }
 
 .dashboard .pagination {
-    padding: 1em;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 2em;
+    margin-top: 0.5em;
 }
 
 .dashboard .pagination a {
     background: $primary;
     color: white;
-    margin: 0 0.5em;
-    padding: 1em;
+    margin: 0 0.3em;
+    padding: 0.5em 0.7em;
 }
 
 .dashboard .pagination a:hover {
