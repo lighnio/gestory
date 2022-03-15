@@ -461,4 +461,15 @@ a {
   background: #e43725;
 }
 
+.costumerTable {
+  width: 100%;
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.costumerTable table {
+  width: 98%;
+}
+
 /*# sourceMappingURL=styles.css.map */
