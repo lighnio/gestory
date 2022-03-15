@@ -1,5 +1,7 @@
 export const formatData = (results: any) => {
-    let [costumers, total] = JSON.parse(JSON.stringify(results));
-
+    let [costumers, count] = JSON.parse(JSON.stringify(results));
+    console.log(count);
+    let [Count] = count;
+    let { total } = Count;
     return { costumers, total };
 };
