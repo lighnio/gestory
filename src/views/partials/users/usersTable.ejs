@@ -14,7 +14,7 @@
                 <tr>
                     <td><a href="/user/<%= Id %>"><%= user %></a></td>
                     <td><%= name %></td>
-                    <td><%= mail ? mail : 'N/A' %></td>
+                    <td><a href="mailto: <%= mail ? mail : 'N/A' %>"><%= mail ? mail : 'N/A' %></a></td>
                     <td><%= rol %></td>
                 </tr>
             <%})%>
