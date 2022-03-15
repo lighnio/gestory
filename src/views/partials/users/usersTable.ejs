@@ -10,9 +10,9 @@
         </thead>
 
         <tbody>
-            <%users.map( ({ user, name, mail, rol}) => {%>
+            <%users.map( ({ Id, user, name, mail, rol}) => {%>
                 <tr>
-                    <td><%= user %></td>
+                    <td><a href="/user/<%= Id %>"><%= user %></a></td>
                     <td><%= name %></td>
                     <td><%= mail ? mail : 'N/A' %></td>
                     <td><%= rol %></td>
