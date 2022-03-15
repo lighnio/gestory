@@ -404,7 +404,7 @@ a {
 }
 
 .productInformation {
-  width: 90%;
+  width: 85%;
   overflow: hidden;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
