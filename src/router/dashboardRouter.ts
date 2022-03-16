@@ -25,7 +25,7 @@ const dashboardRouter = Router();
 dashboardRouter
     //sales
     .get('/', indexView)
-    .get('/sales', indexView)
+    .get('/:date/:page', indexView)
     .get('/sale/:saleId', salesById)
     .get('/ticket/:saleId', downloadTicket)
     // Products
