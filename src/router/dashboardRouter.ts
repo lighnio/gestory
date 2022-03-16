@@ -38,7 +38,7 @@ dashboardRouter
     // Users
     .get('/users', manageUsers)
     .post('/users', searchUser)
-    .get('/user/:userId', getUser)
+    .get('/users/:userId', getUser)
     // Costumers
     .get('/costumers', manageCostumers);
 
