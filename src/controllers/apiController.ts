@@ -68,10 +68,12 @@ export const productInformation = (req: Request, res: Response) => {
             } else {
                 let toArray = JSON.parse(JSON.stringify(results));
 
-                let orderedData: Array<productType> = toArray.map(
-                    (element: productType) => processProductHelper(element)
-                );
+                let orderedData: any = {};
+                toArray.map((element: productType) => {
+                    orderedData = element;
+                });
                 // console.log("orderedData: ", orderedData);
+                console.log(orderedData);
                 let response: ResponseFormat = {
                     err: false,
                     data: orderedData,
