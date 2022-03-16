@@ -11,4 +11,5 @@ export interface productType {
     productPrice: number;
     productCategory: string;
     productImage: any;
+    productDescription: string;
 }
