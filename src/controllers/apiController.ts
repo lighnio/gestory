@@ -70,7 +70,7 @@ export const productInformation = (req: Request, res: Response) => {
 
                 let orderedData: any = {};
                 toArray.map((element: productType) => {
-                    orderedData = element;
+                    orderedData = processProductHelper(element);
                 });
                 // console.log("orderedData: ", orderedData);
                 let response: ResponseFormat = {
