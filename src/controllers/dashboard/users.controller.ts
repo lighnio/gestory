@@ -10,17 +10,25 @@ export const manageUsers = (req: Request, res: Response) => {
         const pageName = "users"
 
         if (req.query.search) {
-            const { search } = req.query;
 
-            const queryString = `SELECT * FROM users WHERE Id LIKE '%${search}' OR name LIKE '%${search}%' OR mail LIKE '%${search}%' OR user LIKE '%${search}%'`;
-
-            connection.query(queryString, async (err, results) => {
+            // const {search, page}: {search : string; page: number} = req.query;
+            const {search, page} = req.query;
+            const pagequery: string = page ?
+            `LIMIT ${((Number(page) - 1) * 10)}, 10`  
+            : 'LIMIT 0, 10'
+            const queryCount = `SELECT * FROM users WHERE Id LIKE '%${search}' OR name LIKE '%${search}%' OR mail LIKE '%${search}%' OR user LIKE '%${search}%'`;
+            const queryLimited = `${queryCount} ${pagequery}`
+            const queryAll = `${queryCount}; ${queryLimited}`
+            
+            connection.query(queryAll, [1, 2], async (err, results) => {
                 if (err) throw err;
+                
                 res.render('manageUsers', {
                     rol,
-                    users: results,
-                    total: null,
-                    pageName
+                    users: results[1],
+                    total: results[0].length,
+                    pageName,
+                    search
                 });
             });
         } else {
