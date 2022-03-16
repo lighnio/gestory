@@ -1,6 +1,6 @@
 <div class="pagination">
     <%for(let i = 0; i < total; i+=10){%>
-        <% if (auxdate) {%>
+        <% if (typeof auxdate != 'undefined') {%>
             <a href="/?date=<%= auxdate %>&page=<%= (i/10)+1 %>"><%= (i/10)+1 %></a>
         <% } %>
     <%}%>
