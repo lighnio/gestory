@@ -73,7 +73,6 @@ export const productInformation = (req: Request, res: Response) => {
                     orderedData = element;
                 });
                 // console.log("orderedData: ", orderedData);
-                console.log(orderedData);
                 let response: ResponseFormat = {
                     err: false,
                     data: orderedData,
