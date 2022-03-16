@@ -14,7 +14,7 @@ import { processProductHelper } from '../helpers/api/getProductHelper';
 export const apiMainPage = (req: Request, res: Response) => {
     const fields: string =
         'BIN_TO_UUID(idProduct) AS id, productName, serialNumber, productPrice, productCategory, productImage';
-    const query: string = `SELECT ${fields} FROM products LIMIT 10`;
+    const query: string = `SELECT ${fields} FROM products ORDER BY idProduct DESC LIMIT 8`;
     connection.query(query, (err, results) => {
         if (err) {
             let response: ResponseFormat = {
