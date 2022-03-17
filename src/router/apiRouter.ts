@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import {
     apiMainPage,
+    getProductForCart,
     getProductsByCategory,
     noValidUrl,
     productInformation,
@@ -14,6 +15,7 @@ apiRouter
     .get('/product/:productId', productInformation)
     .get('/category/:category', getProductsByCategory)
     .get('/search', searchData)
+    .get('/product/cart/:id', getProductForCart)
     .get('*', noValidUrl);
 
 module.exports = apiRouter;
