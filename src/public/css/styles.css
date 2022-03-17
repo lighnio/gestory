@@ -229,8 +229,8 @@ a {
 }
 
 #tableManageUsers {
-  height: 340px;
-  margin-bottom: 40px;
+  overflow-y: scroll;
+  height: 380px;
 }
 
 /* Products */
