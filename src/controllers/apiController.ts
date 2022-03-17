@@ -2,7 +2,6 @@ import { connection } from '../database/db';
 import { Request, Response } from 'express';
 import { ResponseFormat, productType } from '../types/apiType';
 import { processProductHelper } from '../helpers/api/getProductHelper';
-
 // To return any information folow the next structure:
 // If it have a error
 // {
@@ -155,8 +154,6 @@ export const searchData = (req: Request, res: Response) => {
         res.send(response);
     }
 };
-
-export const getProductForCart = (req: Request, res: Response) => {};
 
 // If there is a not valid route
 export const noValidUrl = (req: Request, res: Response) => {

@@ -1,7 +1,7 @@
 export interface ResponseFormat {
     err: boolean;
     msg?: string;
-    data?: Array<object>;
+    data?: Array<object> | object;
 }
 
 export interface productType {
