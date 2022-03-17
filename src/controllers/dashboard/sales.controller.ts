@@ -1,11 +1,15 @@
+// ---------Imports-------------
+// Helpers
 import { salesByIdHelper } from '../../helpers/saleById';
 import { salesHelper } from '../../helpers/salesHelper';
-import { connection } from '../../database/db';
-import { Request, Response } from 'express';
-import { getQuery } from '../../helpers/getSalesQuery';
 import { getDateHelper } from '../../helpers/getDateHelper';
+import { getQuery } from '../../helpers/getSalesQuery';
+// Db
+import { connection } from '../../database/db';
+// Express
+import { Request, Response } from 'express';
 
-// THis is the main view and it retuns all the sales
+// THis is the main view and it returns all the sales
 export const indexView = async (req: Request, res: Response) => {
     if (req.session.loggedIn) {
         // @ts-ignore
