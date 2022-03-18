@@ -2,6 +2,7 @@ import { Router } from 'express';
 import {
     apiMainPage,
     getProductsByCategory,
+    getProductsByGender,
     noValidUrl,
     productInformation,
     searchData,
@@ -13,6 +14,7 @@ apiRouter
     .get('/', apiMainPage)
     .get('/product/:productId', productInformation)
     .get('/category/:category', getProductsByCategory)
+    .get('product/:gender', getProductsByGender)
     .get('/search', searchData)
     .get('*', noValidUrl);
 
