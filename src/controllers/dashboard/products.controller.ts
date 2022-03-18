@@ -102,6 +102,7 @@ export const saveProduct = (req: Request, res: Response) => {
         category: productCategory,
         purchase: purchasePrice,
         description: productDescription,
+        gender: productGender,
     } = req.body;
 
     // @ts-ignore
@@ -125,6 +126,7 @@ export const saveProduct = (req: Request, res: Response) => {
         purchasePrice,
         productImageType,
         productImageName,
+        productGender,
     });
 
     const path = join(__dirname, '../../images');
@@ -132,11 +134,13 @@ export const saveProduct = (req: Request, res: Response) => {
     var deleteFolderRecursive = function (path: any) {
         if (fs.existsSync(path)) {
             fs.readdirSync(path).forEach(function (file) {
-                ``
-                var curPath = path + "/" + file;
-                if (fs.lstatSync(curPath).isDirectory()) { // recurse
+                ``;
+                var curPath = path + '/' + file;
+                if (fs.lstatSync(curPath).isDirectory()) {
+                    // recurse
                     deleteFolderRecursive(curPath);
-                } else { // delete file
+                } else {
+                    // delete file
                     fs.unlinkSync(curPath);
                 }
             });
