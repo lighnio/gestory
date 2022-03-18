@@ -174,9 +174,16 @@ export const getProductsByGender = (req: Request, res: Response) => {
         if (err) {
             res.json({ err, msg: err.code });
         } else {
+            let formatedResults: Array<object> = [];
+            results.map((product: productType) => {
+                formatedResults = [
+                    ...formatedResults,
+                    processProductHelper(product),
+                ];
+            });
             res.json({
                 err: false,
-                data: results,
+                data: formatedResults,
             });
         }
     });
