@@ -23,7 +23,8 @@ CREATE TABLE IF NOT EXISTS products(
     purchasePrice       FLOAT,
     productImage        LONGBLOB,
     productImageType    VARCHAR(10),
-    productImageName    VARCHAR(50)   
+    productImageName    VARCHAR(50),
+    productGender       VARCHAR(10)   
 );
 
 -- EXAMPLE DATA
