@@ -164,3 +164,7 @@ export const noValidUrl = (req: Request, res: Response) => {
 
     res.send(response);
 };
+
+export const filterByGender = (req: Request, res: Response) => {
+    res.json('hola');
+};
