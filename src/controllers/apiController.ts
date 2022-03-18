@@ -166,5 +166,18 @@ export const noValidUrl = (req: Request, res: Response) => {
 };
 
 export const getProductsByGender = (req: Request, res: Response) => {
-    res.json('hola');
+    const { gender } = req.params;
+
+    const fields = 'productName, productPrice, productImage';
+    const query = `SELECT ${fields} FROM products WHERE productGender = '${gender}' OR productGender = 'unisex';`;
+    connection.query(query, async (err, results) => {
+        if (err) {
+            res.json({ err, msg: err.code });
+        } else {
+            res.json({
+                err: false,
+                data: results,
+            });
+        }
+    });
 };
