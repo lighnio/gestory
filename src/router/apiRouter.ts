@@ -14,7 +14,7 @@ apiRouter
     .get('/', apiMainPage)
     .get('/product/:productId', productInformation)
     .get('/category/:category', getProductsByCategory)
-    .get('gender/:gender', getProductsByGender)
+    .get('/gender/:gender', getProductsByGender)
     .get('/search', searchData)
     .get('*', noValidUrl);
 
