@@ -9,7 +9,7 @@
     "dev": "nodemon src/index.ts",
     "fake": "tsc src/fakeData/fake.ts",
     "build": "tsc -p . && npm run copy-files",
-    "copy-files": "copyfiles -u 1 src/**/*.ejs src/**/*.css src/**/.env dist/"
+    "copy-files": "copyfiles -u 1 src/**/*.ejs src/**/*.css src/**/**.js src/**/.env dist/"
   },
   "keywords": [],
   "author": "",
