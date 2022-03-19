@@ -168,7 +168,8 @@ export const noValidUrl = (req: Request, res: Response) => {
 export const getProductsByGender = (req: Request, res: Response) => {
     const { gender } = req.params;
 
-    const fields = 'productName, productPrice, productImage';
+    const fields =
+        'BIN_TO_UUID(idproduct) AS id, productName, productPrice, productImage';
     const query = `SELECT ${fields} FROM products WHERE productGender = '${gender}' OR productGender = 'unisex';`;
     connection.query(query, async (err, results) => {
         if (err) {
