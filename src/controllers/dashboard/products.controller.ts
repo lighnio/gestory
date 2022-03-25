@@ -129,25 +129,25 @@ export const saveProduct = (req: Request, res: Response) => {
         productGender,
     });
 
-    const path = join(__dirname, '../../images');
+    // const path = join(__dirname, '../../images');
 
-    var deleteFolderRecursive = function (path: any) {
-        if (fs.existsSync(path)) {
-            fs.readdirSync(path).forEach(function (file) {
-                ``;
-                var curPath = path + '/' + file;
-                if (fs.lstatSync(curPath).isDirectory()) {
-                    // recurse
-                    deleteFolderRecursive(curPath);
-                } else {
-                    // delete file
-                    fs.unlinkSync(curPath);
-                }
-            });
-            fs.rmdirSync(path);
-        }
-    };
-    deleteFolderRecursive(path);
+    // var deleteFolderRecursive = function (path: any) {
+    //     if (fs.existsSync(path)) {
+    //         fs.readdirSync(path).forEach(function (file) {
+    //             ``;
+    //             var curPath = path + '/' + file;
+    //             if (fs.lstatSync(curPath).isDirectory()) {
+    //                 // recurse
+    //                 deleteFolderRecursive(curPath);
+    //             } else {
+    //                 // delete file
+    //                 fs.unlinkSync(curPath);
+    //             }
+    //         });
+    //         fs.rmdirSync(path);
+    //     }
+    // };
+    // deleteFolderRecursive(path);
     res.redirect('/products');
 };
 
