@@ -1,5 +1,6 @@
 import { Response, Request } from 'express';
 import { connection } from '../../database/db';
+import { Costumer } from '../../models/Costumer';
 
 class Auth {
     index(req: Request, res: Response) {
