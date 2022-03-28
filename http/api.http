@@ -1,2 +1,7 @@
-# All products
-GET http://localhost:8080/api
+@baseUrl = http://localhost:3000/api
+
+
+# Get products
+GET http://{{baseUrl}}/login
+
+
