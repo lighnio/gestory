@@ -97,7 +97,7 @@ export const createProduct = (req: Request, res: Response) => {
 };
 
 // This controller save the image on the db
-export const saveProduct = (req: Request, res: Response) => {
+export const saveProduct = async (req: Request, res: Response) => {
     const {
         name: productName,
         price: productPrice,
@@ -117,9 +117,28 @@ export const saveProduct = (req: Request, res: Response) => {
         join(__dirname, '../../images/' + req.file?.filename)
     );
 
+    const path = join(__dirname, '../../images');
+
+    var deleteFolderRecursive = function (path: any) {
+        if (fs.existsSync(path)) {
+            fs.readdirSync(path).forEach(function (file) {
+                ``;
+                var curPath = path + '/' + file;
+                if (fs.lstatSync(curPath).isDirectory()) {
+                    // recurse
+                    deleteFolderRecursive(curPath);
+                } else {
+                    // delete file
+                    fs.unlinkSync(curPath);
+                }
+            });
+            fs.rmdirSync(path);
+        }
+    };
+
     const query: string = `INSERT INTO products SET ?`;
 
-    connection.query(query, {
+    await connection.query(query, {
         productName,
         productDescription,
         productPrice,
@@ -129,27 +148,9 @@ export const saveProduct = (req: Request, res: Response) => {
         productImageType,
         productImageName,
         productGender,
-    });
+    }, (err, resp) => {console.log(err)});
 
-    // const path = join(__dirname, '../../images');
-
-    // var deleteFolderRecursive = function (path: any) {
-    //     if (fs.existsSync(path)) {
-    //         fs.readdirSync(path).forEach(function (file) {
-    //             ``;
-    //             var curPath = path + '/' + file;
-    //             if (fs.lstatSync(curPath).isDirectory()) {
-    //                 // recurse
-    //                 deleteFolderRecursive(curPath);
-    //             } else {
-    //                 // delete file
-    //                 fs.unlinkSync(curPath);
-    //             }
-    //         });
-    //         fs.rmdirSync(path);
-    //     }
-    // };
-    // deleteFolderRecursive(path);
+    deleteFolderRecursive(path);
     res.redirect('/products');
 };
 
