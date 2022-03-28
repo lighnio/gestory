@@ -10,7 +10,6 @@
     "fake": "tsc src/fakeData/fake.ts",
     "build": "tsc -p . && npm run copy-files",
     "copy-files": "copyfiles -u 1 src/**/*.ejs src/**/*.css src/**/**.js src/**/*.ico src/**/.env dist/"
-
   },
   "keywords": [],
   "author": "",
@@ -26,6 +25,7 @@
     "express-mysql-session": "^2.1.7",
     "express-session": "^1.17.2",
     "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
     "mysql": "^2.18.1"

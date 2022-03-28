@@ -35,6 +35,7 @@ export const getProductById = (req: Request, res: Response) => {
     const { loggedIn, data } = req.session;
 
     if (loggedIn && data) {
+        console.log('Sí funciona');
         const { rol } = data;
         const { id } = req.params;
         const fields: string =
@@ -48,6 +49,7 @@ export const getProductById = (req: Request, res: Response) => {
             const data = productByIdHelper(formatedData);
 
             // const imgProcessed = Buffer.from(img).toString('base64');
+            console.log('Antes de renderizar');
             res.render('viewProduct', {
                 rol,
                 data,
