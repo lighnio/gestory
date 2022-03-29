@@ -7,7 +7,7 @@ class Auth {
     index(req: Request, res: Response) {
         const { mail, password }: { mail: string; password: string } = req.body;
 
-        const query: string = `SELECT * FROM costumers WHERE costumerMail = '${mail}';`;
+        const query: string = `SELECT costumerMail, costumerPassword FROM costumers WHERE costumerMail = '${mail}';`;
         connection.query(query, async (err, costumer) => {
             if (err) res.send('An error has ocurred');
             if (!err) {
