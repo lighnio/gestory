@@ -24,5 +24,10 @@ Content-Type: application/json
 
 ### Sign Up
 POST {{baseUrl}}/signUp
+Content-Type:  application/json
+
+{
+    
+}
 
 

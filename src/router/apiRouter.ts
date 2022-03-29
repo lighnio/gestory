@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { auth } from '../controllers/accountController';
 import { category } from '../controllers/api/category.controller';
 import { authApi } from '../controllers/api/costumer.controller';
 import { gender } from '../controllers/api/gender.controller';
@@ -25,6 +26,7 @@ apiRouter
 
     // Costumer
     .post('/signin', authApi.index)
+    .post('/signUp', authApi.store)
 
     // Processing the 404
     .get('*', noValidUrl);
