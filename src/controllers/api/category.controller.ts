@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { connection } from '../../database/db';
-import { ResponseFormat } from '../../types/apiType';
+import { processProductHelper } from '../../helpers/api/getProductHelper';
+import { productType, ResponseFormat } from '../../types/apiType';
 
 class Category {
     index(req: Request, res: Response) {
@@ -27,9 +28,17 @@ class Category {
 
                     res.send(response);
                 } else {
+                    let formatedResults: Array<object> = [];
+
+                    results.map((product: productType) => {
+                        formatedResults = [
+                            ...formatedResults,
+                            processProductHelper(product),
+                        ];
+                    });
                     let response: ResponseFormat = {
                         err: false,
-                        data: results,
+                        data: formatedResults,
                     };
 
                     res.send(response);
