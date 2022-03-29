@@ -42,7 +42,7 @@ class Auth {
             if (err) {
                 res.send({
                     err: true,
-                    msg: err.message,
+                    msg: err.sqlMessage,
                 });
             } else {
                 res.send(result);
