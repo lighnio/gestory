@@ -38,3 +38,17 @@ Content-Type:  application/json
 }
 
 
+### buy 
+
+POST {{baseUrl}}/buy
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjFmMTYxLWFmOWQtMTFlYy04NzM3LTk4ZTc0MzE2ODMwNyIsImlhdCI6MTY0ODU5NDA1NCwiZXhwIjoxNjQ4NjgwNDU0fQ.1BwXtpo0HJpfC4uPd__s4pEEELwoSPpn78LcLh73OWE
+
+{
+    "products": [
+        "62b7838b-ac6a-11ec-b658-98e743168307",
+        "541476eb-ac6b-11ec-b658-98e743168307",
+        "31667a13-ac7b-11ec-b658-98e743168307"
+    ]
+}
+###
