@@ -50,14 +50,14 @@ CREATE TABLE IF NOT EXISTS costumers(
     costumerId              BINARY(16) PRIMARY KEY DEFAULT (UUID_TO_BIN(UUID())),
     costumerName            VARCHAR(60) NOT NULL DEFAULT ('N/A'),
     costumerUsername        VARCHAR(20) NOT NULL DEFAULT ('N/A'),
-    costumerPassword        VARCHAR(25) NOT NULL,
+    costumerPassword        VARCHAR(255) NOT NULL,
     costumerMail            VARCHAR(50) NOT NULL UNIQUE DEFAULT ('N/A') ,
     costumerZipCode         VARCHAR(10) NOT NULL DEFAULT ('N/A'),
     costumerAdress          VARCHAR(50) NOT NULL DEFAULT ('N/A'),
-    costumerCreditCard      INT NOT NULL,
-    costumerCvvCode         INT NOT NULL,
+    costumerCreditCard      INT NOT NULL DEFAULT 0,
+    costumerCvvCode         INT NOT NULL DEFAULT 0,
     costumerCountry         VARCHAR(15) NOT NULL DEFAULT ('Guatemala'),
-    costumerCardExpiration  VARCHAR(6) NOT NULL
+    costumerCardExpiration  VARCHAR(6) NOT NULL DEFAULT 0
 );
 
 
