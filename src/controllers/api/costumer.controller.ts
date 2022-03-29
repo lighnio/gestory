@@ -9,7 +9,7 @@ class Auth {
 
         const query: string = `SELECT costumerMail, costumerPassword FROM costumers WHERE costumerMail = '${mail}';`;
         connection.query(query, async (err, costumer) => {
-            if (err) res.send('An error has ocurred');
+            if (err) res.json('An error has ocurred');
             if (!err) {
                 if (costumer.length > 0) {
                     const login = new Login();
@@ -18,16 +18,16 @@ class Auth {
                         costumer[0].costumerPassword
                     );
 
-                    if (comp) res.send(costumer);
+                    if (comp) res.json(costumer);
 
                     if (!comp)
-                        res.send({
+                        res.json({
                             err: true,
                             msg: 'Password did not match',
                         });
                 }
                 if (costumer.length <= 0) {
-                    res.send({
+                    res.json({
                         err: true,
                         msg: 'No user found',
                     });
