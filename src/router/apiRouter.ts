@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { category } from '../controllers/api/category.controller';
+import { gender } from '../controllers/api/gender.controller';
 import { product } from '../controllers/api/product.controller';
 import { products } from '../controllers/api/products.controller';
 import {
@@ -17,7 +18,7 @@ apiRouter
     .get('/', products.index)
     .get('/product/:productId', product.index)
     .get('/category/:category', category.index)
-    .get('/gender/:gender', getProductsByGender)
+    .get('/gender/:gender', gender.index)
     .get('/search', searchData)
     .get('*', noValidUrl);
 
