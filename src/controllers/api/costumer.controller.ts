@@ -13,8 +13,18 @@ class Auth {
             if (!err) {
                 if (costumer.length > 0) {
                     const login = new Login();
-                    login.compare(password, costumer[0].costumerPassword);
-                    res.send(costumer);
+                    let comp = await login.compare(
+                        password,
+                        costumer[0].costumerPassword
+                    );
+
+                    if (comp) res.send(costumer);
+
+                    if (!comp)
+                        res.send({
+                            err: true,
+                            msg: 'Password did not match',
+                        });
                 }
                 if (costumer.length <= 0) {
                     res.send({
