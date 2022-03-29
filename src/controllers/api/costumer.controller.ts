@@ -4,22 +4,22 @@ import { Costumer } from '../../models/Costumer';
 import { Login } from '../../models/Login';
 
 class Auth {
-    async index(req: Request, res: Response) {
+    index(req: Request, res: Response) {
         const { mail, password }: { mail: string; password: string } = req.body;
 
         const query: string = `SELECT * FROM costumers WHERE costumerMail = '${mail}';`;
-        console.log(query);
         connection.query(query, async (err, costumer) => {
             if (err) res.send('An error has ocurred');
             if (!err) {
                 if (costumer.length > 0) {
+                    const login = new Login();
+                    login.compare(password, costumer[0].costumerPassword);
                     res.send(costumer);
                 }
                 if (costumer.length <= 0) {
-                    const login = new Login();
-                    login.compare(password, costumer);
                     res.send({
-                        err: false,
+                        err: true,
+                        msg: 'No user found',
                     });
                 }
             }
