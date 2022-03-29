@@ -31,8 +31,20 @@ class Auth {
             adress,
             country
         );
+
         await costumer.encript(password);
-        res.send(costumer);
+
+        const query = 'INSERT INTO costumers SET ?';
+        connection.query(query, costumer, (err, result) => {
+            if (err) {
+                res.send({
+                    err: true,
+                    msg: err.message,
+                });
+            } else {
+                res.send(result);
+            }
+        });
     }
     destroy(req: Request, res: Response) {
         res.send('Logout');
