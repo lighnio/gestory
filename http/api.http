@@ -12,3 +12,17 @@ GET {{baseUrl}}/product/dc3025a2-ac7b-11ec-b658-98e743168307
 GET {{baseUrl}}/category/T-shirt
 
 
+### Sign in
+POST {{baseUrl}}/signin
+Content-Type: application/json
+
+{
+    "mail": "a@a.com",
+    "password": "a"
+}
+
+
+### Sign Up
+POST {{baseUrl}}/signUp
+
+
