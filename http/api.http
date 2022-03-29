@@ -2,6 +2,6 @@
 
 
 # Get products
-GET http://{{baseUrl}}/login
+GET {{baseUrl}}/
 
 
