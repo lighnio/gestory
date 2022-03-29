@@ -27,7 +27,14 @@ POST {{baseUrl}}/signUp
 Content-Type:  application/json
 
 {
-    
+    "name" : "Bryan",
+    "user" : "ripterdust",
+    "zip" : 10100,
+    "adress": "52 av 'A' residencial naciones unidas 2",
+    "country" : "Guatemala",
+    "email" : "bryantello2010@hotmail.com",
+    "password" : "a"
+
 }
 
 
