@@ -1,7 +1,12 @@
 @baseUrl = http://localhost:3000/api
 
 
+GET {{baseUrl}}/product/dc3025a2-ac7b-11ec-b658-98e743168307
+
+
 # Get products
 GET {{baseUrl}}/
+
+# Get product by id
 
 

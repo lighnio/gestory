@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { product } from '../controllers/api/product.controller';
 import {
     apiMainPage,
     getProductsByCategory,
@@ -12,7 +13,7 @@ const apiRouter = Router();
 
 apiRouter
     .get('/', apiMainPage)
-    .get('/product/:productId', productInformation)
+    .get('/product/:productId', product.index)
     .get('/category/:category', getProductsByCategory)
     .get('/gender/:gender', getProductsByGender)
     .get('/search', searchData)
