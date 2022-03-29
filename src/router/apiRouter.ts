@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { category } from '../controllers/api/category.controller';
 import { product } from '../controllers/api/product.controller';
 import { products } from '../controllers/api/products.controller';
 import {
@@ -15,7 +16,7 @@ const apiRouter = Router();
 apiRouter
     .get('/', products.index)
     .get('/product/:productId', product.index)
-    .get('/category/:category', getProductsByCategory)
+    .get('/category/:category', category.index)
     .get('/gender/:gender', getProductsByGender)
     .get('/search', searchData)
     .get('*', noValidUrl);
