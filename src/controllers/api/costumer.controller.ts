@@ -2,13 +2,14 @@ import { Response, Request } from 'express';
 import { connection } from '../../database/db';
 import { Costumer } from '../../models/Costumer';
 import { Login } from '../../models/Login';
-import token from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
+import config from '../../jwt/config';
 
 class Auth {
     index(req: Request, res: Response) {
         const { mail, password }: { mail: string; password: string } = req.body;
 
-        const query: string = `SELECT costumerMail, costumerPassword FROM costumers WHERE costumerMail = '${mail}';`;
+        const query: string = `SELECT BIN_TO_UUID(costumerId) as costumerId, costumerMail, costumerPassword FROM costumers WHERE costumerMail = '${mail}';`;
         connection.query(query, async (err, costumer) => {
             if (err) res.json('An error has ocurred');
             if (!err) {
@@ -19,7 +20,22 @@ class Auth {
                         costumer[0].costumerPassword
                     );
 
-                    if (comp) res.json(costumer);
+                    if (comp) {
+                        const costumerInfo = costumer[0];
+                        const token = jwt.sign(
+                            {
+                                id: costumerInfo.costumerId,
+                            },
+                            config.secret,
+                            {
+                                expiresIn: 60 * 60 * 24,
+                            }
+                        );
+                        res.status(200).json({
+                            auth: true,
+                            token,
+                        });
+                    }
 
                     if (!comp)
                         res.json({
