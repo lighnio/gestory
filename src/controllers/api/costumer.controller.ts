@@ -19,7 +19,7 @@ class Auth {
         });
     }
 
-    store(req: Request, res: Response) {
+    async store(req: Request, res: Response) {
         const { name, user, password, email, zip, adress, country } = req.body;
 
         const costumer = new Costumer(
@@ -31,6 +31,7 @@ class Auth {
             adress,
             country
         );
+        await costumer.encript(password);
         res.send(costumer);
     }
     destroy(req: Request, res: Response) {

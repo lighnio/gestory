@@ -1,3 +1,5 @@
+const bcryptjs: any = require('bcryptjs/dist/bcrypt');
+
 export class Costumer {
     costumerName;
     costumerUsername;
@@ -23,5 +25,10 @@ export class Costumer {
         this.costumerZipCode = zipCode;
         this.costumerAdress = adress;
         this.costumerCountry = country;
+    }
+
+    async encript(password: string) {
+        const encripted: string = await bcryptjs.hash(password, 8);
+        this.costumerPassword = encripted;
     }
 }
