@@ -14,7 +14,10 @@ class Auth {
                 if (costumer.length > 0) {
                     res.send(costumer);
                 }
-                if (costumer.length <= 0) res.send('No costumer found');
+                if (costumer.length <= 0)
+                    res.send({
+                        err: false,
+                    });
             }
         });
     }
