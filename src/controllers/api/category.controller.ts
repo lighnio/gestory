@@ -16,7 +16,7 @@ class Category {
             res.send(response);
         } else {
             let fields =
-                'BIN_TO_UUID(idProduct) AS idProductd, serialNumber, productPrice, productCategory, productImage';
+                'BIN_TO_UUID(idProduct) AS idProductd, productName, productPrice, productCategory, productImage';
             let query = `SELECT ${fields} FROM products WHERE productCategory = '${category}'`;
 
             connection.query(query, (err, results) => {
