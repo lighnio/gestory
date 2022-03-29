@@ -20,7 +20,7 @@ class Auth {
     }
 
     store(req: Request, res: Response) {
-        res.send('Register');
+        res.send(req.body);
     }
     destroy(req: Request, res: Response) {
         res.send('Logout');
