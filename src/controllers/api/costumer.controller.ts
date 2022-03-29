@@ -2,6 +2,7 @@ import { Response, Request } from 'express';
 import { connection } from '../../database/db';
 import { Costumer } from '../../models/Costumer';
 import { Login } from '../../models/Login';
+import token from 'jsonwebtoken';
 
 class Auth {
     index(req: Request, res: Response) {
