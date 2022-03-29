@@ -20,7 +20,18 @@ class Auth {
     }
 
     store(req: Request, res: Response) {
-        res.send(req.body);
+        const { name, user, password, email, zip, adress, country } = req.body;
+
+        const costumer = new Costumer(
+            name,
+            user,
+            password,
+            email,
+            zip,
+            adress,
+            country
+        );
+        res.send(costumer);
     }
     destroy(req: Request, res: Response) {
         res.send('Logout');

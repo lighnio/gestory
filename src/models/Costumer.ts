@@ -5,10 +5,7 @@ export class Costumer {
     costumerMail;
     costumerZipCode;
     costumerAdress;
-    costumerCreditCard;
-    costumerCvvCode;
     costumerCountry;
-    costumerCardExpiration;
 
     constructor(
         name: string,
@@ -17,10 +14,7 @@ export class Costumer {
         mail: string,
         zipCode: number,
         adress: string,
-        creditCard: number,
-        cvv: string,
-        country: string,
-        expiration: number
+        country: string
     ) {
         this.costumerName = name;
         this.costumerUsername = username;
@@ -28,9 +22,6 @@ export class Costumer {
         this.costumerMail = mail;
         this.costumerZipCode = zipCode;
         this.costumerAdress = adress;
-        this.costumerCreditCard = creditCard;
-        this.costumerCvvCode = cvv;
         this.costumerCountry = country;
-        this.costumerCardExpiration = expiration;
     }
 }
