@@ -3,7 +3,7 @@ import { connection } from '../../database/db';
 import { Costumer } from '../../models/Costumer';
 import { Login } from '../../models/Login';
 import jwt from 'jsonwebtoken';
-import config from '../../jwt/config';
+import { config } from '../../jwt/config';
 
 class Auth {
     index(req: Request, res: Response) {
