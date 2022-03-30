@@ -14,6 +14,7 @@ import {
     productInformation,
     searchData,
 } from '../controllers/apiController';
+import { verifyToken } from '../middlewares/verifyToken';
 
 const apiRouter = Router();
 
@@ -31,7 +32,9 @@ apiRouter
     .post('/logout', authApi.destroy)
 
     // Sale
-    .post('/buy', sale.store)
+    .get('/ticket/:id', verifyToken, sale.show)
+    .post('/buy', verifyToken, sale.store)
+
     // Processing the 404
     .get('*', noValidUrl);
 
