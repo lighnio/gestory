@@ -46,9 +46,18 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjFmMTYxLWFmOWQ
 
 {
     "products": [
-        "62b7838b-ac6a-11ec-b658-98e743168307",
-        "541476eb-ac6b-11ec-b658-98e743168307",
-        "31667a13-ac7b-11ec-b658-98e743168307"
+        {
+            "id" : "62b7838b-ac6a-11ec-b658-98e743168307",
+            "quantity" : 5
+        },
+        {
+            "id" : "541476eb-ac6b-11ec-b658-98e743168307",
+            "quantity" : 10
+        },
+        {
+            "id" : "31667a13-ac7b-11ec-b658-98e743168307",
+            "quantity" : 12
+        }
     ]
 }
 ###
