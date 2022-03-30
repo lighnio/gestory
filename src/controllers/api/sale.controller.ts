@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import PDFDocument from 'pdfkit';
 import { connection } from '../../database/db';
 
-class Sale {
+class Sales {
     store(req: Request, res: Response) {
         const doc = new PDFDocument();
         doc.addPage();
@@ -10,4 +10,4 @@ class Sale {
     }
 }
 
-export const sale = new Sale();
+export const sale = new Sales();
