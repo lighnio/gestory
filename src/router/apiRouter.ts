@@ -6,14 +6,7 @@ import { gender } from '../controllers/api/gender.controller';
 import { product } from '../controllers/api/product.controller';
 import { products } from '../controllers/api/products.controller';
 import { sale } from '../controllers/api/sale.controller';
-import {
-    apiMainPage,
-    getProductsByCategory,
-    getProductsByGender,
-    noValidUrl,
-    productInformation,
-    searchData,
-} from '../controllers/apiController';
+import { noValidUrl, searchData } from '../controllers/apiController';
 import { verifyToken } from '../middlewares/verifyToken';
 
 const apiRouter = Router();
