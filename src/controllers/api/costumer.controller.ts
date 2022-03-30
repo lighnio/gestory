@@ -79,7 +79,10 @@ class Auth {
         });
     }
     destroy(req: Request, res: Response) {
-        res.send('Logout');
+        res.status(200).send({
+            auth: false,
+            token: null,
+        });
     }
 }
 
