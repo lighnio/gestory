@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { auth } from '../controllers/accountController';
 import { category } from '../controllers/api/category.controller';
 import { authApi } from '../controllers/api/costumer.controller';
 import { gender } from '../controllers/api/gender.controller';
