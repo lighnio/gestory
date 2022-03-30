@@ -6,7 +6,7 @@ class Sale {
     }
 
     show(req: Request, res: Response) {
-        res.send('Ticket');
+        res.send('Tiket');
     }
 }
 

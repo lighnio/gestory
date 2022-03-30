@@ -60,4 +60,7 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjFmMTYxLWFmOWQ
         }
     ]
 }
-###
+
+### get ticket
+GET {{baseUrl}}/tiket/1
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjFmMTYxLWFmOWQtMTFlYy04NzM3LTk4ZTc0MzE2ODMwNyIsImlhdCI6MTY0ODU5NDA1NCwiZXhwIjoxNjQ4NjgwNDU0fQ.1BwXtpo0HJpfC4uPd__s4pEEELwoSPpn78LcLh73OWE

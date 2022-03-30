@@ -24,7 +24,7 @@ apiRouter
     .post('/logout', authApi.destroy)
 
     // Sale
-    .get('/ticket/:id', verifyToken, sale.show)
+    .get('/tiket/:id', verifyToken, sale.show)
     .post('/buy', verifyToken, sale.store)
 
     // Processing the 404
