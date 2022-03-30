@@ -16,7 +16,7 @@ class Tiket {
                 });
 
             const tiket = processTiket(raw);
-            res.send(tiket);
+            res.send({ tiket });
         });
     }
 }
