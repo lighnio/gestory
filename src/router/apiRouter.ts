@@ -27,7 +27,7 @@ apiRouter
     // Sale
     .post('/buy', verifyToken, sale.store)
     // Tiket
-    .get('/tiket/:id', verifyToken, tiket.show)
+    .get('/tiket/:id', tiket.show)
 
     // Processing the 404
     .get('*', noValidUrl);

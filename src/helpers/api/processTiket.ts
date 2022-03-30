@@ -1,3 +1,5 @@
 export const processTiket = (tiket: any) => {
-    return Buffer.from(tiket).toString('base64');
+    const base64 = Buffer.from(tiket).toString('base64');
+
+    return base64;
 };
