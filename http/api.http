@@ -37,9 +37,7 @@ Content-Type:  application/json
 
 }
 
-
 ### buy 
-
 POST {{baseUrl}}/buy
 Content-Type: application/json
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjFmMTYxLWFmOWQtMTFlYy04NzM3LTk4ZTc0MzE2ODMwNyIsImlhdCI6MTY0ODU5NDA1NCwiZXhwIjoxNjQ4NjgwNDU0fQ.1BwXtpo0HJpfC4uPd__s4pEEELwoSPpn78LcLh73OWE
