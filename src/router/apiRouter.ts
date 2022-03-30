@@ -25,8 +25,9 @@ apiRouter
     .post('/logout', authApi.destroy)
 
     // Sale
-    .get('/tiket/:id', verifyToken, tiket.show)
     .post('/buy', verifyToken, sale.store)
+    // Tiket
+    .get('/tiket/:id', verifyToken, tiket.show)
 
     // Processing the 404
     .get('*', noValidUrl);
