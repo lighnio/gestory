@@ -7,8 +7,13 @@ class Tiket {
 
         const fields = 'ticket';
         const query: string = `SELECT ${fields} FROM sales WHERE BIN_TO_UUID(idSale) = '${id}';`;
-        console.log(query);
         connection.query(query, async (err, tiket) => {
+            if (err)
+                return res.send({
+                    err: true,
+                    msg: err.sqlMessage,
+                });
+
             res.send(tiket);
         });
     }
