@@ -1,3 +1,3 @@
 export const processTiket = (tiket: any) => {
-    return tiket;
+    return Buffer.from(tiket).toString('base64');
 };
