@@ -7,10 +7,6 @@ class Tiket {
 
         res.send('Tiket');
     }
-
-    store(req: Request, res: Response) {
-        res.send('Generate pdf');
-    }
 }
 
 export const tiket = new Tiket();
