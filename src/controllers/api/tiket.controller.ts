@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { connection } from '../../database/db';
 import { processTiket } from '../../helpers/api/processTiket';
+import PDFDocument from 'pdfkit';
 
 class Tiket {
     async show(req: Request, res: Response) {
