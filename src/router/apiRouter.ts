@@ -27,7 +27,7 @@ apiRouter
     // Costumer
     .post('/signin', authApi.index)
     .post('/signUp', authApi.store)
-
+    .post('/logout', authApi.destroy)
     // Processing the 404
     .get('*', noValidUrl);
 
