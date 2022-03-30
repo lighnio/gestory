@@ -15,10 +15,8 @@ class Auth {
             if (!err) {
                 if (costumer.length > 0) {
                     const login = new Login();
-                    let comp = await login.compare(
-                        password,
-                        costumer[0].costumerPassword
-                    );
+                    const { costumerPassword } = costumer[0];
+                    let comp = await login.compare(password, costumerPassword);
 
                     if (comp) {
                         const costumerInfo = costumer[0];
