@@ -1,1 +1,3 @@
-import mailer from 'nodemailer';
+import nodemailer from 'nodemailer';
+
+export const transporterd = nodemailer.

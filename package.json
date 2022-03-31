@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "test": "jest",
+    "mail": "nodemon src/node-mailer/nodeMailer.ts",
     "dev": "nodemon src/index.ts",
     "fake": "tsc src/fakeData/fake.ts",
     "build": "tsc -p . && npm run copy-files",
