@@ -35,6 +35,7 @@ class Sales {
             });
 
             const data = {
+                products: JSON.stringify(products),
                 saleTotal: total,
                 saleProfit: profit,
             };
@@ -48,7 +49,7 @@ class Sales {
                     });
                 res.status(200).send({
                     err: false,
-                    msg: result,
+                    msg: products,
                 });
             });
         });
