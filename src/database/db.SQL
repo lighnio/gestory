@@ -69,7 +69,8 @@ CREATE TABLE IF NOT EXISTS sales(
     dateSale        TIMESTAMP NOT NULL DEFAULT NOW(),
     ticket          LONGBLOB NOT NULL DEFAULT ('N/A'),
     products        JSON,
-    costumerId      BINARY(16) NOT NULL DEFAULT (UUID_TO_BIN(UUID()))
+    costumerId      BINARY(16) NOT NULL DEFAULT (UUID_TO_BIN(UUID())),
+    saleTotal       FLOAT
 );
 
 INSERT INTO sales (saleProfit) VALUES (round(rand() * 100, 2));
