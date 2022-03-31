@@ -5,7 +5,7 @@ import { Login } from '../../models/Login';
 import jwt from 'jsonwebtoken';
 import { config } from '../../jwt/config';
 import { transporter } from '../../node-mailer/nodeMailer';
-import { genRegisterMailHelper } from './genRegisterMailHelper';
+import { genRegisterMailHelper } from '../../helpers/api/genRegisterMailHelper';
 
 class Auth {
     index(req: Request, res: Response) {
