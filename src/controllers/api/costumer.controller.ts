@@ -85,7 +85,6 @@ class Auth {
 
                 transporter.sendMail(mailOptions, (err) => {
                     if (err) return console.log(err);
-                    console.log('Enviado');
                 });
 
                 res.status(200).send({
