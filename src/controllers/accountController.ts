@@ -35,15 +35,16 @@ export const accountView = (req: Request, res: Response) => {
     }
 };
 export const registerPost = async (req: Request, res: Response) => {
-    const { user, name, rol, pass } = req.body;
+    const { user, name, pass, rol, email } = req.body;
     let passHash = await bcryptjs.hash(pass, 8);
     connection.query(
         'INSERT INTO users SET ?',
         {
             user: user,
             name: name,
-            rol: rol,
             pass: passHash,
+            rol: rol,
+            mail: email
         },
         (err, resul) => {
             if (err) {
