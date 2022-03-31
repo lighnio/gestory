@@ -38,12 +38,14 @@ declare module 'express-session' {
         name: string;
         rol: string;
         user: string;
+        mail: string;
     }
 
     interface SessionData {
         loggedIn: boolean;
         data: Data;
         user: string;
+        mail: string;
     }
 }
 
