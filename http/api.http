@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3000/api
-
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjFmMTYxLWFmOWQtMTFlYy04NzM3LTk4ZTc0MzE2ODMwNyIsImlhdCI6MTY0ODc1MDg0OCwiZXhwIjoxNjQ4ODM3MjQ4fQ.Ep622X0Pobaxk9Q_jr-1vkF6w3O5-Q_2qn8gjpF2qFs
 
 
 ### Get products
@@ -40,7 +40,7 @@ Content-Type:  application/json
 ### buy 
 POST {{baseUrl}}/buy
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjFmMTYxLWFmOWQtMTFlYy04NzM3LTk4ZTc0MzE2ODMwNyIsImlhdCI6MTY0ODU5NDA1NCwiZXhwIjoxNjQ4NjgwNDU0fQ.1BwXtpo0HJpfC4uPd__s4pEEELwoSPpn78LcLh73OWE
+x-access-token: {{ token }}
 
 {
     "products": [
@@ -63,6 +63,6 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjFmMTYxLWFmOWQ
 # If has token
 ### get ticket
 GET {{baseUrl}}/tiket/b9c1b8e3-99c5-11ec-b10f-98e743168307
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjFmMTYxLWFmOWQtMTFlYy04NzM3LTk4ZTc0MzE2ODMwNyIsImlhdCI6MTY0ODU5NDA1NCwiZXhwIjoxNjQ4NjgwNDU0fQ.1BwXtpo0HJpfC4uPd__s4pEEELwoSPpn78LcLh73OWE
+x-access-token: {{ token }}
 
 
