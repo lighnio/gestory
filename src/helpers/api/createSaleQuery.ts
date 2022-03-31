@@ -10,7 +10,7 @@ export const createSaleQuery = (products: Array<productType>) => {
         query += `${index != 0 ? ' OR' : ''} BIN_TO_UUID(idProduct) = '${id}'`;
     });
 
-    query += ';';
+    query += ' ORDER BY productName;';
 
     return query;
 };
