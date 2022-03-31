@@ -9,14 +9,10 @@ export const transporter = nodemailer.createTransport({
     },
 });
 
+// Basic structure
 const mailOptions = {
     from: 'bryantello2010@hotmail.com',
     to: 'bryantello2010@hotmail.com',
     subject: 'Prueba',
     text: 'COrreo enviado desde nodejs',
 };
-
-transporter.sendMail(mailOptions, (err) => {
-    if (err) return console.log(err);
-    console.log('Enviado');
-});

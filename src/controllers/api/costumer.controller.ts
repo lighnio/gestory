@@ -4,6 +4,7 @@ import { Costumer } from '../../models/Costumer';
 import { Login } from '../../models/Login';
 import jwt from 'jsonwebtoken';
 import { config } from '../../jwt/config';
+import { transporter } from '../../node-mailer/nodeMailer';
 
 class Auth {
     index(req: Request, res: Response) {
@@ -74,6 +75,18 @@ class Auth {
                     msg: err.sqlMessage,
                 });
             } else {
+                const mailOptions = {
+                    from: 'bryantello2010@hotmail.com',
+                    to: costumer.costumerMail,
+                    subject: 'Thanks for dressing you',
+                    html: 'Thank you for registering in our store, now you can start shopping.',
+                };
+
+                transporter.sendMail(mailOptions, (err) => {
+                    if (err) return console.log(err);
+                    console.log('Enviado');
+                });
+
                 res.status(200).send({
                     err: false,
                 });
