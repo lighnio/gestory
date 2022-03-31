@@ -36,8 +36,8 @@ class Sales {
 
             const data = {
                 products,
-                total,
-                profit,
+                saleTotal: total,
+                saleProfit: profit,
             };
             res.status(200).send({
                 err: false,
