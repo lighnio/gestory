@@ -15,10 +15,16 @@ export const verifyToken = async (
             msg: 'No token was providen',
         });
 
-    //@ts-ignore
-    const decoded = await jwt.verify(token, config.secret);
-
-    //@ts-ignore
-    req.userId = decoded.id;
+    try {
+        //@ts-ignore
+        const decoded = await jwt.verify(token, config.secret);
+        //@ts-ignore
+        req.userId = decoded.id;
+    } catch (err) {
+        return res.status(401).send({
+            auth: false,
+            msg: 'Token expired',
+        });
+    }
     next();
 };
