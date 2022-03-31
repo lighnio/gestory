@@ -21,6 +21,13 @@ export const registerView = (req: Request, res: Response) => {
 };
 
 export const logOut = (req: Request, res: Response) => {
+    let mail = '';
+    req.session.data ? mail = req.session.data.mail : ''
+    let query = `DELETE FROM sessions WHERE data->'$.data.mail' = '${mail}'`
+
+    connection.query(query, (err, req) => {
+        if (err) console.log(err);    
+    })
     req.session.destroy(() => res.redirect('/'));
 };
 
@@ -94,12 +101,13 @@ export const auth = async (req: Request, res: Response) => {
                     });
                 } else {
                     req.session.loggedIn = true;
-                    const { name, rol, user } = results[0];
+                    const { name, rol, user, mail } = results[0];
 
                     req.session.data = {
                         name,
                         rol,
                         user,
+                        mail
                     };
                     res.render('login', {
                         alert: true,
