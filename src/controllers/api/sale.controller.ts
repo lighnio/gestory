@@ -7,7 +7,16 @@ class Sales {
     store(req: Request, res: Response) {
         const { products } = req.body;
         const query = createSaleQuery(products);
-        res.status(200).send(query);
+
+        connection.query(query, (err, results) => {
+            if (err)
+                return res.status(500).send({ err: true, msg: err.sqlMessage });
+
+            res.status(200).send({
+                err: false,
+                msg: results,
+            });
+        });
     }
 }
 
