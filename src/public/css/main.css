@@ -89,6 +89,8 @@ body {
     font-size: 28px;
     padding: 70px 0 10px 0;
 }
+
+.login-form input[type='email'],
 .login-form input[type='password'],
 .login-form input[type='text'],
 select {
