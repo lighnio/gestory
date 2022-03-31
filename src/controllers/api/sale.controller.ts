@@ -49,7 +49,7 @@ class Sales {
                     });
                 res.status(200).send({
                     err: false,
-                    msg: products,
+                    msg: 'Sale succesufully',
                 });
             });
         });
