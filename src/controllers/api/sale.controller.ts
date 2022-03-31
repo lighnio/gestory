@@ -35,13 +35,21 @@ class Sales {
             });
 
             const data = {
-                products,
                 saleTotal: total,
                 saleProfit: profit,
             };
-            res.status(200).send({
-                err: false,
-                msg: data,
+
+            const query = 'INSERT INTO sales SET ?';
+            connection.query(query, data, (err, result) => {
+                if (err)
+                    return res.status(500).send({
+                        err: true,
+                        msg: err.sqlMessage,
+                    });
+                res.status(200).send({
+                    err: false,
+                    msg: result,
+                });
             });
         });
     }
