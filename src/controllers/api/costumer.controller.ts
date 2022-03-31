@@ -5,6 +5,7 @@ import { Login } from '../../models/Login';
 import jwt from 'jsonwebtoken';
 import { config } from '../../jwt/config';
 import { transporter } from '../../node-mailer/nodeMailer';
+import { genRegisterMailHelper } from './genRegisterMailHelper';
 
 class Auth {
     index(req: Request, res: Response) {
@@ -79,7 +80,7 @@ class Auth {
                     from: 'bryantello2010@hotmail.com',
                     to: costumer.costumerMail,
                     subject: 'Thanks for dressing you',
-                    html: 'Thank you for registering in our store, now you can start shopping.',
+                    html: genRegisterMailHelper(costumer.costumerName),
                 };
 
                 transporter.sendMail(mailOptions, (err) => {
