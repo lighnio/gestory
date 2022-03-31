@@ -74,7 +74,9 @@ class Auth {
                     msg: err.sqlMessage,
                 });
             } else {
-                res.send(result);
+                res.status(200).send({
+                    err: false,
+                });
             }
         });
     }
