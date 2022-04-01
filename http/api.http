@@ -66,3 +66,7 @@ GET {{baseUrl}}/tiket/b9c1b8e3-99c5-11ec-b10f-98e743168307
 x-access-token: {{ token }}
 
 
+# password
+
+### Send forgot password mail
+POST {{baseUrl}}/forgot
