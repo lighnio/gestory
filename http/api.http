@@ -70,3 +70,8 @@ x-access-token: {{ token }}
 
 ### Send forgot password mail
 POST {{baseUrl}}/forgot
+Content-Type: application/json
+
+{
+    "mail": "bryantello2010@hotmail.com"
+}
