@@ -3,6 +3,7 @@ const bcryptjs: any = require('bcryptjs/dist/bcrypt');
 
 class Password {
     edit(req: Request, res: Response) {
+        const { id } = req.params;
         res.send('Change password');
     }
 
