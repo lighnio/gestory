@@ -22,7 +22,7 @@ export const indexView = async (req: Request, res: Response) => {
         // let match = (originalUrl.match(/\d+$/));
         const query = getQuery(date, page);
 
-        connection.query(query, [1, 2, 3, 4], async (err, results) => {
+        connection.query(query, [1, 2, 3, 4, 5, 6], async (err, results) => {
             if (err) throw err;
 
             const {
@@ -50,6 +50,7 @@ export const indexView = async (req: Request, res: Response) => {
                 auxdate,
                 currencyPrefix,
                 pageName,
+                
             };
 
             res.render('index', responseData);
