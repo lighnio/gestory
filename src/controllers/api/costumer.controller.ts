@@ -32,7 +32,7 @@ class Auth {
                             }
                         );
                         const user = {
-                            mail: costumerUsername,
+                            user: costumerUsername,
                             id: costumerId,
                         };
                         res.status(200).json({
