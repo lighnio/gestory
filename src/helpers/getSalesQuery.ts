@@ -21,10 +21,11 @@ export const getQuery = (date: any, page: any) => {
     // Avg sale query
     const queryAvg: string = `SELECT ROUND(AVG(saleProfit), 2) AS avgSum FROM sales`;
 
+    const queryAvgYear: string = `SELECT ROUND(AVG(saleProfit),2) AS YearAvg , YEAR(dateSale) AS 'Year' FROM sales WHERE dateSale BETWEEN '${date}-01-01 00:00:00.000' AND '${date}-12-31 23:59:59.000' GROUP BY YEAR(dateSale) ORDER BY YearAvg`
     const queryAvgMaxMonth: string = `SELECT ROUND(AVG(saleProfit),2) AS MaxMAvg , MONTH(dateSale) AS 'Month' FROM sales WHERE dateSale BETWEEN '${date}-01-01 00:00:00.000' AND '${date}-12-31 23:59:59.000' GROUP BY MONTH(dateSale) ORDER BY MaxMAvg DESC LIMIT 1`
     const queryAvgMinMonth: string = `SELECT ROUND(AVG(saleProfit),2) AS MinMAvg , MONTH(dateSale) AS 'Month' FROM sales WHERE dateSale BETWEEN '${date}-01-01 00:00:00.000' AND '${date}-12-31 23:59:59.000' GROUP BY MONTH(dateSale) ORDER BY MinMAvg ASC LIMIT 1`
 
     // console.table(queryAvg);
     // Full querys
-    return `${queryAll};${queryProfits};${querySum};${queryAvg};${queryAvgMaxMonth};${queryAvgMinMonth};`;
+    return `${queryAll};${queryProfits};${querySum};${queryAvg};${queryAvgYear};${queryAvgMaxMonth};${queryAvgMinMonth};`;
 };
