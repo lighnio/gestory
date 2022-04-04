@@ -1,6 +1,8 @@
+import { formateDateSalesHelper } from './formateDateSalesHelper';
+
 export const salesHelper = (results: string[]) => {
     const [
-        sales,
+        salesUnformated,
         profitsSum,
         countSales,
         averageSum,
@@ -17,6 +19,6 @@ export const salesHelper = (results: string[]) => {
     const [profits] = profitsSum;
     const [total] = countSales;
     const { COUNT: count } = total;
-
+    const sales = formateDateSalesHelper(salesUnformated);
     return { sales, profits, count, avgSum };
 };
