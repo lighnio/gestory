@@ -8,15 +8,12 @@ export const salesHelper = (results: string[]) => {
         PromedioMinM,
     ] = JSON.parse(JSON.stringify(results));
 
-    const [first, second] = PromedioMaxM;
-    const [firstMin, secondMin] = PromedioMinM;
-
-    console.log(first, second, firstMin, secondMin);
-
+    const [firstMax] = PromedioMaxM;
+    const [firstMin] = PromedioMinM;
     const [avgSum] = averageSum;
     const [profits] = profitsSum;
     const [total] = countSales;
     const { COUNT: count } = total;
 
-    return { sales, profits, count, avgSum };
+    return { sales, profits, count, avgSum, firstMax, firstMin};
 };
