@@ -174,7 +174,14 @@ a {
 
 .dashboard .graphics .select .box {
   width: 100%;
-  height: 10em;
+  height: 6em;
+}
+
+/* Posible LoadBar */
+.maxMonth{
+  width: var(--wcontent, 0%);
+  background-color: rgba(0, 0, 255, 0.5);
+  transition: 1s ease all;
 }
 
 /* Table information */
@@ -232,6 +239,8 @@ a {
   overflow-y: scroll;
   height: 380px;
 }
+
+
 
 /* Products */
 .dashboard .products .title {
