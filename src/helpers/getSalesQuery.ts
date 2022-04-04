@@ -1,7 +1,9 @@
 export const getQuery = (date: any, page: any) => {
     const datequery: string = date
         ? `WHERE dateSale BETWEEN '${date}-01-01' AND '${date}-12-31'`
-        : '';
+        : `WHERE dateSale BETWEEN '${new Date().getFullYear().toString()}-01-01' AND '${new Date().getFullYear().toString()}-12-31'`;
+
+    date? '' : date = new Date().getFullYear().toString()
 
     const pagequery: string = page ? 
         `LIMIT ${((page - 1) * 10)}, 10`  
@@ -17,9 +19,12 @@ export const getQuery = (date: any, page: any) => {
     const queryProfits: string = `SELECT ROUND(SUM(saleProfit), 2) as profits FROM sales ${datequery}`;
 
     // Avg sale query
-    const queryAvg: string = `SELECT ROUND(AVG(saleProfit), 2) AS avgSum FROM sales;`;
+    const queryAvg: string = `SELECT ROUND(AVG(saleProfit), 2) AS avgSum FROM sales`;
+
+    const queryAvgMaxMonth: string = `SELECT ROUND(AVG(saleProfit),2) AS 'PromedioMaxM' , MONTH(dateSale) AS 'Mes' FROM sales WHERE dateSale BETWEEN '${date}-01-01 00:00:00.000' AND '${date}-12-31 23:59:59.000' GROUP BY MONTH(dateSale) ORDER BY 'PromedioMaxM' DESC`
+    const queryAvgMinMonth: string = `SELECT ROUND(AVG(saleProfit),2) AS 'PromedioMinM' , MONTH(dateSale) AS 'Mes' FROM sales WHERE dateSale BETWEEN '${date}-01-01 00:00:00.000' AND '${date}-12-31 23:59:59.000' GROUP BY MONTH(dateSale) ORDER BY 'PromedioMinM' ASC`
 
     // console.table(queryAvg);
     // Full querys
-    return `${queryAll};${queryProfits};${querySum};${queryAvg}`;
+    return `${queryAll};${queryProfits};${querySum};${queryAvg};${queryAvgMaxMonth};${queryAvgMinMonth};`;
 };
