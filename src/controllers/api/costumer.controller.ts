@@ -11,7 +11,7 @@ class Auth {
     index(req: Request, res: Response) {
         const { mail, password }: { mail: string; password: string } = req.body;
 
-        const query: string = `SELECT BIN_TO_UUID(costumerId) as costumerId, costumerMail, costumerPassword FROM costumers WHERE costumerMail = '${mail}';`;
+        const query: string = `SELECT BIN_TO_UUID(costumerId) as costumerId, costumerMail, costumerUsername, costumerPassword FROM costumers WHERE costumerMail = '${mail}';`;
         connection.query(query, async (err, costumer) => {
             if (err) res.json('An error has ocurred');
             if (!err) {
@@ -21,19 +21,24 @@ class Auth {
                     let comp = await login.compare(password, costumerPassword);
 
                     if (comp) {
-                        const costumerInfo = costumer[0];
+                        const { costumerId, costumerUsername } = costumer[0];
                         const token = jwt.sign(
                             {
-                                id: costumerInfo.costumerId,
+                                id: costumerId,
                             },
                             config.secret,
                             {
                                 expiresIn: 60 * 60 * 24,
                             }
                         );
+                        const user = {
+                            mail: costumerUsername,
+                            id: costumerId,
+                        };
                         res.status(200).json({
                             auth: true,
                             token,
+                            user,
                         });
                     }
 
