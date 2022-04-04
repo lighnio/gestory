@@ -1,8 +1,9 @@
 export const salesHelper = (results: string[]) => {
-    const [sales, profitsSum, countSales, averageSum] = JSON.parse(
+    const [sales, profitsSum, countSales, averageSum, PromedioMaxM, PromedioMinM] = JSON.parse(
         JSON.stringify(results)
     );
-
+    console.log(`PromedioMax: ${PromedioMaxM}`);
+    
     const [avgSum] = averageSum;
     const [profits] = profitsSum;
     const [total] = countSales;
