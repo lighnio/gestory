@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import fs, { closeSync } from 'fs';
+import fs from 'fs';
 import { join } from 'path';
 // @ts-ignore
-import PDF from 'pdfkit-construct';
+import PdfkitConstruct from 'pdfkit-construct';
 import { connection } from '../../database/db';
 import { createSaleQuery } from '../../helpers/api/createSaleQuery';
 
@@ -37,15 +37,12 @@ class Sales {
                 profit += product.purchasePrice;
             });
 
-            const doc = new PDF({
-                margin: '30',
+            const doc = new PdfkitConstruct({
                 size: 'A4',
+                margins: { top: 20, left: 10, right: 10, bottom: 20 },
+                bufferPages: true,
             });
 
-            const table = {
-                title: 'Dress U',
-            };
-            doc.table(table);
             if (!fs.existsSync('./src/tickets')) fs.mkdirSync('./src/tickets');
 
             // @ts-ignore
@@ -58,11 +55,9 @@ class Sales {
             const dir = join(__dirname, `../../tickets/${pdfName}`);
             doc.end();
 
-            console.time();
             fs.readFile(dir, async (err, ticket) => {
                 await console.log(ticket);
             });
-            console.timeEnd();
 
             const ticket = '';
 
