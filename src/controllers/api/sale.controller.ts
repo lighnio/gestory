@@ -1,8 +1,10 @@
 import { Request, Response } from 'express';
 import fs from 'fs';
-import PDF from 'pdfkit';
+// @ts-ignore
+import PDF from 'pdfkit-table';
 import { connection } from '../../database/db';
 import { createSaleQuery } from '../../helpers/api/createSaleQuery';
+
 interface productType {
     productName: string;
     productPrice: number;
