@@ -25,7 +25,6 @@ export const indexView = async (req: Request, res: Response) => {
         connection.query(query, [1, 2, 3, 4, 5, 6, 7], async (err, results) => {
             if (err) throw err;
 
-            console.log(results[0]);
             const {
                 sales,
                 profits: profitObj,

@@ -45,11 +45,12 @@ class Sales {
             doc.text('Cv marica');
             if (!fs.existsSync('./src/tickets')) fs.mkdirSync('./src/tickets');
 
-            const name = `ickkck.pdf`;
+            const name = `dressU-ticket-${Date.now()}.pdf`;
 
-            doc.pipe(fs.createWriteStream(`./src/tickets/${name}`));
+            await doc.pipe(fs.createWriteStream(`./src/tickets/${name}`));
 
             doc.end();
+
             const ticket = await fs.readFileSync(
                 join(__dirname, `../../tickets/${name}`)
             );

@@ -19,6 +19,7 @@ import {
 } from '../controllers/dashboard/users.controller';
 import { manageCostumers } from '../controllers/dashboard/costumers.controller';
 import { fileUpload } from '../multer/multerConfig';
+import { ticket } from '../controllers/dashboard/ticket';
 
 const dashboardRouter = Router();
 
@@ -28,7 +29,7 @@ dashboardRouter
     .get('/sales', indexView)
     .get('/sales/:date/:page', indexView)
     .get('/sale/:saleId', salesById)
-    .get('/ticket/:saleId', downloadTicket)
+    .get('/ticket/:id', ticket.index)
     // Products
     .post('/', dateSales)
     .get('/products', products)
