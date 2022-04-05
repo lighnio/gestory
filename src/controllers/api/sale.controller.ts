@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import fs, { closeSync } from 'fs';
 import { join } from 'path';
 // @ts-ignore
-import PDF from 'pdfkit-table';
+import PDF from 'pdfkit-construct';
 import { connection } from '../../database/db';
 import { createSaleQuery } from '../../helpers/api/createSaleQuery';
 
@@ -42,35 +42,48 @@ class Sales {
                 size: 'A4',
             });
 
-            doc.text(Date.now());
+            const table = {
+                title: 'Dress U',
+            };
+            doc.table(table);
             if (!fs.existsSync('./src/tickets')) fs.mkdirSync('./src/tickets');
 
-            await doc.pipe(fs.createWriteStream(`./src/tickets/${name}.pdf`));
+            // @ts-ignore
+            const randomText = (Math.random() + 1).toString(36).substring(2);
 
+            const pdfName = `dressU-ticket-${randomText}.pdf`;
+            await doc.pipe(
+                await fs.createWriteStream(`./src/tickets/${pdfName}`)
+            );
+            const dir = join(__dirname, `../../tickets/${pdfName}`);
             doc.end();
 
-            const dir = join(__dirname, `../../tickets/${name}.pdf`);
-            // FIXME the save
-            fs.readFile(dir, (err, ticket) => {
-                if (err) throw err;
+            console.time();
+            fs.readFile(dir, async (err, ticket) => {
+                await console.log(ticket);
+            });
+            console.timeEnd();
 
-                const data = {
-                    products: JSON.stringify(products),
-                    saleTotal: total,
-                    saleProfit: profit,
-                    ticket,
-                };
-                const query = 'INSERT INTO sales SET ?';
-                connection.query(query, data, (err) => {
-                    if (err)
-                        return res.status(500).send({
-                            err: true,
-                            msg: err.sqlMessage,
-                        });
-                    res.status(200).send({
-                        err: false,
-                        msg: 'Sale succesufully',
+            const ticket = '';
+
+            // FIXME the save
+
+            const data = {
+                products: JSON.stringify(products),
+                saleTotal: total,
+                saleProfit: profit,
+                ticket,
+            };
+            const query = 'INSERT INTO sales SET ?';
+            connection.query(query, data, (err) => {
+                if (err)
+                    return res.status(500).send({
+                        err: true,
+                        msg: err.sqlMessage,
                     });
+                res.status(200).send({
+                    err: false,
+                    msg: 'Sale succesufully',
                 });
             });
         });
