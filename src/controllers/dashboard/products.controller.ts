@@ -138,17 +138,23 @@ export const saveProduct = async (req: Request, res: Response) => {
 
     const query: string = `INSERT INTO products SET ?`;
 
-    await connection.query(query, {
-        productName,
-        productDescription,
-        productPrice,
-        productCategory,
-        productImage,
-        purchasePrice,
-        productImageType,
-        productImageName,
-        productGender,
-    }, (err, resp) => {console.log(err)});
+    await connection.query(
+        query,
+        {
+            productName,
+            productDescription,
+            productPrice,
+            productCategory,
+            productImage,
+            purchasePrice,
+            productImageType,
+            productImageName,
+            productGender,
+        },
+        (err, resp) => {
+            console.log(err);
+        }
+    );
 
     deleteFolderRecursive(path);
     res.redirect('/products');
