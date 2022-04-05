@@ -6,7 +6,7 @@ import { password } from '../controllers/api/Password.controller';
 import { product } from '../controllers/api/product.controller';
 import { products } from '../controllers/api/products.controller';
 import { sale } from '../controllers/api/sale.controller';
-import { tiket } from '../controllers/api/tiket.controller';
+import { tiket } from '../controllers/dashboard/tiket.controller';
 import { noValidUrl, searchData } from '../controllers/apiController';
 import { verifyToken } from '../middlewares/verifyToken';
 
