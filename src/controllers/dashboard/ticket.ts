@@ -6,7 +6,6 @@ class Ticket {
         connection.query(query, (err, result) => {
             if (err) throw err;
             const ticket = Buffer.from(result).toString('base64');
-            console.log(ticket);
             const resHeader = {
                 'Content-Disposition': `attachment; filename=${Date.now()}.pdf; content: ${ticket}`,
                 'Content-type': 'application/pdf',

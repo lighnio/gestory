@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import fs from 'fs';
+import fs, { closeSync } from 'fs';
 import { join } from 'path';
 // @ts-ignore
 import PDF from 'pdfkit-table';
@@ -42,7 +42,7 @@ class Sales {
                 size: 'A4',
             });
 
-            doc.text('Cv marica');
+            doc.text(Date.now());
             if (!fs.existsSync('./src/tickets')) fs.mkdirSync('./src/tickets');
 
             const name = `dressU-ticket-${Date.now()}.pdf`;
@@ -51,9 +51,9 @@ class Sales {
 
             doc.end();
 
-            const ticket = await fs.readFileSync(
-                join(__dirname, `../../tickets/${name}`)
-            );
+            const dir = join(__dirname, `../../tickets/${name}`);
+            // FIXME the save
+            const ticket = await fs.readFileSync(dir);
 
             const data = {
                 products: JSON.stringify(products),
@@ -61,7 +61,6 @@ class Sales {
                 saleProfit: profit,
                 ticket,
             };
-
             const query = 'INSERT INTO sales SET ?';
             connection.query(query, data, (err, result) => {
                 if (err)
