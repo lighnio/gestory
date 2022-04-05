@@ -7,6 +7,5 @@ build
 dist
 src/images
 src/images/*
-
 src/tickets/*
 
