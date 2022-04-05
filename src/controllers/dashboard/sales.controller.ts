@@ -21,15 +21,17 @@ export const indexView = async (req: Request, res: Response) => {
         // let match = (originalUrl.match(/\d+$/) - 1) * 10;
         // let match = (originalUrl.match(/\d+$/));
         const query = getQuery(date, page);
-        
+
         connection.query(query, [1, 2, 3, 4, 5, 6, 7], async (err, results) => {
             if (err) throw err;
+
+            console.log(results[0]);
             const {
                 sales,
                 profits: profitObj,
                 count: total,
                 avgSum: averageSum,
-                percent
+                percent,
             } = salesHelper(results);
 
             const pageName = 'sales';
@@ -50,8 +52,7 @@ export const indexView = async (req: Request, res: Response) => {
                 auxdate,
                 currencyPrefix,
                 pageName,
-                percent
-                
+                percent,
             };
 
             res.render('index', responseData);
