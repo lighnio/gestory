@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3000/api
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjFmMTYxLWFmOWQtMTFlYy04NzM3LTk4ZTc0MzE2ODMwNyIsImlhdCI6MTY0ODc1MDg0OCwiZXhwIjoxNjQ4ODM3MjQ4fQ.Ep622X0Pobaxk9Q_jr-1vkF6w3O5-Q_2qn8gjpF2qFs
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRiYmFkMTZiLWIxMzItMTFlYy04NzM3LTk4ZTc0MzE2ODMwNyIsImlhdCI6MTY0OTE4NjEzMCwiZXhwIjoxNjQ5MjcyNTMwfQ.U94b8_mAsWmdXGSsxXU20H2xoGBWL_wU_3lyV7oWr3c
 
 
 ### Get products
@@ -56,7 +56,8 @@ x-access-token: {{ token }}
             "id" : "31667a13-ac7b-11ec-b658-98e743168307",
             "quantity" : 12
         }
-    ]
+    ],
+    "name" : "Bryan Chiribaj"
 }
 
 

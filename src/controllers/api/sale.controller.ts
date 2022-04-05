@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import PDFDocument from 'pdfkit';
+import fs from 'fs';
+import PDF from 'pdfkit';
 import { connection } from '../../database/db';
 import { createSaleQuery } from '../../helpers/api/createSaleQuery';
-
 interface productType {
     productName: string;
     productPrice: number;
@@ -39,6 +39,14 @@ class Sales {
                 saleTotal: total,
                 saleProfit: profit,
             };
+
+            const doc = new PDF();
+
+            doc.text('Cv marica');
+
+            doc.pipe(fs.createWriteStream('pdf.pdf'));
+
+            doc.end();
 
             const query = 'INSERT INTO sales SET ?';
             connection.query(query, data, (err, result) => {
