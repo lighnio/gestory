@@ -13,7 +13,7 @@ interface productType {
 }
 class Sales {
     async store(req: Request, res: Response) {
-        const { products } = req.body;
+        const { products, name } = req.body;
         const query = createSaleQuery(products);
 
         connection.query(query, async (err, results) => {
@@ -45,32 +45,32 @@ class Sales {
             doc.text(Date.now());
             if (!fs.existsSync('./src/tickets')) fs.mkdirSync('./src/tickets');
 
-            const name = `dressU-ticket-${Date.now()}.pdf`;
-
-            await doc.pipe(fs.createWriteStream(`./src/tickets/${name}`));
+            await doc.pipe(fs.createWriteStream(`./src/tickets/${name}.pdf`));
 
             doc.end();
 
-            const dir = join(__dirname, `../../tickets/${name}`);
+            const dir = join(__dirname, `../../tickets/${name}.pdf`);
             // FIXME the save
-            const ticket = await fs.readFileSync(dir);
+            fs.readFile(dir, (err, ticket) => {
+                if (err) throw err;
 
-            const data = {
-                products: JSON.stringify(products),
-                saleTotal: total,
-                saleProfit: profit,
-                ticket,
-            };
-            const query = 'INSERT INTO sales SET ?';
-            connection.query(query, data, (err, result) => {
-                if (err)
-                    return res.status(500).send({
-                        err: true,
-                        msg: err.sqlMessage,
+                const data = {
+                    products: JSON.stringify(products),
+                    saleTotal: total,
+                    saleProfit: profit,
+                    ticket,
+                };
+                const query = 'INSERT INTO sales SET ?';
+                connection.query(query, data, (err) => {
+                    if (err)
+                        return res.status(500).send({
+                            err: true,
+                            msg: err.sqlMessage,
+                        });
+                    res.status(200).send({
+                        err: false,
+                        msg: 'Sale succesufully',
                     });
-                res.status(200).send({
-                    err: false,
-                    msg: 'Sale succesufully',
                 });
             });
         });

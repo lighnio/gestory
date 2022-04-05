@@ -57,7 +57,7 @@ x-access-token: {{ token }}
             "quantity" : 12
         }
     ],
-    "name" : "Bryan Chiribaj"
+    "name" : "BryanChiribaj"
 }
 
 
