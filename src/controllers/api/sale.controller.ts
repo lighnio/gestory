@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import fs from 'fs';
+import { join } from 'path';
 // @ts-ignore
 import PDF from 'pdfkit-table';
 import { connection } from '../../database/db';
@@ -11,11 +12,11 @@ interface productType {
     purchasePrice: number;
 }
 class Sales {
-    store(req: Request, res: Response) {
+    async store(req: Request, res: Response) {
         const { products } = req.body;
         const query = createSaleQuery(products);
 
-        connection.query(query, (err, results) => {
+        connection.query(query, async (err, results) => {
             if (err)
                 return res.status(500).send({ err: true, msg: err.sqlMessage });
 
@@ -36,12 +37,6 @@ class Sales {
                 profit += product.purchasePrice;
             });
 
-            const data = {
-                products: JSON.stringify(products),
-                saleTotal: total,
-                saleProfit: profit,
-            };
-
             const doc = new PDF({
                 margin: '30',
                 size: 'A4',
@@ -50,13 +45,21 @@ class Sales {
             doc.text('Cv marica');
             if (!fs.existsSync('./src/tickets')) fs.mkdirSync('./src/tickets');
 
-            doc.pipe(
-                fs.createWriteStream(
-                    `./src/tickets/dressU-ticket-${Date.now()}.pdf`
-                )
-            );
+            const name = `ickkck.pdf`;
+
+            doc.pipe(fs.createWriteStream(`./src/tickets/${name}`));
 
             doc.end();
+            const ticket = await fs.readFileSync(
+                join(__dirname, `../../tickets/${name}`)
+            );
+
+            const data = {
+                products: JSON.stringify(products),
+                saleTotal: total,
+                saleProfit: profit,
+                ticket,
+            };
 
             const query = 'INSERT INTO sales SET ?';
             connection.query(query, data, (err, result) => {
