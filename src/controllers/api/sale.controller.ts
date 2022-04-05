@@ -42,11 +42,19 @@ class Sales {
                 saleProfit: profit,
             };
 
-            const doc = new PDF();
+            const doc = new PDF({
+                margin: '30',
+                size: 'A4',
+            });
 
             doc.text('Cv marica');
+            if (!fs.existsSync('./src/tickets')) fs.mkdirSync('./src/tickets');
 
-            doc.pipe(fs.createWriteStream('pdf.pdf'));
+            doc.pipe(
+                fs.createWriteStream(
+                    `./src/tickets/dressU-ticket-${Date.now()}.pdf`
+                )
+            );
 
             doc.end();
 
