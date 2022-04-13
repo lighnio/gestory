@@ -15,11 +15,17 @@ export const salesHelper = (results: string[]) => {
     const [firstMin] = PromedioMinM;
     const [avgYear] = YearAvg;  
 
+    console.log(`Max: ${firstMax.MaxMAvg} Min: ${firstMin.MinMAvg} Average Year: ${avgYear.YearAvg}`);  
+    
+
     let percent = 0;
     if(firstMax && firstMin && avgYear){
         const subMax = (firstMax.MaxMAvg - firstMin.MinMAvg) / 100
         percent = Math.ceil(avgYear.YearAvg / subMax)
     }
+
+    percent === Infinity? percent = 0 : ''
+    
 
     const [avgSum] = averageSum;
     const [profits] = profitsSum;
