@@ -4,6 +4,14 @@ interface saleType {
     saleTotal: number;
 }
 export const saleForTicket = (sale: saleType) => {
-    const res = JSON.parse(JSON.stringify(sale));
-    console.log(res);
+    const {
+        dateSale,
+        products: productsArray,
+        saleTotal,
+    } = JSON.parse(JSON.stringify(sale));
+
+    const products = JSON.parse(productsArray);
+    return {
+        products: products,
+    };
 };
