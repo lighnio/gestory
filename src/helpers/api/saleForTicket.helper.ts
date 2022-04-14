@@ -11,7 +11,12 @@ export const saleForTicket = (sale: saleType) => {
     } = JSON.parse(JSON.stringify(sale));
 
     const products = JSON.parse(productsArray);
+    const date = new Date(dateSale).toLocaleDateString('en-US');
+
+    const total = parseFloat(saleTotal);
     return {
-        products: products,
+        products,
+        date,
+        total,
     };
 };

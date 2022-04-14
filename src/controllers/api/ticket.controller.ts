@@ -15,10 +15,12 @@ class Tiket {
                     msg: err.sqlMessage,
                 });
 
-            const { products } = saleForTicket(results[0]);
+            const { products, date, total } = saleForTicket(results[0]);
             res.json({
                 err: false,
                 products,
+                date,
+                total,
             });
         });
     }
