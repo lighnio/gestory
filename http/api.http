@@ -63,7 +63,7 @@ x-access-token: {{ token }}
 
 # If has token
 ### get ticket
-GET {{baseUrl}}/tiket/b9c1b8e3-99c5-11ec-b10f-98e743168307
+GET {{baseUrl}}/tiket/d488cae9-b52f-11ec-820f-98e743168307
 x-access-token: {{ token }}
 
 
