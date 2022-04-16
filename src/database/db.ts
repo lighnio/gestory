@@ -1,3 +1,4 @@
+import { readFileSync } from 'fs';
 import mysql from 'mysql';
 
 export const connection = mysql.createConnection({
@@ -8,6 +9,7 @@ export const connection = mysql.createConnection({
     multipleStatements: true,
     ssl: {
         rejectUnauthorized: false,
+        ca: readFileSync('./src/certs/ssl.pem'),
     },
 });
 
