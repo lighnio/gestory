@@ -8,14 +8,15 @@ export const connection = mysql.createConnection({
     database: process.env.DB_NAME,
     multipleStatements: true,
     ssl: {
-        rejectUnauthorized: true,
+        key: readFileSync('./src/certs/key.pem'),
+        cert: readFileSync('./src/certs/cert.pem'),
     },
 });
 
 connection.connect((err) => {
     if (err) {
         // console.log(`Connection error: ${err}`);
-        return console.log(err);
+        return console.log(err.message);
     }
     return 'Connection succesfully';
 });
