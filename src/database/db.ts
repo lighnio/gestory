@@ -8,8 +8,7 @@ export const connection = mysql.createConnection({
     database: process.env.DB_NAME,
     multipleStatements: true,
     ssl: {
-        rejectUnauthorized: false,
-        ca: readFileSync('./src/certs/ssl.pem'),
+        rejectUnauthorized: true,
     },
 });
 
