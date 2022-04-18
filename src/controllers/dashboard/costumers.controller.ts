@@ -5,26 +5,22 @@ import { getQueryForCostumersHelper } from '../../helpers/costumers/getQueryHelp
 
 // This is a route to manage the costumers
 export const manageCostumers = (req: Request, res: Response) => {
-    if (req.session.loggedIn) {
-        // @ts-ignore
-        const { rol } = req.session.data;
-        if (rol == 'admin') {
-            let query: string = getQueryForCostumersHelper();
+    // @ts-ignore
+    const { rol } = req.session.data;
+    if (rol == 'admin') {
+        let query: string = getQueryForCostumersHelper();
 
-            connection.query(query, [1, 2], async (err, results) => {
-                if (err) throw err;
+        connection.query(query, [1, 2], async (err, results) => {
+            if (err) throw err;
 
-                let { costumers, total } = formatData(results);
+            let { costumers, total } = formatData(results);
 
-                res.render('manageCostumers', {
-                    rol,
-                    costumers,
-                    total,
-                });
+            res.render('manageCostumers', {
+                rol,
+                costumers,
+                total,
             });
-        } else {
-            res.redirect('/');
-        }
+        });
     } else {
         res.redirect('/');
     }

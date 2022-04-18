@@ -5,29 +5,25 @@ import fs from 'fs';
 import { join } from 'path';
 // This returns all the products
 export const products = (req: Request, res: Response) => {
-    if (req.session.loggedIn) {
-        const fields: string =
-            'BIN_TO_UUID( idProduct ) AS idProduct, productName, serialNumber, productPrice, productCategory';
-        const query: string = `SELECT ${fields} from products`;
+    const fields: string =
+        'BIN_TO_UUID( idProduct ) AS idProduct, productName, serialNumber, productPrice, productCategory';
+    const query: string = `SELECT ${fields} from products`;
 
-        connection.query(query, async (err, results) => {
-            if (err) throw err;
+    connection.query(query, async (err, results) => {
+        if (err) throw err;
 
+        // @ts-ignore
+        const { rol } = req.session.data;
+
+        const data = {
+            rol,
+            products: results,
             // @ts-ignore
-            const { rol } = req.session.data;
+            total: results.length,
+        };
 
-            const data = {
-                rol,
-                products: results,
-                // @ts-ignore
-                total: results.length,
-            };
-
-            res.render('products', data);
-        });
-    } else {
-        res.redirect('/');
-    }
+        res.render('products', data);
+    });
 };
 
 // This controller gets a single product
@@ -35,7 +31,7 @@ export const products = (req: Request, res: Response) => {
 export const getProductById = (req: Request, res: Response) => {
     const { loggedIn, data } = req.session;
 
-    if (loggedIn && data) {
+    if (data) {
         console.log('Sí funciona');
         const { rol } = data;
         const { id } = req.params;
@@ -63,10 +59,7 @@ export const getProductById = (req: Request, res: Response) => {
 
 // This function returns the newProduct form
 export const createProduct = (req: Request, res: Response) => {
-    // @ts-ignore
-    const { loggedIn } = req.session;
-
-    if (loggedIn && req.session.data) {
+    if (req.session.data) {
         // @ts-ignore
         const { rol } = req.session.data;
 

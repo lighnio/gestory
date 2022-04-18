@@ -74,12 +74,8 @@ export const salesById = (req: Request, res: Response) => {
 
 // This function returns the ticket by sale id
 export const downloadTicket = (req: Request, res: Response) => {
-    if (req.session.loggedIn) {
-        const { saleId } = req.params;
-        res.send(saleId);
-    } else {
-        res.redirect('/');
-    }
+    const { saleId } = req.params;
+    res.send(saleId);
 };
 
 // This return the order by date

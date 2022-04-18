@@ -4,59 +4,55 @@ import { lengthCount } from '../../helpers/manageUsers';
 
 // This function returns all the users
 export const manageUsers = (req: Request, res: Response) => {
-    if (req.session.loggedIn) {
-        // @ts-ignore
-        const { rol } = req.session.data;
-        const pageName = 'users';
+    // @ts-ignore
+    const { rol } = req.session.data;
+    const pageName = 'users';
 
-        if (req.query.search) {
-            // const {search, page}: {search : string; page: number} = req.query;
-            const { search, page } = req.query;
-            const pagequery: string = page
-                ? `LIMIT ${(Number(page) - 1) * 10}, 10`
-                : 'LIMIT 0, 10';
-            const queryCount = `SELECT * FROM users WHERE Id LIKE '%${search}' OR name LIKE '%${search}%' OR mail LIKE '%${search}%' OR user LIKE '%${search}%'`;
-            const queryLimited = `${queryCount} ${pagequery}`;
-            const queryAll = `${queryCount}; ${queryLimited}`;
+    if (req.query.search) {
+        // const {search, page}: {search : string; page: number} = req.query;
+        const { search, page } = req.query;
+        const pagequery: string = page
+            ? `LIMIT ${(Number(page) - 1) * 10}, 10`
+            : 'LIMIT 0, 10';
+        const queryCount = `SELECT * FROM users WHERE Id LIKE '%${search}' OR name LIKE '%${search}%' OR mail LIKE '%${search}%' OR user LIKE '%${search}%'`;
+        const queryLimited = `${queryCount} ${pagequery}`;
+        const queryAll = `${queryCount}; ${queryLimited}`;
 
-            connection.query(queryAll, [1, 2], async (err, result) => {
-                if (err) throw err;
-                const results = JSON.parse(JSON.stringify(result));
-                res.render('manageUsers', {
-                    rol,
-                    users: results[1],
-                    total: results[0].length,
-                    pageName,
-                    search,
-                });
+        connection.query(queryAll, [1, 2], async (err, result) => {
+            if (err) throw err;
+            const results = JSON.parse(JSON.stringify(result));
+            res.render('manageUsers', {
+                rol,
+                users: results[1],
+                total: results[0].length,
+                pageName,
+                search,
             });
-        } else {
-            const { originalUrl } = req;
+        });
+    } else {
+        const { originalUrl } = req;
+
+        // @ts-ignore
+        let match = (originalUrl.match(/\d+$/) - 1) * 10;
+        let aux = /page/.test(originalUrl)
+            ? `LIMIT ${match}, 10`
+            : 'LIMIT 0, 10';
+        let query = `SELECT * FROM users ${aux}; SELECT count(*) FROM users;`;
+
+        connection.query(query, [2, 1], async (err, results) => {
+            if (err) throw err;
 
             // @ts-ignore
-            let match = (originalUrl.match(/\d+$/) - 1) * 10;
-            let aux = /page/.test(originalUrl)
-                ? `LIMIT ${match}, 10`
-                : 'LIMIT 0, 10';
-            let query = `SELECT * FROM users ${aux}; SELECT count(*) FROM users;`;
+            const total = lengthCount(results[1]);
 
-            connection.query(query, [2, 1], async (err, results) => {
-                if (err) throw err;
-
+            res.render('manageUsers', {
+                rol,
                 // @ts-ignore
-                const total = lengthCount(results[1]);
-
-                res.render('manageUsers', {
-                    rol,
-                    // @ts-ignore
-                    users: results[0],
-                    total,
-                    pageName,
-                });
+                users: results[0],
+                total,
+                pageName,
             });
-        }
-    } else {
-        res.redirect('/');
+        });
     }
 };
 
@@ -69,17 +65,13 @@ export const searchUser = (req: Request, res: Response) => {
 
 // This fuctions get a user by id
 export const getUser = (req: Request, res: Response) => {
-    if (req.session.loggedIn) {
-        const { userId } = req.params;
+    const { userId } = req.params;
 
-        connection.query(
-            `SELECT Id, user, name, rol, mail FROM users WHERE Id = ${userId};`,
-            (err, results) => {
-                if (err) throw err;
-                res.send(results);
-            }
-        );
-    } else {
-        res.redirect('/');
-    }
+    connection.query(
+        `SELECT Id, user, name, rol, mail FROM users WHERE Id = ${userId};`,
+        (err, results) => {
+            if (err) throw err;
+            res.send(results);
+        }
+    );
 };
