@@ -18,12 +18,12 @@ class Sales {
 
         connection.query(query, async (err, results) => {
             if (err)
-                return res.status(500).send({ err: true, msg: err.sqlMessage });
+                return res.status(500).send({ err: true, msg: err.message });
 
             let products: Array<object> = [];
             let total = 0;
             let profit = 0;
-
+            // @ts-ignore
             results.map((product: productType) => {
                 products = [
                     ...products,
@@ -74,7 +74,7 @@ class Sales {
                 if (err)
                     return res.status(500).send({
                         err: true,
-                        msg: err.sqlMessage,
+                        msg: err.message,
                     });
                 res.status(200).send({
                     err: false,

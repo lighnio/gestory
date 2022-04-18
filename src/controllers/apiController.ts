@@ -28,6 +28,7 @@ export const apiMainPage = (req: Request, res: Response) => {
 
         let formatedResults: Array<object> = [];
 
+        // @ts-ignore
         results.map((product: productType) => {
             formatedResults = [
                 ...formatedResults,
@@ -176,6 +177,7 @@ export const getProductsByGender = (req: Request, res: Response) => {
             res.json({ err, msg: err.code });
         } else {
             let formatedResults: Array<object> = [];
+            // @ts-ignore
             results.map((product: productType) => {
                 formatedResults = [
                     ...formatedResults,

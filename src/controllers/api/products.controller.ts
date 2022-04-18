@@ -21,7 +21,7 @@ class Products {
             }
 
             let formatedResults: Array<object> = [];
-
+            // @ts-ignore
             results.map((product: productType) => {
                 formatedResults = [
                     ...formatedResults,

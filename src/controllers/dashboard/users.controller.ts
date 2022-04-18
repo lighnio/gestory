@@ -7,28 +7,27 @@ export const manageUsers = (req: Request, res: Response) => {
     if (req.session.loggedIn) {
         // @ts-ignore
         const { rol } = req.session.data;
-        const pageName = "users"
+        const pageName = 'users';
 
         if (req.query.search) {
-
             // const {search, page}: {search : string; page: number} = req.query;
-            const {search, page} = req.query;
-            const pagequery: string = page ?
-            `LIMIT ${((Number(page) - 1) * 10)}, 10`  
-            : 'LIMIT 0, 10'
+            const { search, page } = req.query;
+            const pagequery: string = page
+                ? `LIMIT ${(Number(page) - 1) * 10}, 10`
+                : 'LIMIT 0, 10';
             const queryCount = `SELECT * FROM users WHERE Id LIKE '%${search}' OR name LIKE '%${search}%' OR mail LIKE '%${search}%' OR user LIKE '%${search}%'`;
-            const queryLimited = `${queryCount} ${pagequery}`
-            const queryAll = `${queryCount}; ${queryLimited}`
-            
-            connection.query(queryAll, [1, 2], async (err, results) => {
+            const queryLimited = `${queryCount} ${pagequery}`;
+            const queryAll = `${queryCount}; ${queryLimited}`;
+
+            connection.query(queryAll, [1, 2], async (err, result) => {
                 if (err) throw err;
-                
+                const results = JSON.parse(JSON.stringify(result));
                 res.render('manageUsers', {
                     rol,
                     users: results[1],
                     total: results[0].length,
                     pageName,
-                    search
+                    search,
                 });
             });
         } else {
@@ -44,13 +43,15 @@ export const manageUsers = (req: Request, res: Response) => {
             connection.query(query, [2, 1], async (err, results) => {
                 if (err) throw err;
 
+                // @ts-ignore
                 const total = lengthCount(results[1]);
 
                 res.render('manageUsers', {
                     rol,
+                    // @ts-ignore
                     users: results[0],
                     total,
-                    pageName
+                    pageName,
                 });
             });
         }

@@ -19,6 +19,7 @@ export const products = (req: Request, res: Response) => {
             const data = {
                 rol,
                 products: results,
+                // @ts-ignore
                 total: results.length,
             };
 

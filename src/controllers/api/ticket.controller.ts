@@ -12,9 +12,10 @@ class Tiket {
             if (err)
                 return res.json({
                     err: true,
-                    msg: err.sqlMessage,
+                    msg: err.message,
                 });
 
+            // @ts-ignore
             const { products, date, total } = saleForTicket(results[0]);
             res.json({
                 err: false,

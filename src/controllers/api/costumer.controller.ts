@@ -15,12 +15,15 @@ class Auth {
         connection.query(query, async (err, costumer) => {
             if (err) res.json('An error has ocurred');
             if (!err) {
+                //@ts-ignore
                 if (costumer.length > 0) {
                     const login = new Login();
+                    //@ts-ignore
                     const { costumerPassword } = costumer[0];
                     let comp = await login.compare(password, costumerPassword);
 
                     if (comp) {
+                        //@ts-ignore
                         const { costumerId, costumerUsername } = costumer[0];
                         const token = jwt.sign(
                             {
@@ -48,6 +51,7 @@ class Auth {
                             msg: 'Password did not match',
                         });
                 }
+                //@ts-ignore
                 if (costumer.length <= 0) {
                     res.json({
                         err: true,
@@ -78,7 +82,7 @@ class Auth {
             if (err) {
                 res.send({
                     err: true,
-                    msg: err.sqlMessage,
+                    msg: err.message,
                 });
             } else {
                 const mailOptions = {

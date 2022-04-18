@@ -5,6 +5,7 @@ class Ticket {
         const query = 'SELECT ticket FROM sales;';
         connection.query(query, (err, result) => {
             if (err) throw err;
+            // @ts-ignore
             const ticket = Buffer.from(result).toString('base64');
             const resHeader = {
                 'Content-Disposition': `attachment; filename=${Date.now()}.pdf; content: ${ticket}`,

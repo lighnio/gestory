@@ -22,12 +22,12 @@ export const registerView = (req: Request, res: Response) => {
 
 export const logOut = (req: Request, res: Response) => {
     let mail = '';
-    req.session.data ? mail = req.session.data.mail : ''
-    let query = `DELETE FROM sessions WHERE data->'$.data.mail' = '${mail}'`
+    req.session.data ? (mail = req.session.data.mail) : '';
+    let query = `DELETE FROM sessions WHERE data->'$.data.mail' = '${mail}'`;
 
     connection.query(query, (err, req) => {
-        if (err) console.log(err);    
-    })
+        if (err) console.log(err);
+    });
     req.session.destroy(() => res.redirect('/'));
 };
 
@@ -51,7 +51,7 @@ export const registerPost = async (req: Request, res: Response) => {
             name: name,
             pass: passHash,
             rol: rol,
-            mail: email
+            mail: email,
         },
         (err, resul) => {
             if (err) {
@@ -85,7 +85,8 @@ export const auth = async (req: Request, res: Response) => {
         connection.query(
             'SELECT * FROM users WHERE user = ?',
             [user],
-            async (err, results) => {
+            async (err, result) => {
+                const results = JSON.parse(JSON.stringify(result));
                 if (
                     results.length == 0 ||
                     !(await bcryptjs.compare(pass, results[0].pass))
@@ -107,7 +108,7 @@ export const auth = async (req: Request, res: Response) => {
                         name,
                         rol,
                         user,
-                        mail
+                        mail,
                     };
                     res.render('login', {
                         alert: true,

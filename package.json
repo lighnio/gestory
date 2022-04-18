@@ -31,6 +31,7 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
     "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
     "nodemailer": "^6.7.3",
     "pdfkit": "^0.13.0",
     "pdfkit-construct": "^1.2.3"

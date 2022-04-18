@@ -29,7 +29,7 @@ class Category {
                     res.send(response);
                 } else {
                     let formatedResults: Array<object> = [];
-
+                    //@ts-ignore
                     results.map((product: productType) => {
                         formatedResults = [
                             ...formatedResults,

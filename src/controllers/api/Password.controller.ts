@@ -14,7 +14,7 @@ class Password {
             if (err)
                 return res.status(500).send({
                     err: true,
-                    msg: err.sqlMessage,
+                    msg: err.message,
                     query,
                 });
 

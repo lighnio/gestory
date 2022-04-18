@@ -15,6 +15,7 @@ class Gender {
                 res.json({ err, msg: err.code });
             } else {
                 let formatedResults: Array<object> = [];
+                //@ts-ignore
                 results.map((product: productType) => {
                     formatedResults = [
                         ...formatedResults,
