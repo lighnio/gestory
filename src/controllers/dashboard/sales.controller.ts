@@ -31,7 +31,6 @@ export const indexView = async (req: Request, res: Response) => {
                 count: total,
                 avgSum: averageSum,
                 percent,
-                //@ts-ignore
             } = salesHelper(results);
 
             const pageName = 'sales';

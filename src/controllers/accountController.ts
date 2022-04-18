@@ -80,6 +80,7 @@ export const registerPost = async (req: Request, res: Response) => {
 };
 
 export const auth = async (req: Request, res: Response) => {
+    console.log('auth');
     const { user, pass } = req.body;
     if (user && pass) {
         connection.query(
