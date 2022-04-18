@@ -1,0 +1,46 @@
+<div class="title">
+    <form action="/products" method="POST">
+        <div class="price">
+            <span>By price</span>
+            <select name="price">
+                <option value="">Low to high</option>
+                <option value="">High to low</option>
+            </select>
+        </div>
+        <div class="date">
+            <span>By date</span>
+            <select name="price">
+                <option value="new">Newest</option>
+                <option value="old">Oldest</option>
+            </select>
+        </div>
+        <input type="submit" value="Filter">
+    </form>
+
+    <a href="/newProduct" class="newProduct">Add a new product</a>
+
+</div>
+
+<div class="list">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Serial</th>
+                <th>Price</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product => { %>
+                <tr>
+                    <td><a href="/product/<%= product.idProduct %>"><%= product.productName %></a></td>
+                    <td><%= product.serialNumber %></td>
+                    <td><%= product.productPrice %></td>
+                    <td><%= product.productCategory %></td>
+                </tr>
+            <% })%>
+        </tbody>
+
+    </table>
+</div>

@@ -4,7 +4,6 @@ src/images/
 /env/*
 .vscode
 build
-dist
 src/images
 src/images/*
 src/tickets/*

@@ -1,0 +1,23 @@
+<div class="list" id="tableManageUsers">
+    <table>
+        <thead>
+            <tr>
+                <th>user</th>
+                <th>name</th>
+                <th>mail</th>
+                <th>role</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <%users.map( ({ Id, user, name, mail, rol}) => {%>
+                <tr>
+                    <td><a href="/user/<%= Id %>"><%= user %></a></td>
+                    <td><%= name %></td>
+                    <td><a href="mailto: <%= mail ? mail : 'N/A' %>"><%= mail ? mail : 'N/A' %></a></td>
+                    <td><%= rol %></td>
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
+</div>

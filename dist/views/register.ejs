@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/main.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="shortcut icon" href="/resources/favicon.ico">
+
+</head>
+<body>
+    <div class="login-form">
+        <h2>Sign up</h2>
+        <form action="register" method="POST">
+            <input type="text" name="user" placeholder="Username" required>
+            <input type="text" name="name" required placeholder="Full name">
+            <input type="email" name="email" required placeholder="Email">
+            <select name="rol" class="select-css">
+                <option value="data entry">Data entry</option>
+                <option value="admin">Admin</option>
+            </select>
+            <input type="password" name="pass" placeholder="Password" required>
+            <input type="submit" value="Sign up" class="btn-login">
+        </form>
+        <a href="/login" class="btn-register">Login</a>
+    </div>
+
+    <%if (alert){%>
+        <script>
+            Swal.fire({
+                title: "<%= alertTitle %>",
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: '<%= showConfirmButton %>',
+                timer: '<%= time %>'
+            }).then(() => {
+                window.location='<%= ruta %>'
+            })
+        </script>
+    <%}%>
+</body>
+</html>

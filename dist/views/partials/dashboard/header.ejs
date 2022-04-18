@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/styles.css">
+    <link rel="shortcut icon" href="/resources/favicon.ico">
+</head>
+<body>
+
+    <nav class="navbar-dashboard">
+        <a href="/" class="title">Dashboard</a>
+
+        <div class="options">
+            <a href="/account"><i class="fas fa-user-circle"></i>Account </a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout </a>
+        </div>
+            
+    </nav>
+    <div class="row">
+        <aside>
+            <a href="/" id="/" class="navItem active"><i class="fas fa-shopping-cart"></i> Sales</a>
+            <a href="/products" id="/products" class="navItem "><i class="fas fa-shopping-basket"></i> Products</a>
+
+            <%if(rol == 'admin'){%>
+                <a href="/users" id="/users" class="navItem "><i class="fas fa-users"></i> Manage users</a>
+                <a href="/costumers" id="/costumers" class="navItem "><i class="fas fa-cash-register"></i> Costumers</a>
+            <% }%>
+        
+        </aside>        

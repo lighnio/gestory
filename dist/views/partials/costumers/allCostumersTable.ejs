@@ -1,0 +1,38 @@
+<div class="list costumerTable">
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Mail</th>
+                <th>ZipCode</th>
+                <th>Country</th>
+                <th>Adress</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% costumers.map(costumer=> { %>
+                <tr>
+                    <td>
+                        <a href="/costumer/<%= costumer.costumerId %>">
+                            <%= costumer.costumerName %>
+                        </a>
+                    </td>
+                    <td>
+                        <%= costumer.costumerMail %>
+                    </td>
+                    <td>
+                        <%= costumer.costumerZipCode %>
+                    </td>
+                    <td>
+                        <%= costumer.costumerCountry %>
+                    </td>
+                    <td>
+                        <%= costumer.costumerAdress %>
+                    </td>
+                </tr>
+                <%})%>
+        </tbody>
+
+    </table>
+
+</div>

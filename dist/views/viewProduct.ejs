@@ -1,0 +1,52 @@
+<%- include('./partials/dashboard/header'); %>
+
+    <div class="productInformation">
+
+        <div class="img">
+            <img src="data:media_type;base64, <%= data.productImage %>" alt="">
+        </div>
+
+        <div class="stats">
+            <div class="product_name">
+                <label for="prouctName">Product name: </label>
+                <div>
+                    <%= data.productName %>
+                </div>
+            </div>
+            <div class="product_description">
+                <label for="product description">Product Description</label>
+                <div class="description">
+                    <%=data.productDescription%>
+                </div>
+            </div>
+            <div class="product_serial">
+                <label for="product serial number">Serial Number:</label>
+                <div class="serial">
+                    <%= data.serialNumber %>
+                </div>
+            </div>
+            <div class="product_price">
+                <label for="price">Price:</label>
+                <div>$. <%= data.productPrice.toFixed(2) %></div>
+            </div>
+            <div class="product_purchase">
+                <label for="price">Purchase price:</label>
+                <div>$. <%= data.purchasePrice.toFixed(2) %>
+                </div>
+            </div>
+            <div class="product_category">
+                <label for="category">Category: </label>
+                <div><a href="/products?category=<%= data.productCategory %>">
+                    <%= data.productCategory %>
+                </a></div>
+            </div>
+            <div class="actions">
+                <a href="/product/edit/<%= data.idProduct %>">Edit</a>
+                <a href="/product/delete/<%= data.idProduct %>" class="delete">Delete</a>
+            </div>
+        </div>
+
+    </div>
+
+
+<%- include('./partials/dashboard/footer'); %>

@@ -1,0 +1,11 @@
+<div class="pagination">
+    <%for(let i = 0; i < total; i+=10){%>
+        <% if (typeof auxdate != 'undefined') {%>
+            <a href="/?date=<%= auxdate %>&page=<%= (i/10)+1 %>"><%= (i/10)+1 %></a>
+        <% } else if(typeof search != 'undefined'){ %>
+            <a href="/users/?search=<%= search %>&page=<%= (i/10)+1 %>"><%= (i/10)+1 %></a>
+        <% } else { %>
+            <a href="<%= pageName %>?page=<%= (i/10)+1 %>"><%= (i/10)+1 %></a>
+        <% } %>
+    <%}%>
+</div>

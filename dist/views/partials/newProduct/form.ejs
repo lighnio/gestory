@@ -1,0 +1,58 @@
+
+<span class="title">Add new product</span>
+
+<form action="/newProduct" method="POST" enctype="multipart/form-data">
+    
+    <div class="form_section">
+        <span>Product name</span>
+        <input type="text" name="name" id="" placeholder="Product name" required />
+    </div>
+    <div class="form_section">
+        <span>Description</span>
+        <textarea name="description" id="" cols="30" rows="5" placeholder="Product description" required></textarea>
+    </div>
+    <div class="form_section">
+        <span>Category</span>
+        <select name="gender" id="" required>
+            <option value="unisex">
+                Unisex
+            </option>
+            <option value="female">
+                Female
+            </option>
+            <option value="male">
+                Male
+            </option>
+            <option value="kid">
+                Kid
+            </option>
+            
+            
+        </select>
+    </div>
+    <div class="form_section">
+        <span>Price: </span>
+        <input type="number" name="price" placeholder="Product price" required/>
+    </div>
+    <div class="form_section">
+        <span>Purchase</span>
+        <input type="text" name="purchase" placeholder="Purchace price" required />
+    </div>
+    <div class="form_section">
+        <span>Category</span>
+        <select name="category" id="" required>
+            <% categories.map( element => { %>
+
+                <option value="<%= element.category %>"><%= element.category %></option>
+
+            <%})%>
+        </select>
+    </div>
+    <div class="form_section">
+        <span>Product image</span>
+        <input type="file" name="img" accept="image/png, image/jpeg" required />
+    </div>
+    <div class="form_input">
+        <input type="submit" value="Add product" />
+    </div>
+</form>
