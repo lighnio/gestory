@@ -24,10 +24,12 @@ declare var process: {
 };
 var options = {
     host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+    ssl: {
+        rejectUnauthorized: false,
+    },
 };
 
 const MySQLStore = expressMySqlSession(expressSession);
@@ -62,7 +64,7 @@ app.use(
         secret: 'secret',
         resave: true,
         saveUninitialized: true,
-        // store: sessionStore,
+        store: sessionStore,
     })
 );
 app.use(morgan('tiny'));
