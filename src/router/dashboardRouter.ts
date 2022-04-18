@@ -20,28 +20,29 @@ import {
 import { manageCostumers } from '../controllers/dashboard/costumers.controller';
 import { fileUpload } from '../multer/multerConfig';
 import { ticket } from '../controllers/dashboard/ticket';
+import { isAuthenticated } from '../middlewares/isAuthenticated';
 
 const dashboardRouter = Router();
 
 dashboardRouter
     //sales
-    .get('/', indexView)
-    .get('/sales', indexView)
-    .get('/sales/:date/:page', indexView)
-    .get('/sale/:saleId', salesById)
-    .get('/ticket/:id', ticket.index)
+    .get('/', isAuthenticated, indexView)
+    .get('/sales', isAuthenticated, indexView)
+    .get('/sales/:date/:page', isAuthenticated, indexView)
+    .get('/sale/:saleId', isAuthenticated, salesById)
+    .get('/ticket/:id', isAuthenticated, ticket.index)
     // Products
-    .post('/', dateSales)
-    .get('/products', products)
-    .get('/newProduct', createProduct)
-    .post('/newProduct', fileUpload, saveProduct)
-    .get('/product/:id', getProductById)
-    .get('/product/delete/:id', deleteProductById)
+    .post('/', isAuthenticated, dateSales)
+    .get('/products', isAuthenticated, products)
+    .get('/newProduct', isAuthenticated, createProduct)
+    .post('/newProduct', isAuthenticated, fileUpload, saveProduct)
+    .get('/product/:id', isAuthenticated, getProductById)
+    .get('/product/delete/:id', isAuthenticated, deleteProductById)
     // Users
-    .get('/users', manageUsers)
-    .post('/users', searchUser)
-    .get('/users/:userId', getUser)
+    .get('/users', isAuthenticated, manageUsers)
+    .post('/users', isAuthenticated, searchUser)
+    .get('/users/:userId', isAuthenticated, getUser)
     // Costumers
-    .get('/costumers', manageCostumers);
+    .get('/costumers', isAuthenticated, manageCostumers);
 
 module.exports = dashboardRouter;

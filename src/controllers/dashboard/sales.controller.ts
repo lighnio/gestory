@@ -11,54 +11,50 @@ import { Request, Response } from 'express';
 
 // THis is the main view and it returns all the sales
 export const indexView = async (req: Request, res: Response) => {
-    if (req.session.loggedIn) {
-        // @ts-ignore
-        const { name, rol, user } = req.session.data;
-        const { date, page } = req.query;
+    // @ts-ignore
+    const { name, rol, user } = req.session.data;
+    const { date, page } = req.query;
 
-        const currencyPrefix = 'Q';
+    const currencyPrefix = 'Q';
 
-        // let match = (originalUrl.match(/\d+$/) - 1) * 10;
-        // let match = (originalUrl.match(/\d+$/));
-        const query = getQuery(date, page);
+    // let match = (originalUrl.match(/\d+$/) - 1) * 10;
+    // let match = (originalUrl.match(/\d+$/));
+    const query = getQuery(date, page);
 
-        connection.query(query, [1, 2, 3, 4, 5, 6, 7], async (err, results) => {
-            if (err) throw err;
+    connection.query(query, [1, 2, 3, 4, 5, 6, 7], async (err, results) => {
+        if (err) throw err;
 
-            const {
-                sales,
-                profits: profitObj,
-                count: total,
-                avgSum: averageSum,
-                percent,
-            } = salesHelper(results);
+        const {
+            sales,
+            profits: profitObj,
+            count: total,
+            avgSum: averageSum,
+            percent,
+        } = salesHelper(results);
 
-            const pageName = 'sales';
+        const pageName = 'sales';
 
-            const { profits } = profitObj;
-            const { avgSum } = averageSum;
+        const { profits } = profitObj;
+        const { avgSum } = averageSum;
 
-            const auxdate = getDateHelper(date);
+        const auxdate = getDateHelper(date);
 
-            const responseData = {
-                name,
-                rol,
-                user,
-                total,
-                sales,
-                profits,
-                avgSum,
-                auxdate,
-                currencyPrefix,
-                pageName,
-                percent,
-            };
+        const responseData = {
+            name,
+            rol,
+            user,
+            total,
+            sales,
+            profits,
+            avgSum,
+            auxdate,
+            currencyPrefix,
+            pageName,
+            percent,
+        };
 
-            res.render('index', responseData);
-        });
-    } else {
-        res.redirect('/login');
-    }
+        res.render('index', responseData);
+    });
 };
 
 // This return the sale by id
