@@ -8,7 +8,8 @@ import cors from 'cors';
 import expressMySqlSession from 'express-mysql-session';
 // Settings
 export const app = express();
-app.set('port', process.env.DB_PORT || 3000);
+
+app.set('port', process.env.PORT || 3000);
 dotenv.config({
     path: path.join(`${__dirname}/env/.env`),
 });
@@ -20,6 +21,7 @@ declare var process: {
         DB_USER: string;
         DB_PASSWORD: string;
         DB_NAME: string;
+        PORT: number;
     };
 };
 var options = {
