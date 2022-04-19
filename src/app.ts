@@ -61,12 +61,14 @@ app.use(express.json());
 app.use('/resources', express.static('public'));
 app.use('/resources', express.static(path.join(__dirname, 'public')));
 app.use(cors());
+app.set('trust proxy', 1);
 app.use(
     session({
         secret: 'secret',
-        resave: true,
+        resave: false,
         saveUninitialized: true,
         store: sessionStore,
+        cookie: { secure: true },
     })
 );
 app.use(morgan('tiny'));
