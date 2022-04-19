@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3000/api
+@baseUrl = https://dress-u.herokuapp.com/api
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFmNDQ0MGEwLWJmN2QtMTFlYy05MjM1LWIyYzAyNDNmYjVmNyIsImlhdCI6MTY1MDMzMDQ3NiwiZXhwIjoxNjUwNDE2ODc2fQ.7BBNeDAkoNK2-iYidNyopgZrauHz34AxiKf30uEGgCw
 
 
