@@ -1,0 +1,78 @@
+@baseUrl = http://localhost:3000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRiYmFkMTZiLWIxMzItMTFlYy04NzM3LTk4ZTc0MzE2ODMwNyIsImlhdCI6MTY0OTk2ODE5MiwiZXhwIjoxNjUwMDU0NTkyfQ.t6RD2pKr7x4w3LEHC3Ie6fYagIk2HNYbhaedboDN8KI
+
+
+### Get products
+GET {{baseUrl}}/
+
+### Get product by id
+GET {{baseUrl}}/product/dc3025a2-ac7b-11ec-b658-98e743168307
+
+### Get products by category
+GET {{baseUrl}}/category/T-shirt
+
+
+### Sign in
+POST {{baseUrl}}/signin
+Content-Type: application/json
+
+{
+    "mail": "bryantello2010@hotmail.com",
+    "password": "a"
+}
+
+
+### Sign Up
+POST {{baseUrl}}/signUp
+Content-Type:  application/json
+
+{
+    "name" : "Bryan",
+    "user" : "ripterdust",
+    "zip" : 10100,
+    "adress": "52 av 'A' residencial naciones unidas 2",
+    "country" : "Guatemala",
+    "email" : "bryantello2010@hotmail.com",
+    "password" : "a"
+
+}
+
+### buy 
+POST {{baseUrl}}/buy
+Content-Type: application/json
+x-access-token: {{ token }}
+
+{
+    "products": [
+        {
+            "id" : "62b7838b-ac6a-11ec-b658-98e743168307",
+            "quantity" : 5
+        },
+        {
+            "id" : "541476eb-ac6b-11ec-b658-98e743168307",
+            "quantity" : 10
+        },
+        {
+            "id" : "31667a13-ac7b-11ec-b658-98e743168307",
+            "quantity" : 12
+        }
+    ],
+    "name" : "BryanChiribaj"
+}
+
+
+# If has token
+### get ticket
+GET {{baseUrl}}/tiket/d488cae9-b52f-11ec-820f-98e743168307
+x-access-token: {{ token }}
+
+
+# password
+
+### Send forgot password mail
+POST {{baseUrl}}/forgot
+Content-Type: application/json
+
+{
+    "mail": "bryantello2010@hotmail.com"
+}
