@@ -1,10 +1,6 @@
 node_modules
 src/env/*
-src/images/
 /env/*
 .vscode
 build
-src/images
-src/images/*
-src/tickets/*
 dist
